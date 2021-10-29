@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "hotelcasamadero-c0f7e": {
+      "hosting": {
+        "app": [
+          "hotelcasamadero-c0f7e"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "hotelcasamadero-c0f7e"
+  }
+}
