@@ -1,3 +1,45 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  <ion-menu menuId="main-menu" contentId="main">
+    <ion-content>
+      <div class="menu-header-bg"></div>
+      <!-- <div class="header-content">
+        <ion-icon name="person-circle-sharp"></ion-icon>        
+        <ion-label>
+          <h2>Juan</h2>
+          <p>Ingeniero</p>
+        </ion-label>
+      </div> -->
+      <ion-list class="menu-items" lines="none">
+        <ion-menu-toggle>
+          <ion-item>
+            <ion-icon name="calendar-sharp"></ion-icon> Reservas
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item>
+            <ion-icon name="bed-sharp"></ion-icon>Habitaciones/Precio
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item>
+            <ion-icon name="newspaper-sharp"></ion-icon> Notas
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item>
+            <ion-icon name="person-sharp"></ion-icon> Usuarios
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-button  (click)="onLogout()" expand="full"><ion-icon name="exit-sharp"></ion-icon>Cerrar Sesión</ion-button>
+          <!-- <ion-item>
+            <ion-button (click)="onLogout()"><ion-icon name="exit-sharp"></ion-icon> Cerrar Sesión</ion-button>          
+          </ion-item> -->
+        </ion-menu-toggle>
+      </ion-list>
+      
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>
