@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      LOGO TIPO CASA MADERO
     </ion-title>
     <ion-buttons slot="end">
       <ion-button [routerLink]="['/login']">Iniciar Sesión</ion-button>
@@ -10,14 +10,214 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-card class="PYM">
+    <ion-row>
+      <ion-col size-md="2" class="center-span">
+        HABITACIONES
+      </ion-col>
+      <ion-col size-md="2" class="center-span">
+        SERVICIOS
+      </ion-col>
+      <ion-col size-md="3"  class="center-span">
+        EVENTOS
+      </ion-col>
+      <ion-col size-md="3" class="center-span">
+       RESERVACIONES
+      </ion-col>
+      <ion-col size-md="2"  class="center-span">
+       CONTACTO
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+
+<!-- <ion-card class=""> -->
+  <ion-card class="ion-align-self-center RA">
+    <ion-label class="center-span">RESERVA AHORA</ion-label> 
+    <ion-card class="PYM">
+      <ion-row>
+        <ion-col size-md="3" class="center-span">
+          <ion-label class="texto" >FECHA DE LLEGADA</ion-label>
+          <ion-item class="texto" >
+            <ion-icon name="md-calendar" color="primary" item-left></ion-icon>
+            <ion-datetime class="texto" displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" [(ngModel)]="search.date"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col size-md="3" class="center-span">
+          <ion-label class="texto">FECHA DE SALIDA</ion-label>
+          <ion-item>
+            <ion-icon name="md-calendar" color="primary" item-left></ion-icon>
+            <ion-datetime class="no-pl center-span" displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" [(ngModel)]="search.date"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col size-md="2"  class="center-span">
+          <ion-label class="texto">ADULTOS</ion-label>
+          <!-- ESTA MAL ESTE COMPONENTE SE NECESITA REMPLAZAR POR UN DESPLEGABLE DE NUMEROS -->
+          <ion-item>
+            <ion-icon name="md-calendar" color="primary" item-left></ion-icon>
+            <ion-datetime class="no-pl center-span" displayFormat="DD" pickerFormat="DD" [(ngModel)]="search.date"></ion-datetime>
+          </ion-item>
+
+        </ion-col>
+        <ion-col size-md="2" class="center-span">
+          <ion-label class="texto">NIÑOS</ion-label>
+          <!-- ESTA MAL ESTE COMPONENTE SE NECESITA REMPLAZAR POR UN DESPLEGABLE DE NUMEROS -->
+          <ion-item>
+            <ion-icon name="md-calendar" color="primary" item-left></ion-icon>
+            <ion-datetime class="no-pl center-span" displayFormat="DD" pickerFormat="DD" [(ngModel)]="search.date"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col size-md="2"  class="center-span">
+          <button ion-button  color="primary" class="round" tappable (click)="doSearch()">
+            <ion-icon name="search"></ion-icon>
+            <ion-label class="texto">BUSCAR</ion-label>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+ </ion-card>
+
+ <br>
+ <br>
+ <br>
+ <hr/>
+<ion-card class="INF">
+  <br>
+  <ion-label class="center-span">HABITACIONES</ion-label> 
+  <br>
+  <ion-row>
+    <ion-col class="ion-align-self-start" >
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          <ion-card-title>Card Title</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          Keep close to Nature's heart... and break clear away, once in awhile,
+          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col class="ion-align-self-center" >
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          <ion-card-title>Card Title</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          Keep close to Nature's heart... and break clear away, once in awhile,
+          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col class="ion-align-self-end" >
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          <ion-card-title>Card Title</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          Keep close to Nature's heart... and break clear away, once in awhile,
+          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-card>
+<br>
+ <br>
+ <br>
+ <hr/>
+<ion-card> 
+  <br>
+  <ion-label class="center-span">SERVICIOS</ion-label> 
+  <br>
+  <ion-row>
+    <ion-col class="ion-align-self-start" >
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          <ion-card-title>Card Title</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          Keep close to Nature's heart... and break clear away, once in awhile,
+          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col class="ion-align-self-center" >
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          <ion-card-title>Card Title</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          Keep close to Nature's heart... and break clear away, once in awhile,
+          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col class="ion-align-self-end" >
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          <ion-card-title>Card Title</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          Keep close to Nature's heart... and break clear away, once in awhile,
+          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="" >
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          <ion-card-title>Card Title</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          Keep close to Nature's heart... and break clear away, once in awhile,
+          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col class="" >
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          <ion-card-title>Card Title</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          Keep close to Nature's heart... and break clear away, once in awhile,
+          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col class="" >
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          <ion-card-title>Card Title</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          Keep close to Nature's heart... and break clear away, once in awhile,
+          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-card>
+
 </ion-content>

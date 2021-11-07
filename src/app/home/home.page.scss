@@ -4,8 +4,8 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  // top: 50%;
+  // transform: translateY(-50%);
 }
 
 #container strong {
@@ -24,4 +24,45 @@
 
 #container a {
   text-decoration: none;
+}
+
+.PYM{
+margin:  12px;
+padding: 12px;
+}
+.RA{
+  
+  padding: 22px;
+margin-left: 5%;
+margin-right: 5%;
+// margin-left: 15%;
+  }
+
+.center-span{
+  display: block;
+  text-align: center;
+}
+.texto{
+  display: block;
+  text-align: center;
+  font-size: 14px;
+}
+@media (max-width:700px) and (min-width:500px) {
+  .texto{
+     font-size: 8px;
+     display: block;
+     text-align: center;
+
+  }
+
+.INF{
+margin-left: 1%;
+
+  }
+
+.FH{
+
+margin:  12px;
+padding: 12px;
+  }
 }
