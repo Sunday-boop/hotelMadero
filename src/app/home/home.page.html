@@ -1,84 +1,55 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header >
+  <ion-toolbar color="toolbar">
     <ion-title>
-      LOGO TIPO CASA MADERO
+      <ion-img src="assets/img/LogoBlancoCM.png" class="image-size centrar"></ion-img>
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button [routerLink]="['/login']">Iniciar Sesión</ion-button>
+      <ion-button class="boton" [routerLink]="['/login']">Iniciar Sesión</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-
-  <ion-card class="PYM">
-    <ion-row>
-      <ion-col size-md="2" class="center-span">
-        HABITACIONES
-      </ion-col>
-      <ion-col size-md="2" class="center-span">
-        SERVICIOS
-      </ion-col>
-      <ion-col size-md="3"  class="center-span">
-        EVENTOS
-      </ion-col>
-      <ion-col size-md="3" class="center-span">
-       RESERVACIONES
-      </ion-col>
-      <ion-col size-md="2"  class="center-span">
-       CONTACTO
-      </ion-col>
-    </ion-row>
-  </ion-card>
-
+<ion-content >
 
 <!-- <ion-card class=""> -->
-  <ion-card class="ion-align-self-center RA">
-    <ion-label class="center-span">RESERVA AHORA</ion-label> 
-    <ion-card class="PYM">
-      <ion-row>
-        <ion-col size-md="3" class="center-span">
-          <ion-label class="texto" >FECHA DE LLEGADA</ion-label>
-          <ion-item class="texto" >
-            <ion-icon name="md-calendar" color="primary" item-left></ion-icon>
-            <ion-datetime class="texto" displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" [(ngModel)]="search.date"></ion-datetime>
-          </ion-item>
-        </ion-col>
-        <ion-col size-md="3" class="center-span">
-          <ion-label class="texto">FECHA DE SALIDA</ion-label>
+  <div class="image-background">
+    <ion-card class="ion-align-self-center RA ion-card">
+      <ion-label class="center-span">RESERVA AHORA</ion-label>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size-md="3" class="ion-text-center">
+          <ion-label>FECHA DE LLEGADA</ion-label>
           <ion-item>
-            <ion-icon name="md-calendar" color="primary" item-left></ion-icon>
-            <ion-datetime class="no-pl center-span" displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" [(ngModel)]="search.date"></ion-datetime>
+            <ion-icon name="calendar-sharp" color="medium"></ion-icon>
+            <ion-datetime class="centrar" displayFormat="DD MM YY" placeholder="Selecciona una fecha"></ion-datetime>
           </ion-item>
         </ion-col>
-        <ion-col size-md="2"  class="center-span">
-          <ion-label class="texto">ADULTOS</ion-label>
-          <!-- ESTA MAL ESTE COMPONENTE SE NECESITA REMPLAZAR POR UN DESPLEGABLE DE NUMEROS -->
+        <ion-col size-md="3" class="ion-text-center">
+          <ion-label>FECHA DE SALIDA</ion-label>
           <ion-item>
-            <ion-icon name="md-calendar" color="primary" item-left></ion-icon>
-            <ion-datetime class="no-pl center-span" displayFormat="DD" pickerFormat="DD" [(ngModel)]="search.date"></ion-datetime>
+            <ion-icon name="calendar-sharp" color="medium"></ion-icon>
+            <ion-datetime class="centrar" displayFormat="DD MM YY" placeholder="Selecciona una fecha"></ion-datetime>
           </ion-item>
-
         </ion-col>
-        <ion-col size-md="2" class="center-span">
-          <ion-label class="texto">NIÑOS</ion-label>
-          <!-- ESTA MAL ESTE COMPONENTE SE NECESITA REMPLAZAR POR UN DESPLEGABLE DE NUMEROS -->
+        <ion-col size-md="2" class="ion-text-center">
+          <ion-label>ADULTOS</ion-label>
           <ion-item>
-            <ion-icon name="md-calendar" color="primary" item-left></ion-icon>
-            <ion-datetime class="no-pl center-span" displayFormat="DD" pickerFormat="DD" [(ngModel)]="search.date"></ion-datetime>
+            <ion-icon name="body-sharp" color="medium" item-left></ion-icon>
+            <ion-input class="texto" type="number" placeholder="Número de adultos"></ion-input>
           </ion-item>
         </ion-col>
-        <ion-col size-md="2"  class="center-span">
-          <button ion-button  color="primary" class="round" tappable (click)="doSearch()">
-            <ion-icon name="search"></ion-icon>
-            <ion-label class="texto">BUSCAR</ion-label>
-          </button>
+        <ion-col size-md="2" class="ion-text-center">
+          <ion-label>NIÑOS</ion-label>
+          <ion-item>
+            <ion-icon name="body-sharp" color="medium" item-left></ion-icon>
+            <ion-input class="texto" type="number" placeholder="Número de niños"></ion-input>
+          </ion-item>
         </ion-col>
       </ion-row>
     </ion-card>
- </ion-card>
+  </div>
+  
 
- <br>
+  <br>
  <br>
  <br>
  <hr/>

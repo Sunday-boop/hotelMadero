@@ -12,6 +12,13 @@
 
 }
 
+.image-size{
+    width: 200px;
+    height: 120px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 .centrarLogin{
  margin: 0 auto;
   width: 40%;
@@ -29,3 +36,7 @@
     }
 
 }
+
+ion-toolbar{
+    background-color: var(--ion-color-toolbar);
+  }
