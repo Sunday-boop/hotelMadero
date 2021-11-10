@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -8,13 +8,20 @@ import { UsersPageRoutingModule } from './users-routing.module';
 
 import { UsersPage } from './users.page';
 
+import { HttpClientModule } from '@angular/common/http';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+
+
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    UsersPageRoutingModule
+    UsersPageRoutingModule,
+    HttpClientModule,
+    NgxDatatableModule
   ],
-  declarations: [UsersPage]
+  declarations: [UsersPage], schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class UsersPageModule {}
