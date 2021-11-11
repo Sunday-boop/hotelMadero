@@ -1,0 +1,24 @@
+{
+    "notas": [
+        {
+            "id": 1,
+            "fecha": "2021-11-11",
+            "cliente": "Roberto Herrera Ortiz",
+            "habitacion": 12
+            
+        },
+        {
+            "id": 2,
+            "fecha": "2021-11-11",
+            "cliente": "Roberto Herrera Ortiz",
+            "habitacion": 1
+        },
+        {
+            "id": 3,
+            "fecha": "2021-11-11",
+            "cliente": "Roberto Herrera Ortiz",
+            "habitacion": 8
+        }
+        
+    ]
+}

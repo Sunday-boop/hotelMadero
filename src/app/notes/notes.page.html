@@ -22,16 +22,16 @@
       [headerHeight]="50" 
       [footerHeight]="50">
     
-      <ngx-datatable-column name="Name" ></ngx-datatable-column>
-      <ngx-datatable-column name="Company" ></ngx-datatable-column>
-      <ngx-datatable-column name="Name" ></ngx-datatable-column>
+      <ngx-datatable-column name="ID" ></ngx-datatable-column>
+      <ngx-datatable-column name="FECHA" ></ngx-datatable-column>
+      <ngx-datatable-column name="CLIENTE" ></ngx-datatable-column>
+      <ngx-datatable-column name="HABITACION" ></ngx-datatable-column>
       <ngx-datatable-column name="Notas" prop="Id">
         <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value"
                                          let-row="row">
-                                         <button type="button" class="btn btn-outline-success"
-                                             (click)='edit(value)'>Success {{rowIndex}}</button>
-                                         <button type="button" class="btn btn-outline-danger"
-                                             (click)='delete(value)'>Danger</button>
+                                         <ion-item>
+                                          <ion-textarea placeholder="Enter more information here..."></ion-textarea>
+                                        </ion-item>
      
      
                    </ng-template>

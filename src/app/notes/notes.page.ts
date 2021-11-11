@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ViewEncapsulation } from '@angular/core';
 
 export interface Data {
-  movies: string;
+  notas: string;
 }
 
 
@@ -20,16 +20,17 @@ export class NotesPage implements OnInit {
 
   constructor(private http: HttpClient) {
     this.columns = [
-      { name: 'Name' },
-      { name: 'Company' },
-      { name: 'Genre' },
+      { name: 'ID' },
+      { name: 'FECHA' },
+      { name: 'CLIENTE' },
+      { name: 'HABITACION' },
       { name: 'Notas', prop: 'Id'}
     ];
 
-    this.http.get<Data>('../../assets/movies.json')
+    this.http.get<Data>('../../assets/notas.json')
       .subscribe((res) => {
         console.log(res)
-        this.rows = res.movies;
+        this.rows = res.notas;
       });
   }
 
