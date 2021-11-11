@@ -48,9 +48,21 @@ margin-right: 5%;
   margin-right: auto;
 }
 
+.iconos{
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  height: 100px;
+}
+
 .image-size{
   width: 200px;
   height: 120px;
+}
+
+.card-image-size{
+  width: 100%;
+  //height: 300px;
 }
 
 .texto{
@@ -79,11 +91,27 @@ ion-toolbar{
 .image-background{
   display: flex;
   align-items: center;
-  width: 100%;
   height: 400px;
   background: #FFD185;
-  // padding: auto;
   background: url('../../assets/img/div-back.jpg') no-repeat center center / cover;
+}
+
+.div{
+  display: flex;
+  align-items: center;
+}
+
+.INF{
+  padding-top: 25px;
+  width: 90%;
+  margin-top: 30px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+ion-content{
+  --background: linear-gradient(#ffe5b7 0%, #ffa200 100%);
+  // --background-color: black;
 }
 
 @media (max-width:1000px) and (min-width:500px) {
@@ -98,11 +126,6 @@ ion-toolbar{
     background-color: rgba(var(--ion-color-toolbar-rgb), 0.79);
     color: white;
     font-size: 12px;
-  }
-
-.INF{
-margin-left: 1%;
-
   }
 
 .FH{
