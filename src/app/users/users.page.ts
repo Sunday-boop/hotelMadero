@@ -21,7 +21,8 @@ export class UsersPage implements OnInit {
     this.columns = [
       { name: 'Name' },
       { name: 'Company' },
-      { name: 'Genre' }
+      { name: 'Genre' },
+      { name: 'Notas', prop: 'Id'}
     ];
 
     this.http.get<Data>('../../assets/movies.json')
