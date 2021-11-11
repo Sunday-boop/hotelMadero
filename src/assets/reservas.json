@@ -6,7 +6,7 @@
             "cliente": "Roberto Herrera Ortiz",
             "habitaciones": 5,
             "empleado": "Juan Domingo Solis Zavala",
-            "tota": "1200"
+            "total": "1200"
             
         },
         {
@@ -15,7 +15,7 @@
             "cliente": "Roberto Herrera Ortiz",
             "habitaciones": 5,
             "empleado": "Juan Domingo Solis Zavala",
-            "tota": "1200"
+            "total": "1200"
         },
         {
             "id": 3,
@@ -23,7 +23,7 @@
             "cliente": "Roberto Herrera Ortiz",
             "habitaciones": 5,
             "empleado": "Juan Domingo Solis Zavala",
-            "tota": "1200"
+            "total": "1200"
         },
         {
             "id": 4,
@@ -31,7 +31,7 @@
             "cliente": "Roberto Herrera Ortiz",
             "habitaciones": 5,
             "empleado": "Juan Domingo Solis Zavala",
-            "tota": "1200"
+            "total": "1200"
         },
         {
             "id": 5,
@@ -39,7 +39,7 @@
             "cliente": "Roberto Herrera Ortiz",
             "habitaciones": 5,
             "empleado": "Juan Domingo Solis Zavala",
-            "tota": "1200"
+            "total": "1200"
         },
         {
             "id": 6,
@@ -47,7 +47,7 @@
             "cliente": "Roberto Herrera Ortiz",
             "habitaciones": 5,
             "empleado": "Juan Domingo Solis Zavala",
-            "tota": "1200"
+            "total": "1200"
         },
         {
             "id": 7,
@@ -55,7 +55,7 @@
             "cliente": "Roberto Herrera Ortiz",
             "habitaciones": 5,
             "empleado": "Juan Domingo Solis Zavala",
-            "tota": "1200"
+            "total": "1200"
         },
         {
             "id": 8,
@@ -63,7 +63,7 @@
             "cliente": "Roberto Herrera Ortiz",
             "habitaciones": 5,
             "empleado": "Juan Domingo Solis Zavala",
-            "tota": "1200"
+            "total": "1200"
         },
         {
             "id": 9,
@@ -71,7 +71,7 @@
             "cliente": "Roberto Herrera Ortiz",
             "habitaciones": 5,
             "empleado": "Juan Domingo Solis Zavala",
-            "tota": "1200"
+            "total": "1200"
         },
         {
             "id": 10,
@@ -79,7 +79,7 @@
             "cliente": "Roberto Herrera Ortiz",
             "habitaciones": 5,
             "empleado": "Juan Domingo Solis Zavala",
-            "tota": "1200"
+            "total": "1200"
         },
         {
             "id": 11,
@@ -87,7 +87,7 @@
             "cliente": "Roberto Herrera Ortiz",
             "habitaciones": 5,
             "empleado": "Juan Domingo Solis Zavala",
-            "tota": "1200"
+            "total": "1200"
         },
         {
             "id": 12,
@@ -95,7 +95,7 @@
             "cliente": "Roberto Herrera Ortiz",
             "habitaciones": 5,
             "empleado": "Juan Domingo Solis Zavala",
-            "tota": "1200"
+            "total": "1200"
         }
     ]
 }
