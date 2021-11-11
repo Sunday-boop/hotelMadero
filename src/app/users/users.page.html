@@ -23,10 +23,11 @@
       [headerHeight]="50" 
       [footerHeight]="50">
     
-      <ngx-datatable-column name="Name" ></ngx-datatable-column>
-      <ngx-datatable-column name="Company" ></ngx-datatable-column>
-      <ngx-datatable-column name="Name" ></ngx-datatable-column>
-      <ngx-datatable-column name="Notas" prop="Id">
+      <ngx-datatable-column name="ID" ></ngx-datatable-column>
+      <ngx-datatable-column name="TIPO" ></ngx-datatable-column>
+      <ngx-datatable-column name="NOMBRE" ></ngx-datatable-column>
+      <ngx-datatable-column name="CONTRA" ></ngx-datatable-column>
+      <ngx-datatable-column name="VER MAS" prop="Id">
         <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value"
                                          let-row="row">
                                          <button type="button" class="btn btn-outline-success"

@@ -1,0 +1,24 @@
+{
+    "usuarios": [
+        {
+            "id": 1,
+            "tipo": "Administrador",
+            "nombre": "Roberto Herrera Ortiz",
+            "contra": 1234
+            
+        },
+        {
+            "id": 2,
+            "tipo": "Empleado",
+            "nombre": "Juan Domingo Solis Savala",
+            "contra": 5574
+        },
+        {
+            "id": 3,
+            "tipo": "Cliente",
+            "nombre": "Raul Espino Contreras",
+            "contra": 7477
+        }
+        
+    ]
+}
