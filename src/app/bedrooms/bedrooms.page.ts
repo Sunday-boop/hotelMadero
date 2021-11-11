@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ViewEncapsulation } from '@angular/core';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 
 export interface Data {
@@ -22,17 +23,24 @@ export class BedroomsPage implements OnInit {
     this.columns = [
       { name: 'Name' },
       { name: 'Company' },
-      { name: 'Genre' }
+      { name: 'Genre' },
+      { name: 'Notas', prop: 'Id'}
     ];
+  
 
     this.http.get<Data>('../../assets/movies.json')
       .subscribe((res) => {
         console.log(res)
+        
         this.rows = res.movies;
+       
       });
+
+      
   }
 
   ngOnInit() {
+    
   }
 
 }
