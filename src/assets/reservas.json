@@ -1,0 +1,101 @@
+{
+    "reservas": [
+        {
+            "id": 1,
+            "fecha": "2021-11-10",
+            "cliente": "Roberto Herrera Ortiz",
+            "habitaciones": 5,
+            "empleado": "Juan Domingo Solis Zavala",
+            "tota": "1200"
+            
+        },
+        {
+            "id": 2,
+            "fecha": "2021-11-10",
+            "cliente": "Roberto Herrera Ortiz",
+            "habitaciones": 5,
+            "empleado": "Juan Domingo Solis Zavala",
+            "tota": "1200"
+        },
+        {
+            "id": 3,
+            "fecha": "2021-11-10",
+            "cliente": "Roberto Herrera Ortiz",
+            "habitaciones": 5,
+            "empleado": "Juan Domingo Solis Zavala",
+            "tota": "1200"
+        },
+        {
+            "id": 4,
+            "fecha": "2021-11-10",
+            "cliente": "Roberto Herrera Ortiz",
+            "habitaciones": 5,
+            "empleado": "Juan Domingo Solis Zavala",
+            "tota": "1200"
+        },
+        {
+            "id": 5,
+            "fecha": "2021-11-10",
+            "cliente": "Roberto Herrera Ortiz",
+            "habitaciones": 5,
+            "empleado": "Juan Domingo Solis Zavala",
+            "tota": "1200"
+        },
+        {
+            "id": 6,
+            "fecha": "2021-11-10",
+            "cliente": "Roberto Herrera Ortiz",
+            "habitaciones": 5,
+            "empleado": "Juan Domingo Solis Zavala",
+            "tota": "1200"
+        },
+        {
+            "id": 7,
+            "fecha": "2021-11-10",
+            "cliente": "Roberto Herrera Ortiz",
+            "habitaciones": 5,
+            "empleado": "Juan Domingo Solis Zavala",
+            "tota": "1200"
+        },
+        {
+            "id": 8,
+            "fecha": "2021-11-10",
+            "cliente": "Roberto Herrera Ortiz",
+            "habitaciones": 5,
+            "empleado": "Juan Domingo Solis Zavala",
+            "tota": "1200"
+        },
+        {
+            "id": 9,
+            "fecha": "2021-11-10",
+            "cliente": "Roberto Herrera Ortiz",
+            "habitaciones": 5,
+            "empleado": "Juan Domingo Solis Zavala",
+            "tota": "1200"
+        },
+        {
+            "id": 10,
+            "fecha": "2021-11-10",
+            "cliente": "Roberto Herrera Ortiz",
+            "habitaciones": 5,
+            "empleado": "Juan Domingo Solis Zavala",
+            "tota": "1200"
+        },
+        {
+            "id": 11,
+            "fecha": "2021-11-10",
+            "cliente": "Roberto Herrera Ortiz",
+            "habitaciones": 5,
+            "empleado": "Juan Domingo Solis Zavala",
+            "tota": "1200"
+        },
+        {
+            "id": 12,
+            "fecha": "2021-11-10",
+            "cliente": "Roberto Herrera Ortiz",
+            "habitaciones": 5,
+            "empleado": "Juan Domingo Solis Zavala",
+            "tota": "1200"
+        }
+    ]
+}

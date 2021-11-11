@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>admin</ion-title>
+    <ion-title>RESERVAS GENERAL</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button memu="main-menu"></ion-menu-button>
     </ion-buttons>
@@ -8,5 +8,40 @@
 </ion-header>
 
 <ion-content >
-  
+  <div class="ion-padding">
+
+    <!-- Theme classes dark, material, bootstrap -->
+    <ngx-datatable 
+      class="material"
+      [limit]="8" 
+      [rows]="rows" 
+      [rowHeight]="50" 
+      [columns]="columns"
+      [columnMode]="'force'" 
+      [sortType]="'multi'" 
+      [headerHeight]="50" 
+      [footerHeight]="50">
+    
+      <ngx-datatable-column name="ID" ></ngx-datatable-column>
+      <ngx-datatable-column name="FECHA" ></ngx-datatable-column>
+      <ngx-datatable-column name="CLIENTE" ></ngx-datatable-column>
+      <ngx-datatable-column name="HABITACIONES" ></ngx-datatable-column>
+      <ngx-datatable-column name="EMPLEADO" ></ngx-datatable-column>
+      <ngx-datatable-column name="TOTA" ></ngx-datatable-column>
+      <ngx-datatable-column name="VER MAS" prop="Id">
+        <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value"
+                                         let-row="row">
+                                         <button type="button" class="btn btn-outline-success"
+                                             (click)='edit(value)'>Success {{rowIndex}}</button>
+                                         <button type="button" class="btn btn-outline-danger"
+                                             (click)='delete(value)'>Danger</button>
+     
+     
+                   </ng-template>
+               </ngx-datatable-column>
+        
+
+    </ngx-datatable>
+
+  </div>
 </ion-content>
