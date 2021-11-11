@@ -3,26 +3,25 @@
     text-align: center;
 }
 
-.centrar{
+.centrar-elementos{
+    display: flex;
+    align-items: center;
     height: 80%;
-    width: 40%;
+    width: 30%;
     margin-right: auto;
     margin-left: auto;
-    // display: flex;
-    // align-items: center;
-    // display: flex;
-    // align-items: center; 
-    // justify-content: center;
+}
+
+.centrar-div{
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
 }
 
 .image-background{
     display: flex;
     align-items: center;
-    width: 100%;
     height: 100%;
-    // background: #FFD185;
-    // // padding: auto;
-    // background: url('../../assets/img/div-back.jpg') no-repeat center center / cover;
 }
 
 .image-size{
@@ -32,19 +31,44 @@
     margin-right: auto;
   }
 
-.centrarLogin{
-    padding: 50px;
-    // margin-right: auto;
-    // margin-left: auto; 
+@media (max-width:1100px) and (min-width:800px) {
+    .centrar-elementos{
+        display: flex;
+        align-items: center;
+        height: 80%;
+        width: 40%;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
 
-@media (max-width:500px){
-    .centrarLogin{
-        width: 20px;
+@media (max-width:850px) and (min-width:600px) {
+    .centrar-elementos{
+        display: flex;
+        align-items: center;
+        height: 80%;
+        width: 50%;
+        margin-right: auto;
+        margin-left: auto;
     }
+}
 
+@media (max-width:620px) and (min-width:300px) {
+    .centrar-elementos{
+        display: flex;
+        align-items: center;
+        height: 80%;
+        width: 70%;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
 
 ion-toolbar{
     background-color: var(--ion-color-toolbar);
-  }
+}
+
+ion-content{
+    --background: linear-gradient(#696767 0%, #000000 100%);
+    // --background-color: black;
+}
