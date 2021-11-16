@@ -8,9 +8,10 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-button shape="round" routerLink="/add-users">
+    <ion-icon name="add"></ion-icon>
+  </ion-button>
   <div class="ion-padding">
-
     <!-- Theme classes dark, material, bootstrap -->
     <ngx-datatable class="material" [limit]="8" [rows]="rows" [rowHeight]="60" [columns]="columns" [columnMode]="'force'"
       [sortType]="'multi'" [headerHeight]="50" [footerHeight]="50">
