@@ -35,15 +35,18 @@ const routes: Routes = [
   },
   {
     path: 'bedrooms',
-    loadChildren: () => import('./bedrooms/bedrooms.module').then( m => m.BedroomsPageModule)
+    loadChildren: () => import('./bedrooms/bedrooms.module').then( m => m.BedroomsPageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'notes',
-    loadChildren: () => import('./notes/notes.module').then( m => m.NotesPageModule)
+    loadChildren: () => import('./notes/notes.module').then( m => m.NotesPageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'users',
-    loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule)
+    loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule),
+    canActivate:[AuthGuard]
   },
 ];
 
