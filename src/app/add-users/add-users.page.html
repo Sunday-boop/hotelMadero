@@ -11,43 +11,39 @@
 </ion-header>
 
 <ion-content>
-  <ion-card class="centrar-elementos">
+  <ion-card>
     <div class="centrar-div">
       <ion-item lines="full">
         <ion-label position="floating">Nombre(s)</ion-label>
-        <ion-input type="text" required></ion-input>
+        <ion-input [(ngModel)]="newUser.nombre" name="nombre" type="text" required></ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Apellido Paterno</ion-label>
-        <ion-input type="text" required></ion-input>
+        <ion-input [(ngModel)]="newUser.apellidoP" name="apellidoP" type="text" required></ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Apellido Materno</ion-label>
-        <ion-input type="text" required></ion-input>
+        <ion-input [(ngModel)]="newUser.apellidoM" name="apellidoM" type="text" required></ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Correo</ion-label>
-        <ion-input type="text" required></ion-input>
+        <ion-input [(ngModel)]="newUser.correo" name="correo" type="email" required></ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Contraseña</ion-label>
-        <ion-input type="password" required></ion-input>
+        <ion-input [(ngModel)]="newUser.password" name="password" type="password" required></ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Telefono</ion-label>
-        <ion-input type="number" required></ion-input>
+        <ion-input [(ngModel)]="newUser.telefono" name="telefono" type="number" pattern="[1-9]{1}[0-9]{9}" required></ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Fecha de nacimiento</ion-label>
-        <ion-datetime class="centrar" displayFormat="DD MM YY" required></ion-datetime>
-      </ion-item>
-      <ion-item lines="full">
-        <ion-label position="floating">Fecha de nacimiento</ion-label>
-        <ion-input type="date" required></ion-input>
+        <ion-datetime [(ngModel)]="newUser.fechaNac" name="fechaNac" class="centrar" displayFormat="DD MM YY" required></ion-datetime>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Tipo de usuario</ion-label>
-        <ion-select>
+        <ion-select [(ngModel)]="newUser.tipoU" name="tipoU">
           <ion-select-option value="Administrador">Administrador</ion-select-option>
           <ion-select-option value="Recepcionista">Recepcionista</ion-select-option>
           <ion-select-option value="Apoyo">Personal de apoyo</ion-select-option>
@@ -55,12 +51,9 @@
       </ion-item>
       <ion-row>
         <ion-col>
-          <ion-button type="submit" (click)="onLogin(email, password)" expand="block">Entrar</ion-button>
+          <ion-button type="submit" (click)="guardarUsuario()" expand="block">Guardar</ion-button>
         </ion-col>
       </ion-row>
-      <form>
-        
-      </form>
     </div>
   </ion-card>
 </ion-content>

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { FirestoreService } from '../services/firestore.service';
+import { ForgotPasswordPage } from '../forgot-password/forgot-password.page';
+import { Usuario } from '../shared/userinterface';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-add-users',
@@ -9,7 +13,20 @@ import { Router } from '@angular/router';
 })
 export class AddUsersPage implements OnInit {
 
-  constructor(public alerta: AlertController, private router:Router,) { }
+  newUser: Usuario ={
+    nombre: '',
+    apellidoP: null,
+    apellidoM: '',
+    correo: '',
+    password: '',
+    telefono: null,
+    fechaNac: null,
+    tipoU: '',
+  }
+
+  private path = 'Usuario/'
+
+  constructor(public alerta: AlertController, public afAuth:AngularFireAuth, private router:Router, public database: FirestoreService) { }
 
   ngOnInit() {
   }
@@ -38,4 +55,21 @@ export class AddUsersPage implements OnInit {
     (await alert).present();
   }
 
+  async guardarUsuario(){
+    // const {user}=await this.afAuth.createUserWithEmailAndPassword(this.newUser.correo, this.newUser.password);
+    // await this.sendverificationEmail();
+
+    // this.newUser.password = user.uid;
+    const id = this.database.getId();
+    this.database.creatDoc(this.newUser, this.path, id)
+    this.router.navigate(['users'])
+  }
+
+  async sendverificationEmail():Promise<void>{
+    try{
+      return (await this.afAuth.currentUser).sendEmailVerification()
+    }catch(error){
+      console.log('Error ->', error)
+    }
+  }
 }
