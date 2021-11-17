@@ -52,7 +52,11 @@ const routes: Routes = [
     path: 'add-users',
     loadChildren: () => import('./add-users/add-users.module').then( m => m.AddUsersPageModule),
     canActivate:[AuthGuard]
+  },  {
+    path: 'add-bedrooms',
+    loadChildren: () => import('./add-bedrooms/add-bedrooms.module').then( m => m.AddBedroomsPageModule)
   },
+
 
 ];
 
