@@ -2,40 +2,35 @@
   <ion-toolbar color="toolbar">
     <ion-buttons slot="start">
       <ion-menu-button memu="main-menu"></ion-menu-button>
-      <ion-title>HABITACIONES/PRECIO</ion-title>    </ion-buttons>
+      <ion-title>HABITACIONES</ion-title>    </ion-buttons>
     <ion-img src="assets/img/LogoBlancoCM.png" class="image-size"></ion-img>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-button shape="round" routerLink="/add-bedrooms">
+    <ion-icon name="add"></ion-icon>
+  </ion-button>
+
   <div class="ion-padding">
-
     <!-- Theme classes dark, material, bootstrap -->
-    <ngx-datatable 
-      class="material"
-      [limit]="9" 
-      [rows]="rows" 
-      [rowHeight]="50" 
-      [columns]="columns"
-      [columnMode]="'force'" 
-      [sortType]="'multi'" 
-      [headerHeight]="50" 
-      [footerHeight]="50">
+    <ngx-datatable class="material" [limit]="8" [rows]="rows" [rowHeight]="60" [columns]="columns" [columnMode]="'force'"
+      [sortType]="'multi'" [headerHeight]="50" [footerHeight]="50">
     
-      <ngx-datatable-column name="FECHA" ></ngx-datatable-column>
-      <ngx-datatable-column name="HABITACION 1" ></ngx-datatable-column>
-      <ngx-datatable-column name="HABITACION 2" ></ngx-datatable-column>
-      <ngx-datatable-column name="HABITACION 3" ></ngx-datatable-column>
-      <ngx-datatable-column name="HABITACION 4" ></ngx-datatable-column>
-      <ngx-datatable-column name="HABITACION 5" ></ngx-datatable-column>
-      <ngx-datatable-column name="HABITACION 6" ></ngx-datatable-column>
-      <ngx-datatable-column name="HABITACION 7" ></ngx-datatable-column>
-      <ngx-datatable-column name="HABITACION 8" ></ngx-datatable-column>
-      
-      
-        
-
+      <ngx-datatable-column name="ID"></ngx-datatable-column>
+      <ngx-datatable-column name="TIPO"></ngx-datatable-column>
+      <ngx-datatable-column name="NOMBRE"></ngx-datatable-column>
+      <ngx-datatable-column name="CONTRA"></ngx-datatable-column>
+      <ngx-datatable-column name="VER MAS" prop="Id">
+        <ng-template ngx-datatable-cell-template>
+          <ion-button color="primary">
+            <ion-icon name="pencil-sharp"></ion-icon>
+          </ion-button>
+          <ion-button color="danger">
+            <ion-icon name="trash-sharp"></ion-icon>
+          </ion-button>    
+        </ng-template>
+      </ngx-datatable-column> 
     </ngx-datatable>
-
   </div>
 </ion-content>

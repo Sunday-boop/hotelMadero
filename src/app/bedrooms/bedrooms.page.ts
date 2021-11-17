@@ -5,7 +5,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 
 export interface Data {
-  preciosH: string;
+  usuarios: string;
 }
 
 @Component({
@@ -21,25 +21,18 @@ export class BedroomsPage implements OnInit {
 
   constructor(private http: HttpClient) {
     this.columns = [
-      { name: 'FECHA' },
-      { name: 'HABITACION 1' },
-      { name: 'HABITACION 2' },
-      { name: 'HABITACION 3' },
-      { name: 'HABITACION 4' },
-      { name: 'HABITACION 5' },
-      { name: 'HABITACION 6' },
-      { name: 'HABITACION 7' },
-      { name: 'HABITACION 8' },
-     
+      { name: 'ID' },
+      { name: 'TIPO' },
+      { name: 'NOMBRE' },
+      { name: 'CONTRA' },
+      { name: 'VER MAS', prop: 'Id'}
     ];
   
 
-    this.http.get<Data>('../../assets/preciosH.json')
+    this.http.get<Data>('../../assets/usuarios.json')
       .subscribe((res) => {
         console.log(res)
-        
-        this.rows = res.preciosH;
-       
+        this.rows = res.usuarios;
       });
 
       
