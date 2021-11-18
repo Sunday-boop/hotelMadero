@@ -33,4 +33,8 @@
       </ngx-datatable-column> 
     </ngx-datatable>
   </div>
+
+  <ion-item *ngFor="let habitacion for habitaciones">
+    <ion-label>{{habitacion.numero}}</ion-label>
+  </ion-item>
 </ion-content>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ViewEncapsulation } from '@angular/core';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { Habitacion } from '../shared/userinterface';
+import { FirestoreService } from '../services/firestore.service';
 
 
 export interface Data {
@@ -19,27 +21,20 @@ export class BedroomsPage implements OnInit {
   public columns: any;
   public rows: any;
 
-  constructor(private http: HttpClient) {
-    this.columns = [
-      { name: 'ID' },
-      { name: 'TIPO' },
-      { name: 'NOMBRE' },
-      { name: 'CONTRA' },
-      { name: 'VER MAS', prop: 'Id'}
-    ];
-  
+  habitaciones: Habitacion[] = [];
+  private path = 'Habitacion/'
 
-    this.http.get<Data>('../../assets/usuarios.json')
-      .subscribe((res) => {
-        console.log(res)
-        this.rows = res.usuarios;
-      });
 
-      
-  }
+  constructor(private http: HttpClient, public database: FirestoreService) {}
 
   ngOnInit() {
-    
+    this.getHabitaciones()
   }
 
+  getHabitaciones(){
+    this.database.getCollection<Habitacion>(this.path).subscribe(res => {
+      this.habitaciones = res;
+      // console.log(this.habitaciones)
+    });
+  }
 }

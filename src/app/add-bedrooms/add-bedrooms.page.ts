@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { FirestoreService } from '../services/firestore.service';
+import { Habitacion } from '../shared/userinterface';
 
 @Component({
   selector: 'app-add-bedrooms',
@@ -10,6 +11,21 @@ import { FirestoreService } from '../services/firestore.service';
   styleUrls: ['./add-bedrooms.page.scss'],
 })
 export class AddBedroomsPage implements OnInit {
+
+  newHabitacion: Habitacion ={
+    id: this.database.getId(),
+    numero: null,
+    edificio: '',
+    piso: '',
+    capacidadA: null,
+    capacidadM: null,
+    tipo: '',
+    numeroCama: null,
+    tipoCama: '',
+  }
+
+  private path = 'Habitacion/'
+
 
   constructor(public alerta: AlertController, public afAuth:AngularFireAuth, private router:Router, public database: FirestoreService) { }
 
@@ -40,4 +56,8 @@ export class AddBedroomsPage implements OnInit {
     (await alert).present();
   }
 
+  async guardarHabitacion(){
+    this.database.creatDoc(this.newHabitacion, this.path, this.newHabitacion.id)
+    this.router.navigate(['bedrooms'])
+  }
 }

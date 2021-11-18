@@ -15,3 +15,15 @@ export interface Usuario{
     fechaNac: Date;
     tipoU: string;
 }
+
+export interface Habitacion{
+    id: string;
+    numero: number;
+    edificio: string;
+    piso: string;
+    capacidadA: number;
+    capacidadM: number;
+    tipo: string;
+    numeroCama: number;
+    tipoCama: string;
+}
