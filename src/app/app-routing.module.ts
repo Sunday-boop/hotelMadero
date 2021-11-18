@@ -23,7 +23,7 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule),
-    canActivate:[AuthGuard]
+    // canActivate:[AuthGuard]
   },
   {
     path: 'verify-email',
@@ -36,23 +36,24 @@ const routes: Routes = [
   {
     path: 'bedrooms',
     loadChildren: () => import('./bedrooms/bedrooms.module').then( m => m.BedroomsPageModule),
-    canActivate:[AuthGuard]
+    // canActivate:[AuthGuard]
   },
   {
     path: 'notes',
     loadChildren: () => import('./notes/notes.module').then( m => m.NotesPageModule),
-    canActivate:[AuthGuard]
+    // canActivate:[AuthGuard]
   },
   {
     path: 'users',
     loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule),
-    canActivate:[AuthGuard]
+    // canActivate:[AuthGuard]
   },
   {
     path: 'add-users',
     loadChildren: () => import('./add-users/add-users.module').then( m => m.AddUsersPageModule),
-    canActivate:[AuthGuard]
-  },  {
+    // canActivate:[AuthGuard]
+  },
+  {
     path: 'add-bedrooms',
     loadChildren: () => import('./add-bedrooms/add-bedrooms.module').then( m => m.AddBedroomsPageModule)
   },
