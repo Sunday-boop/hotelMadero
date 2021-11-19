@@ -13,15 +13,15 @@
   </ion-button>
 
   <div class="ion-padding">
-    <!-- Theme classes dark, material, bootstrap -->
     <ngx-datatable class="material" [limit]="8" [rows]="rows" [rowHeight]="60" [columns]="columns" [columnMode]="'force'"
-      [sortType]="'multi'" [headerHeight]="50" [footerHeight]="50">
+    [sortType]="" [headerHeight]="50" [footerHeight]="50">
     
-      <ngx-datatable-column name="ID"></ngx-datatable-column>
-      <ngx-datatable-column name="TIPO"></ngx-datatable-column>
-      <ngx-datatable-column name="NOMBRE"></ngx-datatable-column>
-      <ngx-datatable-column name="CONTRA"></ngx-datatable-column>
-      <ngx-datatable-column name="VER MAS" prop="Id">
+      <ngx-datatable-column name="id"></ngx-datatable-column>
+      <ngx-datatable-column name="numero"></ngx-datatable-column>
+      <ngx-datatable-column name="edificio"></ngx-datatable-column>
+      <ngx-datatable-column name="piso"></ngx-datatable-column>
+      <ngx-datatable-column name="tipo"></ngx-datatable-column>
+      <ngx-datatable-column name="VER MAS">
         <ng-template ngx-datatable-cell-template>
           <ion-button color="primary">
             <ion-icon name="pencil-sharp"></ion-icon>
@@ -33,8 +33,4 @@
       </ngx-datatable-column> 
     </ngx-datatable>
   </div>
-
-  <ion-item *ngFor="let habitacion for habitaciones">
-    <ion-label>{{habitacion.numero}}</ion-label>
-  </ion-item>
 </ion-content>
