@@ -25,16 +25,26 @@ export class BedroomsPage implements OnInit {
   private path = 'Habitacion/'
 
 
-  constructor(private http: HttpClient, public database: FirestoreService) {}
+  constructor(private http: HttpClient, public database: FirestoreService) {
+    this.columns = [
+      { name: 'id' },
+      { name: 'numero' },
+      { name: 'edificio' },
+      { name: 'piso' },
+      { name: 'capacidadA'},
+      {name: 'capacidadM'},
+      {name: 'tipo'},
+      {name: 'numeroCama'},
+      {name: 'tipoCama'},
+    ];
 
-  ngOnInit() {
-    this.getHabitaciones()
-  }
-
-  getHabitaciones(){
     this.database.getCollection<Habitacion>(this.path).subscribe(res => {
       this.habitaciones = res;
-      // console.log(this.habitaciones)
-    });
+      this.rows = this.habitaciones
+    });    
   }
+
+  ngOnInit() {
+  }
+
 }
