@@ -1,0 +1,136 @@
+#container {
+    text-align: center;
+  
+    position: absolute;
+    left: 0;
+    right: 0;
+    // top: 50%;
+    // transform: translateY(-50%);
+  }
+  
+  #container strong {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  
+  #container p {
+    font-size: 16px;
+    line-height: 22px;
+  
+    color: #8c8c8c;
+  
+    margin: 0;
+  }
+  
+  #container a {
+    text-decoration: none;
+  }
+  
+  .PYM{
+  margin:  12px;
+  padding: 12px;
+  }
+  .RA{
+    
+    padding: 22px;
+  margin-left: 5%;
+  margin-right: 5%;
+  // margin-left: 15%;
+    }
+  
+  .center-span{
+    display: block;
+    text-align: center;
+  }
+  
+  .centrar{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .iconos{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .image-size{
+    width: 200px;
+    height: 120px;
+  }
+  
+  .card-image-size{
+    width: 100%;
+    //height: 300px;
+  }
+  
+  .texto{
+    display: block;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  ion-toolbar{
+    background-color: var(--ion-color-toolbar);
+  }
+  
+  .ion-card{
+    background-color: rgba(var(--ion-color-toolbar-rgb), 0.79);
+    margin-top: auto;
+    margin-bottom: auto;
+    color: white;
+    font-size: 20px;
+    width: 90%;
+  }
+  
+  .boton{
+    color: white;
+  }
+  
+  .image-background{
+    display: flex;
+    align-items: center;
+    height: 400px;
+    background: #FFD185;
+    background: url('../../assets/img/div-back.jpg') no-repeat center center / cover;
+  }
+  
+  .div{
+    display: flex;
+    align-items: center;
+  }
+  
+  .INF{
+    padding-top: 25px;
+    width: 90%;
+    margin-top: 30px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  ion-content{
+    --background: linear-gradient(#ffe5b7 0%, #ffa200 100%);
+    // --background-color: black;
+  }
+  
+  @media (max-width:1000px) and (min-width:500px) {
+    // .texto{
+    //    font-size: 8px;
+    //    display: block;
+    //    text-align: center;
+  
+    // }
+  
+    .ion-card{
+      background-color: rgba(var(--ion-color-toolbar-rgb), 0.79);
+      color: white;
+      font-size: 12px;
+    }
+  
+  .FH{
+  
+  margin:  12px;
+  padding: 12px;
+    }
+  }

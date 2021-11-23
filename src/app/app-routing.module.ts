@@ -68,6 +68,10 @@ const routes: Routes = [
     path: 'add-reservation',
     loadChildren: () => import('./add-reservation/add-reservation.module').then( m => m.AddReservationPageModule)
   },
+  {
+    path: 'busqueda',
+    loadChildren: () => import('./busqueda/busqueda.module').then( m => m.BusquedaPageModule)
+  },
 
 
 
