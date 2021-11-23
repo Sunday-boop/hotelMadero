@@ -48,20 +48,21 @@
     margin-right: auto;
   }
   
-  .centrar-text{
-    text-align: center;
-  }
-  .centrar-boton{
-   margin-left: true;
+  .iconos{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    height: 100px;
   }
   
   .image-size{
     width: 200px;
-    height: 140px;
+    height: 120px;
   }
-  .image-size_h{
-    width: 350px;
-    height: 225px;
+  
+  .card-image-size{
+    width: 100%;
+    //height: 300px;
   }
   
   .texto{
@@ -75,54 +76,43 @@
   }
   
   .ion-card{
-    background-color:rgb(83, 83, 62);
+    background-color: rgba(var(--ion-color-toolbar-rgb), 0.79);
     margin-top: auto;
     margin-bottom: auto;
     color: white;
     font-size: 20px;
-    width: 100%;
-  }
-  .ion-card_h2{
-    background-color:
-    rgba(83, 83, 62, 0.79);
-    margin-top: auto;
-    margin-bottom: auto;
-    color: white;
-    font-size: 20px;
-    width: 80%;
-  }
-  .ion-card_h22{
-    background-color:
-    rgba(83, 83, 62, 0.79);
-    margin-top: auto;
-    margin-bottom: auto;
-    color: white;
-    font-size: 20px;
-    width: 100%;
-  }
-  .ion-card_hh{
-    background-color:rgb(253, 238, 200);
-    margin-top: auto;
-    margin-bottom: auto;
-    color: rgb(68, 68, 58);
-    font-size: 20px;
-    width: 100%;
+    width: 90%;
   }
   
   .boton{
-    color: rgb(243, 224, 119, 0.56);
-  }
-  
-  .boton_h{
-    color: goldenrod;
+    color: white;
   }
   
   .image-background{
     display: flex;
     align-items: center;
+    height: 400px;
     background: #FFD185;
-    background: url('../../assets/img/div-back.jpg')
-    }
+    background: url('../../assets/img/div-back.jpg') no-repeat center center / cover;
+  }
+  
+  .div{
+    display: flex;
+    align-items: center;
+  }
+  
+  .INF{
+    padding-top: 25px;
+    width: 90%;
+    margin-top: 30px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  ion-content{
+    --background: linear-gradient(#ffe5b7 0%, #ffa200 100%);
+    // --background-color: black;
+  }
   
   @media (max-width:1000px) and (min-width:500px) {
     // .texto{
@@ -135,21 +125,7 @@
     .ion-card{
       background-color: rgba(var(--ion-color-toolbar-rgb), 0.79);
       color: white;
-      
-    }
-  
-    .tamaño-input{
-      width: 200px;
-      height: 120px;
-    }
-  
-  .fondo-todo{
-    background-color: goldenrod;
-  }
-  
-  .INF{
-  margin-left: 1%;
-  
+      font-size: 12px;
     }
   
   .FH{
