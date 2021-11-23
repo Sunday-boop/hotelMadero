@@ -1,19 +1,18 @@
 
   <ion-header class="ion-card">
     <ion-toolbar color="toolbar">
-      <ion-title>
-        <ion-img src="assets/img/LogoBlancoCM.png" class="image-size centrar"></ion-img>
-      </ion-title>
-      <ion-buttons slot="end">
-        <ion-button class="boton" [routerLink]="['/login']">Iniciar Sesión</ion-button>
+      <ion-buttons slot="start">
+        <ion-menu-button memu="main-menu"></ion-menu-button>
+        <ion-title></ion-title>
       </ion-buttons>
+      <ion-img src="assets/img/LogoBlancoCM.png" class="image-size centrar"></ion-img>    
     </ion-toolbar>
   </ion-header>
 
 
   <ion-content>
 
-    <ion-card class="ion-card_hh centrar">
+    <!-- <ion-card class="ion-card_hh centrar">
       <ion-card-content>
         <ion-grid>
           <ion-row>
@@ -50,12 +49,12 @@
           </ion-row>
         </ion-grid>
       </ion-card-content>
-    </ion-card>
+    </ion-card> -->
     <ion-grid >
       <ion-row class="image-background">
         <ion-toolbar>
           <ion-title class="centrar-text">
-            <ion-icon name="chevron-back-outline"></ion-icon> Habitaciones Disponibles
+            <ion-icon name="chevron-back-outline" routerLink="/busqueda"></ion-icon> Habitaciones Disponibles
           </ion-title>
         </ion-toolbar>
         <ion-col size="12" >
@@ -63,13 +62,13 @@
             <ion-grid>
               <ion-row>
                 <ion-col size="3">
-                  <img src="assets/img/div-back.jpeg" class="image-size_h centrar">
+                  <img src="assets/img/div-back.jpg" class="image-size_h centrar">
                 </ion-col>
                 <ion-col size="9">
                   <ion-item>
                     <ion-icon name="pin" slot="start"></ion-icon>
                     <ion-label>Master Suite ($1800.00 MX) Una noche</ion-label>
-                    <ion-button fill="outline" color="medium">Reservar</ion-button>
+                    <ion-button fill="outline" routerLink="/add-reservation" color="medium">Reservar</ion-button>
                   </ion-item>
 
                   <ion-card-content>
@@ -85,9 +84,6 @@
                     <br>
                     3. Desayuno incluido
                   </ion-card-content>
-                  <ion-item>
-                    <ion-button slot="end" color="medium">¡Ver detalles de reserva!</ion-button>
-                  </ion-item>
                 </ion-col>
               </ion-row>
             </ion-grid>
@@ -97,13 +93,13 @@
             <ion-grid>
               <ion-row>
                 <ion-col size="3">
-                  <img src="assets/img/div-back-j.jpeg" class="image-size_h centrar">
+                  <img src="assets/img/div-back.jpg" class="image-size_h centrar">
                 </ion-col>
                 <ion-col size="9">
                   <ion-item>
                     <ion-icon name="pin" slot="start"></ion-icon>
                     <ion-label>Master Suite ($1800.00 MX) Una noche</ion-label>
-                    <ion-button fill="outline" color="medium">Reservar</ion-button>
+                    <ion-button fill="outline" routerLink="/add-reservation" color="medium">Reservar</ion-button>
                   </ion-item>
 
                   <ion-card-content>
@@ -119,9 +115,6 @@
                     <br>
                     3. Desayuno incluido
                   </ion-card-content>
-                  <ion-item>
-                    <ion-button slot="end" color="medium">¡Ver detalles de reserva!</ion-button>
-                  </ion-item>
                 </ion-col>
               </ion-row>
             </ion-grid>
@@ -131,13 +124,13 @@
             <ion-grid>
               <ion-row>
                 <ion-col size="3">
-                  <img src="assets/img/div-back-j.jpeg" class="image-size_h centrar">
+                  <img src="assets/img/div-back.jpg" class="image-size_h centrar">
                 </ion-col>
                 <ion-col size="9">
                   <ion-item>
                     <ion-icon name="pin" slot="start"></ion-icon>
                     <ion-label>Master Suite ($1800.00 MX) Una noche</ion-label>
-                    <ion-button fill="outline" slot="end" color="medium">Reservar</ion-button>
+                    <ion-button fill="outline" slot="end" routerLink="/add-reservation" color="medium">Reservar</ion-button>
                   </ion-item>
 
                   <ion-card-content>
@@ -153,9 +146,6 @@
                     <br>
                     3. Desayuno incluido
                   </ion-card-content>
-                  <ion-item>
-                    <ion-button slot="end" color="medium">¡Ver detalles de reserva!</ion-button>
-                  </ion-item>
                 </ion-col>
               </ion-row>
             </ion-grid>
