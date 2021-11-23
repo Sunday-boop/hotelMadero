@@ -1,0 +1,223 @@
+<ion-header class="ion-card">
+  <ion-toolbar color="toolbar">
+    <ion-title>
+      <ion-img src="assets/img/LogoBlancoCM.png" class="image-size centrar"></ion-img>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="boton" [routerLink]="['/login']">Iniciar Sesión</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="fondo-todo">
+
+  <ion-card class="ion-card_hh centrar">
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="2" class="centrar-text">
+            <ion-text color="medium" class="ion-color ion-color-secondary ios hydrated">
+              <h2> Mi Perfil</h2>
+            </ion-text>
+          </ion-col>
+          <ion-col size="2" class="centrar-text">
+            <ion-text color="medium" class="ion-color ion-color-secondary ios hydrated">
+              <h2>Habitaciones</h2>
+            </ion-text>
+          </ion-col>
+          <ion-col size="2" class="centrar-text">
+            <ion-text color="medium" class="ion-color ion-color-secondary ios hydrated">
+              <h2>Servicios</h2>
+            </ion-text>
+          </ion-col>
+          <ion-col size="2" class="centrar-text">
+            <ion-text color="medium" class="ion-color ion-color-secondary ios hydrated">
+              <h2>Eventos</h2>
+            </ion-text>
+          </ion-col>
+          <ion-col size="2" class="centrar-text">
+            <ion-text color="medium" class="ion-color ion-color-secondary ios hydrated">
+              <h2>Reservaciones</h2>
+            </ion-text>
+          </ion-col>
+          <ion-col size="2" class="centrar-text">
+            <ion-text color="medium" class="ion-color ion-color-secondary ios hydrated">
+              <h2>Contacto</h2>
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <ion-toolbar class="ion-card_hh">
+    <ion-buttons slot="primary">
+    </ion-buttons>
+    <ion-title class="centrar-text">
+      <ion-icon name="bookmarks-outline"></ion-icon> Hacer Reserva
+    </ion-title>
+  </ion-toolbar>
+  <ion-grid class="image-background">
+    <ion-card class="ion-card_h2 centrar">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3">
+            <img src="assets/img/div-back.jpeg" class="image-size_h centrar">
+          </ion-col>
+          <ion-col size="9">
+            <ion-item>
+              <ion-icon name="pin" slot="start"> </ion-icon>
+              <ion-label>Master Suite ($1800.00 MX) Una noche </ion-label>
+              <ion-button class="boton" color="danger">Cancelar</ion-button>
+            </ion-item>
+
+            <ion-card-content>
+              Esta habitación se distingue por su encantadora decoración tipo clasica,
+              además coincide con gustos coloniales y cuenta con vista desplejada
+              <br>
+              <br>
+              DETALLES.
+              <br>
+              1. Cama King Size.
+              <br>
+              2. Para dos personas
+              <br>
+              3. Desayuno incluido
+            </ion-card-content>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-card class="ion-card_h22 centrar">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label class="centrar-text">
+                  <ion-icon name="call-outline" class="centrar" slot="start"></ion-icon> Información de contacto
+                </ion-label>
+
+              </ion-item>
+              <ion-card>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col class="centrar-text">
+                      <ion-label>NOMBRE: </ion-label>
+                      <ion-item>
+                        <ion-text>MARIA GUADALUPE</ion-text>
+                      </ion-item>
+                    </ion-col>
+                    <br>
+                    <br>
+                    <ion-col class="centrar-text">
+                      <ion-label>CORREO: </ion-label>
+                      <ion-item>
+                        <ion-text>MARI33GUADALUPE@GMAIL.COM</ion-text>
+                      </ion-item>
+                    </ion-col>
+                    <ion-col class="centrar-text">
+                      <ion-label>APELLIDO PATERNO: </ion-label>
+                      <ion-item>
+                        <ion-text>CHÁVEZ</ion-text>
+                      </ion-item>
+                    </ion-col>
+                    <br>
+                    <br>
+                    <ion-col class="centrar-text">
+                      <ion-label>TELEFONO: </ion-label>
+                      <ion-item>
+                        <ion-text>5466464363467</ion-text>
+                      </ion-item>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <ion-item>
+                        <ion-label position="floating">¿Cuántos niños?: </ion-label>
+                        <ion-input type="number"></ion-input>
+                      </ion-item>
+                    </ion-col>
+                    <ion-col class="centrar">
+                      <ion-item>
+                        <ion-label position="floating">¿Cuántos adultos?: </ion-label>
+                        <ion-input type="number"></ion-input>
+                      </ion-item>
+                    </ion-col>
+                    <ion-col class="centrar">
+                      <ion-item>
+                        <ion-label position="floating">Número de total de Habitaciones: </ion-label>
+                        <ion-input type="number"></ion-input>
+                      </ion-item>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col color="whites">
+                      <ion-item>
+                        <ion-textarea placeholder="Notas especiales aqui..."></ion-textarea>
+                      </ion-item>
+                    </ion-col>
+                    <ion-col>
+                      <ion-item>
+                        <ion-label position="floating">Número de total de días: </ion-label>
+                        <ion-input type="number"></ion-input>
+                      </ion-item>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+      <ion-card class="ion-card_h22 centrar">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label class="centrar-text">
+                  <ion-icon name="card-outline" class="centrar" slot="start"></ion-icon> Detalles de pago
+                </ion-label>
+              </ion-item>
+              <ion-card>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <ion-item>
+                        <ion-label position="floating">Nombre del titutal de tarjeta: </ion-label>
+                        <ion-input></ion-input>
+                      </ion-item>
+                      <br>
+                      <br>
+
+                      <ion-item>
+                        <ion-icon name="checkmark-circle-outline"></ion-icon>
+                        <ion-label>He leído los términos y codiciones</ion-label>
+                      </ion-item>
+
+                    </ion-col>
+                    <ion-col class="centrar">
+                      <ion-item>
+                        <ion-label position="floating">Número de tarjeta: </ion-label>
+                        <ion-input></ion-input>
+                      </ion-item>
+                      <br>
+                      <br>
+                      <ion-item class="centrar">
+                        <ion-button class="boton" color="medium">Reservar</ion-button>
+                      </ion-item>
+                    </ion-col>
+
+                  </ion-row>
+                </ion-grid>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+    </ion-card>
+  </ion-grid>
+</ion-content>

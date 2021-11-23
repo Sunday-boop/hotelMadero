@@ -60,7 +60,15 @@ const routes: Routes = [
   {
     path: 'bedrooms/:id',
     loadChildren: () => import('./edit-bedrooms/edit-bedrooms.module').then( m => m.EditBedroomsPageModule)
+  },  {
+    path: 'hab-dis',
+    loadChildren: () => import('./hab-dis/hab-dis.module').then( m => m.HabDisPageModule)
   },
+  {
+    path: 'add-reservation',
+    loadChildren: () => import('./add-reservation/add-reservation.module').then( m => m.AddReservationPageModule)
+  },
+
 
 
 
