@@ -12,21 +12,25 @@
     <ion-icon name="add"></ion-icon>
   </ion-button>
 
+  <ion-item>
+  </ion-item>
+
   <div class="ion-padding">
     <ngx-datatable class="material" [limit]="8" [rows]="rows" [rowHeight]="60" [columns]="columns" [columnMode]="'force'"
-    [sortType]="" [headerHeight]="50" [footerHeight]="50">
-    
+    [sortType]="" [headerHeight]="50" [footerHeight]="50" (activate)='onActivate($event)'
+    >
+      
       <ngx-datatable-column name="id"></ngx-datatable-column>
       <ngx-datatable-column name="numero"></ngx-datatable-column>
       <ngx-datatable-column name="edificio"></ngx-datatable-column>
       <ngx-datatable-column name="piso"></ngx-datatable-column>
       <ngx-datatable-column name="tipo"></ngx-datatable-column>
-      <ngx-datatable-column name="VER MAS">
+      <ngx-datatable-column name="Opciones">
         <ng-template ngx-datatable-cell-template>
-          <ion-button color="primary">
+          <ion-button color="primary" (click)="alertaEditar()">
             <ion-icon name="pencil-sharp"></ion-icon>
           </ion-button>
-          <ion-button color="danger">
+          <ion-button color="danger" (click)="alertaEliminar()">
             <ion-icon name="trash-sharp"></ion-icon>
           </ion-button>    
         </ng-template>
