@@ -1,55 +1,17 @@
 <ion-header class="ion-card">
   <ion-toolbar color="toolbar">
-    <ion-title>
-      <ion-img src="assets/img/LogoBlancoCM.png" class="image-size centrar"></ion-img>
-    </ion-title>
-    <ion-buttons slot="end">
-      <ion-button class="boton" [routerLink]="['/login']">Iniciar Sesión</ion-button>
+    <ion-buttons slot="start">
+      <ion-menu-button memu="main-menu"></ion-menu-button>
+      <ion-title></ion-title>
     </ion-buttons>
+    <ion-img src="assets/img/LogoBlancoCM.png" class="image-size centrar"></ion-img>    
   </ion-toolbar>
 </ion-header>
 
 
 <ion-content class="fondo-todo">
 
-  <ion-card class="ion-card_hh centrar">
-    <ion-card-content>
-      <ion-grid>
-        <ion-row>
-          <ion-col size="2" class="centrar-text">
-            <ion-text color="medium" class="ion-color ion-color-secondary ios hydrated">
-              <h2> Mi Perfil</h2>
-            </ion-text>
-          </ion-col>
-          <ion-col size="2" class="centrar-text">
-            <ion-text color="medium" class="ion-color ion-color-secondary ios hydrated">
-              <h2>Habitaciones</h2>
-            </ion-text>
-          </ion-col>
-          <ion-col size="2" class="centrar-text">
-            <ion-text color="medium" class="ion-color ion-color-secondary ios hydrated">
-              <h2>Servicios</h2>
-            </ion-text>
-          </ion-col>
-          <ion-col size="2" class="centrar-text">
-            <ion-text color="medium" class="ion-color ion-color-secondary ios hydrated">
-              <h2>Eventos</h2>
-            </ion-text>
-          </ion-col>
-          <ion-col size="2" class="centrar-text">
-            <ion-text color="medium" class="ion-color ion-color-secondary ios hydrated">
-              <h2>Reservaciones</h2>
-            </ion-text>
-          </ion-col>
-          <ion-col size="2" class="centrar-text">
-            <ion-text color="medium" class="ion-color ion-color-secondary ios hydrated">
-              <h2>Contacto</h2>
-            </ion-text>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-card-content>
-  </ion-card>
+  
   <ion-toolbar class="ion-card_hh">
     <ion-buttons slot="primary">
     </ion-buttons>
@@ -62,13 +24,13 @@
       <ion-grid>
         <ion-row>
           <ion-col size="3">
-            <img src="assets/img/div-back.jpeg" class="image-size_h centrar">
+            <img src="assets/img/div-back.jpg" class="image-size_h centrar">
           </ion-col>
           <ion-col size="9">
             <ion-item>
               <ion-icon name="pin" slot="start"> </ion-icon>
               <ion-label>Master Suite ($1800.00 MX) Una noche </ion-label>
-              <ion-button class="boton" color="danger">Cancelar</ion-button>
+              <ion-button class="boton" routerLink="/hab-dis" color="danger">Cancelar</ion-button>
             </ion-item>
 
             <ion-card-content>
@@ -207,7 +169,7 @@
                       <br>
                       <br>
                       <ion-item class="centrar">
-                        <ion-button class="boton" color="medium">Reservar</ion-button>
+                        <ion-button class="boton" routerLink="/busqueda" color="medium">Reservar</ion-button>
                       </ion-item>
                     </ion-col>
 
