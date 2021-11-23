@@ -57,6 +57,11 @@ const routes: Routes = [
     path: 'add-bedrooms',
     loadChildren: () => import('./add-bedrooms/add-bedrooms.module').then( m => m.AddBedroomsPageModule)
   },
+  {
+    path: 'bedrooms/:id',
+    loadChildren: () => import('./edit-bedrooms/edit-bedrooms.module').then( m => m.EditBedroomsPageModule)
+  },
+
 
 
 ];
