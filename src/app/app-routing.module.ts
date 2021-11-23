@@ -72,6 +72,10 @@ const routes: Routes = [
     path: 'busqueda',
     loadChildren: () => import('./busqueda/busqueda.module').then( m => m.BusquedaPageModule)
   },
+  {
+    path: 'my-reservations',
+    loadChildren: () => import('./my-reservations/my-reservations.module').then( m => m.MyReservationsPageModule)
+  },
 
 
 
