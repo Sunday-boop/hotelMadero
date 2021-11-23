@@ -42,4 +42,28 @@
     </ion-content>
   </ion-menu>
   <ion-router-outlet id="main"></ion-router-outlet>
+
+  <ion-menu menuId="client-menu" contentId="client">
+    <ion-content>
+      <div class="menu-header-bg"></div>
+      <!-- <div class="header-content">
+        <ion-icon name="person-circle-sharp"></ion-icon>        
+        <ion-label>
+          <h2>Juan</h2>
+          <p>Ingeniero</p>
+        </ion-label>
+      </div> -->
+      <ion-list class="menu-items" lines="none">
+        <ion-menu-toggle>
+          <ion-item >
+            <ion-icon name="calendar-sharp" ></ion-icon> Mis Reservas
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-button  (click)="onLogout()" expand="full" color="dark"><ion-icon name="exit-sharp"></ion-icon>Cerrar Sesión</ion-button>
+        </ion-menu-toggle>
+      </ion-list>      
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="client"></ion-router-outlet>
 </ion-app>
