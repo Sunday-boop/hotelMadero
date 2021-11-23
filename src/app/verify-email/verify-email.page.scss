@@ -1,0 +1,41 @@
+ion-toolbar{
+    background-color: var(--ion-color-toolbar);
+}
+
+.image-size{
+    width: 200px;
+    height: 120px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image-background{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.centrar-elementos{
+    display: flex;
+    align-items: center;
+    height: 70%;
+    width: 30%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.centrar-div{
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+.center-span{
+    display: block;
+    text-align: center;
+}
+
+ion-content{
+    --background: linear-gradient(#696767 0%, #000000 100%);
+    // --background-color: black;
+}
