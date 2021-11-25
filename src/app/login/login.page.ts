@@ -12,12 +12,12 @@ export class LoginPage {
   constructor(private authSvc: AuthService, private router:Router) { }
 
   async onLogin(email, password){
-    if(email.value == "mari33guadalupe@gmail.com" && password.value == 123456 ){
+    if(email.value == "l17121088@morelia.tecnm.mx" || email.value == "robe_r97@hotmail.com" ){
       try {
            const user = await this.authSvc.login(email.value, password.value);
            if (user) {
              const isVerified = this.authSvc.isEmailVerified(user);
-             this.redirectUserC(isVerified);
+             this.redirectUser(isVerified);
            }
          } catch (error) {
            console.log("Error=>",error)
@@ -27,7 +27,7 @@ export class LoginPage {
          const user = await this.authSvc.login(email.value, password.value);
          if (user) {
            const isVerified = this.authSvc.isEmailVerified(user);
-           this.redirectUser(isVerified);
+           this.redirectUserC(isVerified);
          }
        } catch (error) {
          console.log("Error=>",error)
