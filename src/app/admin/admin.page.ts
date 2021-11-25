@@ -5,6 +5,7 @@ import { async } from '@firebase/util';
 import { AuthService } from '../services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { ViewEncapsulation } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 
 export interface Data {
   reservas: string;
@@ -22,7 +23,7 @@ export class AdminPage{
   public columns: any;
   public rows: any;
 
-  constructor(private router:Router, private authSvc:AuthService, private http: HttpClient) { 
+  constructor(private router:Router, private authSvc:AuthService, private menucontroler: MenuController, private http: HttpClient) { 
     this.columns = [
       { name: 'ID' },
       { name: 'FECHA' },
@@ -52,4 +53,7 @@ export class AdminPage{
     }
   }
 
+  openMenu(){
+    this.menucontroler.toggle('main-menu')
+  }
 }

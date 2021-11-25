@@ -18,3 +18,40 @@ ion-toolbar ion-icon{
 ion-header{
     color: white;
 }
+
+.image-background{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.centrar-elementos{
+    display: flex;
+    align-items: center;
+    height: 90%;
+    width: 40%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.centrar-div{
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+ion-content{
+    --background: #cecece;
+    // --background-color: black;
+}
+
+@media (max-width:620px) and (min-width:300px) {
+    .centrar-elementos{
+        display: flex;
+        align-items: center;
+        height: 95%;
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}

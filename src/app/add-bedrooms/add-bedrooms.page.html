@@ -11,53 +11,55 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <div class="centrar-div">
-      <ion-item lines="full">
-        <ion-label position="floating">Numero de habitación</ion-label>
-        <ion-input [(ngModel)]="newHabitacion.numero" name="numero" type="number" required></ion-input>
-      </ion-item>
-      <ion-item lines="full">
-        <ion-label position="floating">Edificio</ion-label>
-        <ion-input [(ngModel)]="newHabitacion.edificio" name="edificio" type="text" required></ion-input>
-      </ion-item>
-      <ion-item lines="full">
-        <ion-label position="floating">Piso</ion-label>
-        <ion-input [(ngModel)]="newHabitacion.piso" name="piso" type="text" required></ion-input>
-      </ion-item>
-      <ion-item lines="full">
-        <ion-label position="floating">Capacidad de Adultos</ion-label>
-        <ion-input [(ngModel)]="newHabitacion.capacidadA" name="capacidadA" type="text" required></ion-input>
-      </ion-item>
-      <ion-item lines="full">
-        <ion-label position="floating">Capacidad de Menores</ion-label>
-        <ion-input [(ngModel)]="newHabitacion.capacidadM" name="capacidadM" type="text" required></ion-input>
-      </ion-item>
-      <ion-item lines="full">
-        <ion-label position="floating">Tipo de habitación</ion-label>
-        <ion-select [(ngModel)]="newHabitacion.tipo" name="tipo">
-          <ion-select-option value="Junior Suite">Junior Suite</ion-select-option>
-          <ion-select-option value="Master Suite">Master Suite</ion-select-option>
-          <ion-select-option value="Suite">Suite</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item lines="full">
-        <ion-label position="floating">Numero de camas</ion-label>
-        <ion-input [(ngModel)]="newHabitacion.numeroCama" name="numeroCama" type="number" required></ion-input>
-      </ion-item>
-      <ion-item lines="full">
-        <ion-label position="floating">Tipo de camas</ion-label>
-        <ion-select [(ngModel)]="newHabitacion.tipoCama" name="tipoCama">
-          <ion-select-option value="Matrimonial">Matrimonial</ion-select-option>
-          <ion-select-option value="King Size">King Size</ion-select-option>
-          <ion-select-option value="Queen Size">Queen Size</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-row>
-        <ion-col>
-          <ion-button type="submit" (click)="guardarHabitacion()" expand="block">Guardar</ion-button>
-        </ion-col>
-      </ion-row>
-    </div>
-  </ion-card>
+  <div class="image-background">
+    <ion-card class="centrar-elementos">
+      <div class="centrar-div">
+        <ion-item lines="full">
+          <ion-label position="floating">Numero de habitación</ion-label>
+          <ion-input [(ngModel)]="newHabitacion.numero" name="numero" type="number" required></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Edificio</ion-label>
+          <ion-input [(ngModel)]="newHabitacion.edificio" name="edificio" type="text" required></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Piso</ion-label>
+          <ion-input [(ngModel)]="newHabitacion.piso" name="piso" type="text" required></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Capacidad de Adultos</ion-label>
+          <ion-input [(ngModel)]="newHabitacion.capacidadA" name="capacidadA" type="text" required></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Capacidad de Menores</ion-label>
+          <ion-input [(ngModel)]="newHabitacion.capacidadM" name="capacidadM" type="text" required></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Tipo de habitación</ion-label>
+          <ion-select [(ngModel)]="newHabitacion.tipo" name="tipo">
+            <ion-select-option value="Junior Suite">Junior Suite</ion-select-option>
+            <ion-select-option value="Master Suite">Master Suite</ion-select-option>
+            <ion-select-option value="Suite">Suite</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Numero de camas</ion-label>
+          <ion-input [(ngModel)]="newHabitacion.numeroCama" name="numeroCama" type="number" required></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Tipo de camas</ion-label>
+          <ion-select [(ngModel)]="newHabitacion.tipoCama" name="tipoCama">
+            <ion-select-option value="Matrimonial">Matrimonial</ion-select-option>
+            <ion-select-option value="King Size">King Size</ion-select-option>
+            <ion-select-option value="Queen Size">Queen Size</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-row>
+          <ion-col>
+            <ion-button type="submit" (click)="guardarHabitacion()" expand="block">Guardar</ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-card>
+  </div>
 </ion-content>

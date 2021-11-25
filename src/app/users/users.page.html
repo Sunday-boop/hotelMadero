@@ -1,8 +1,9 @@
 <ion-header>
   <ion-toolbar color="toolbar">
     <ion-buttons slot="start">
-      <ion-menu-button memu="main-menu"></ion-menu-button>
-      <ion-title>USUARIOS</ion-title>    </ion-buttons>
+      <ion-button (click)="openMenu()"><ion-icon name="menu-sharp" class="icon-size"></ion-icon></ion-button>
+      <ion-title>USUARIOS</ion-title>
+    </ion-buttons>
     <ion-img src="assets/img/LogoBlancoCM.png" class="image-size"></ion-img>
   </ion-toolbar>
 </ion-header>
@@ -16,11 +17,11 @@
     <ngx-datatable class="material" [limit]="8" [rows]="rows" [rowHeight]="60" [columns]="columns" [columnMode]="'force'"
        [headerHeight]="50" [footerHeight]="50">
     
-      <ngx-datatable-column name="ID"></ngx-datatable-column>
-      <ngx-datatable-column name="TIPO"></ngx-datatable-column>
-      <ngx-datatable-column name="NOMBRE"></ngx-datatable-column>
-      <ngx-datatable-column name="CONTRA"></ngx-datatable-column>
-      <ngx-datatable-column name="VER MAS" prop="Id">
+      <ngx-datatable-column name="Nombre"></ngx-datatable-column>
+      <ngx-datatable-column name="ApellidoP"></ngx-datatable-column>
+      <ngx-datatable-column name="ApellidoM"></ngx-datatable-column>
+      <ngx-datatable-column name="Correo"></ngx-datatable-column>
+      <ngx-datatable-column name="Opciones">
         <ng-template ngx-datatable-cell-template>
           <ion-button color="primary">
             <ion-icon name="pencil-sharp"></ion-icon>

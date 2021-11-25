@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ViewEncapsulation } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 
 export interface Data {
   notas: string;
@@ -18,7 +19,7 @@ export class NotesPage implements OnInit {
   public columns: any;
   public rows: any;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private menucontroler: MenuController) {
     this.columns = [
       { name: 'ID' },
       { name: 'FECHA' },
@@ -37,4 +38,7 @@ export class NotesPage implements OnInit {
   ngOnInit() {
   }
 
+  openMenu(){
+    this.menucontroler.toggle('main-menu')
+  }
 }
