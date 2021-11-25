@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ViewEncapsulation } from '@angular/core';
 import { FirestoreService } from '../services/firestore.service';
-import { AlertController } from '@ionic/angular';
+import { AlertController, MenuController } from '@ionic/angular';
 import { Data, Router } from '@angular/router';
 import { Precio } from '../shared/userinterface';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
@@ -23,7 +23,7 @@ export class PriceBedroomsPage implements OnInit {
   private path = 'Precio/';
   private id: Number;
 
-  constructor(private http: HttpClient, public alerta: AlertController, private router: Router, public database: FirestoreService) { 
+  constructor(private http: HttpClient, public alerta: AlertController, private router: Router, public database: FirestoreService, private menucontroler: MenuController) { 
     this.columns = [
       { name: 'id' },
       { name: 'habitacion' },
@@ -105,4 +105,7 @@ export class PriceBedroomsPage implements OnInit {
     // this.router.navigate(['price-bedrooms/'+this.id])
   }
 
+  openMenu(){
+    this.menucontroler.toggle('main-menu')
+  }
 }
