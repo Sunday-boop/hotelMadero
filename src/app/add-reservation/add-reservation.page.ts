@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class AddReservationPage implements OnInit {
 
-  constructor(private router:Router, private authSvc:AuthService) { }
+  constructor(private router:Router, private authSvc:AuthService, private menucontroler: MenuController) { }
 
   ngOnInit() {
   }
@@ -21,5 +22,9 @@ export class AddReservationPage implements OnInit {
     } catch (error) {
       console.log("Error=>",error)
     }
+  }
+
+  openMenu(){
+    this.menucontroler.toggle('client-menu')
   }
 }
