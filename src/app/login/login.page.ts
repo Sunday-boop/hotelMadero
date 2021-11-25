@@ -12,7 +12,7 @@ export class LoginPage {
   constructor(private authSvc: AuthService, private router:Router) { }
 
   async onLogin(email, password){
-    if(email.value == "l17121088@morelia.tecnm.mx" || email.value == "robe_r97@hotmail.com" ){
+    if(email.value == "l17121088@morelia.tecnm.mx" ){
       try {
            const user = await this.authSvc.login(email.value, password.value);
            if (user) {
