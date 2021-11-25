@@ -60,7 +60,8 @@ const routes: Routes = [
   {
     path: 'bedrooms/:id',
     loadChildren: () => import('./edit-bedrooms/edit-bedrooms.module').then( m => m.EditBedroomsPageModule)
-  },  {
+  },
+  {
     path: 'hab-dis',
     loadChildren: () => import('./hab-dis/hab-dis.module').then( m => m.HabDisPageModule)
   },
@@ -76,6 +77,20 @@ const routes: Routes = [
     path: 'my-reservations',
     loadChildren: () => import('./my-reservations/my-reservations.module').then( m => m.MyReservationsPageModule)
   },
+  {
+    path: 'price-bedrooms',
+    loadChildren: () => import('./price-bedrooms/price-bedrooms.module').then( m => m.PriceBedroomsPageModule)
+  },
+  {
+    path: 'add-price',
+    loadChildren: () => import('./add-price/add-price.module').then( m => m.AddPricePageModule)
+  },
+  {
+    path: 'price-bedrooms/:id',
+    loadChildren: () => import('./edit-price/edit-price.module').then( m => m.EditPricePageModule)
+  },
+
+
 
 
 

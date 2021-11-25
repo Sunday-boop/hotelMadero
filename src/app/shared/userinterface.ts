@@ -3,6 +3,14 @@ export interface User{
     email: string;
     displayName: string;
     emailVerified: boolean;
+
+}
+
+export interface Roles{
+    admin: boolean;
+    recepcionista: boolean;
+    apoyo: boolean;
+    cliente: boolean;
 }
 
 export interface Usuario{
@@ -14,6 +22,7 @@ export interface Usuario{
     telefono: number;
     fechaNac: Date;
     tipoU: string;
+    
 }
 
 export interface Habitacion{
@@ -26,4 +35,11 @@ export interface Habitacion{
     tipo: string;
     numeroCama: number;
     tipoCama: string;
+}
+
+export interface Precio{
+    id: string;
+    habitacion: string;
+    fecha: Date;
+    precio: number;
 }

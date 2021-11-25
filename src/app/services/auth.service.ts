@@ -6,6 +6,7 @@ import { AngularFirestore, AngularFirestoreDocument } from "@angular/fire/compat
 import { Observable, of } from 'rxjs';
 import { switchMap } from "rxjs/operators";
 
+
 @Injectable({
   providedIn: 'root'
 })
