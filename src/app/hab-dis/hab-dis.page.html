@@ -1,64 +1,21 @@
 
   <ion-header class="ion-card">
     <ion-toolbar color="toolbar">
-      <ion-buttons slot="end">
-        <ion-button class="boton" (click)="onLogout()">Cerrar Sesión</ion-button>
-      </ion-buttons>
       <ion-buttons slot="start">
-        <ion-button class="boton" routerLink="/my-reservations" >Mis Reservas</ion-button>
+        <ion-menu-button memu="client-menu" side="end"></ion-menu-button>
+        <ion-title>HABITACIONES DISPONIBLES</ion-title>
       </ion-buttons>
-      <ion-img src="assets/img/LogoBlancoCM.png" class="image-size centrar"></ion-img>    
+      <ion-img src="assets/img/LogoBlancoCM.png" class="image-size centrar-imagen"></ion-img>    
     </ion-toolbar>
   </ion-header>
 
 
   <ion-content>
-
-    <!-- <ion-card class="ion-card_hh centrar">
-      <ion-card-content>
-        <ion-grid>
-          <ion-row>
-            <ion-col size="2" class="centrar-text">
-              <ion-text color="medium" class="ion-color ion-color-secondary ios hydrated">
-                <h2> Mi Perfil</h2>
-              </ion-text>
-            </ion-col>
-            <ion-col size="2" class="centrar-text">
-              <ion-text color="medium" class="ion-color ion-color-secondary ios hydrated">
-                <h2>Habitaciones</h2>
-              </ion-text>
-            </ion-col>
-            <ion-col size="2" class="centrar-text">
-              <ion-text color="medium" class="ion-color ion-color-secondary ios hydrated">
-                <h2>Servicios</h2>
-              </ion-text>
-            </ion-col>
-            <ion-col size="2" class="centrar-text">
-              <ion-text color="medium" class="ion-color ion-color-secondary ios hydrated">
-                <h2>Eventos</h2>
-              </ion-text>
-            </ion-col>
-            <ion-col size="2" class="centrar-text">
-              <ion-text color="medium" class="ion-color ion-color-secondary ios hydrated">
-                <h2>Reservaciones</h2>
-              </ion-text>
-            </ion-col>
-            <ion-col size="2" class="centrar-text">
-              <ion-text color="medium" class="ion-color ion-color-secondary ios hydrated">
-                <h2>Contacto</h2>
-              </ion-text>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-card-content>
-    </ion-card> -->
     <ion-grid >
+      <ion-label routerLink="/busqueda">        
+        <ion-icon name="chevron-back-outline"></ion-icon> Habitaciones Disponibles
+      </ion-label>
       <ion-row class="image-background">
-        <ion-toolbar>
-          <ion-title class="centrar-text">
-            <ion-icon name="chevron-back-outline" routerLink="/busqueda"></ion-icon> Habitaciones Disponibles
-          </ion-title>
-        </ion-toolbar>
         <ion-col size="12" >
           <ion-card class="ion-card_h centrar">
             <ion-grid>

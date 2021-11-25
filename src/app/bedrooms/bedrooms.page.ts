@@ -4,7 +4,7 @@ import { ViewEncapsulation } from '@angular/core';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { Habitacion } from '../shared/userinterface';
 import { FirestoreService } from '../services/firestore.service';
-import { AlertController } from '@ionic/angular';
+import { AlertController, MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 
@@ -28,7 +28,7 @@ export class BedroomsPage implements OnInit {
   private id: Number;
 
 
-  constructor(private http: HttpClient, public alerta: AlertController, private router: Router, public database: FirestoreService) {
+  constructor(private http: HttpClient, public alerta: AlertController, private menucontroler: MenuController, private router: Router, public database: FirestoreService) {
     this.columns = [
       { name: 'id' },
       { name: 'numero' },
@@ -45,6 +45,8 @@ export class BedroomsPage implements OnInit {
       this.habitaciones = res;
       this.rows = this.habitaciones
     });    
+
+    this.menuActive;
   }
 
   ngOnInit() {
@@ -113,5 +115,14 @@ export class BedroomsPage implements OnInit {
   editarHabitacion(){
     console.log('recibo el id '+this.id)
     // this.router.navigate(['bedrooms/'+this.id])
+  }
+
+  openMenu(){
+    this.menucontroler.toggle('main-menu')
+  }
+
+  menuActive(){
+    this.menucontroler.enable(true, 'main-menu')
+    this.menucontroler.enable(false, 'client-menu')
   }
 }

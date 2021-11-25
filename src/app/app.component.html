@@ -1,6 +1,29 @@
 <ion-app>
   <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-  <ion-menu menuId="main-menu" contentId="main">
+
+  <ion-menu menuId="client-menu" side="end" [swipeGesture]="false" contentId="main">
+    <ion-content>
+      <div class="menu-header-bg"></div>
+      
+      <ion-list class="menu-items" lines="none">
+        <ion-menu-toggle>
+          <ion-item routerLink="/busqueda">
+            <ion-icon name="calendar-sharp"></ion-icon> Buscar Reservacion
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/my-reservations">
+            <ion-icon name="calendar-sharp"  ></ion-icon> Mis Reservas
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-button  (click)="onLogout()" expand="full" color="dark"><ion-icon name="exit-sharp"></ion-icon>Cerrar Sesión</ion-button>
+        </ion-menu-toggle>
+      </ion-list>      
+    </ion-content>
+  </ion-menu>
+  
+  <ion-menu menuId="main-menu" side="start" [swipeGesture]="false" contentId="main">
     <ion-content>
       <div class="menu-header-bg"></div>
       <!-- <div class="header-content">
@@ -43,31 +66,9 @@
           </ion-item> -->
         </ion-menu-toggle>
       </ion-list>
-      
     </ion-content>
   </ion-menu>
-  <ion-router-outlet id="main"></ion-router-outlet>
 
-  <!-- <ion-menu menuId="client-menu" contentId="client">
-    <ion-content>
-      <div class="menu-header-bg"></div>
-      
-      <ion-list class="menu-items" lines="none">
-        <ion-menu-toggle>
-          <ion-item routerLink="/busqueda">
-            <ion-icon name="calendar-sharp"  ></ion-icon> Buscar Reservacion
-          </ion-item>
-        </ion-menu-toggle>
-        <ion-menu-toggle>
-          <ion-item routerLink="/my-reservations">
-            <ion-icon name="calendar-sharp"  ></ion-icon> Mis Reservas
-          </ion-item>
-        </ion-menu-toggle>
-        <ion-menu-toggle>
-          <ion-button  (click)="onLogout()" expand="full" color="dark"><ion-icon name="exit-sharp"></ion-icon>Cerrar Sesión</ion-button>
-        </ion-menu-toggle>
-      </ion-list>      
-    </ion-content>
-  </ion-menu>
-  <ion-router-outlet id="client"></ion-router-outlet> -->
+  <ion-router-outlet id="main"></ion-router-outlet>
+  <!-- <ion-router-outlet id="client"></ion-router-outlet> -->
 </ion-app>

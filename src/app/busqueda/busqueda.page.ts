@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class BusquedaPage implements OnInit {
 
-  constructor(private router:Router, private authSvc:AuthService) { }
+  constructor(private router:Router, private authSvc:AuthService, private menucontroler: MenuController) { }
 
   ngOnInit() {
   }
@@ -23,4 +24,7 @@ export class BusquedaPage implements OnInit {
     }
   }
 
+  openMenu(){
+    this.menucontroler.toggle('client-menu')
+  }
 }
