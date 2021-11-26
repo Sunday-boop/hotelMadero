@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { async } from '@firebase/util';
 import { AuthService } from '../services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { ViewEncapsulation } from '@angular/core';
