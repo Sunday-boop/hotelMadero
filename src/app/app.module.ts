@@ -7,16 +7,10 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment';
-import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideDatabase,getDatabase } from '@angular/fire/database';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { provideMessaging,getMessaging } from '@angular/fire/messaging';
-import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config';
+import { ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
 
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireDatabase } from "@angular/fire/compat/database";
 import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
 import { FormsModule } from '@angular/forms';
 
