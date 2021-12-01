@@ -10,11 +10,11 @@
   <!-- // calendario -->
   <ion-navbar>
     <ion-buttons end>
-        <button ion-button [disabled]="isToday" (click)="today()">Today</button>
+        <button ion-button   [disabled]="isToday" (click)="today()">Hoy</button>
         <button ion-button (click)="changeMode('month')">Mes</button>
         <button ion-button (click)="changeMode('week')">Seman</button>
         <button ion-button (click)="changeMode('day')">Dia</button>
-        <button ion-button (click)="loadEvents()">Load Events</button>
+        <button ion-button (click)="loadEvents()">Reservas </button>
     </ion-buttons>
 </ion-navbar>
 <!-- // calendario -->
@@ -30,9 +30,18 @@
           (onEventSelected)="onEventSelected($event)"
           (onTitleChanged)="onViewTitleChanged($event)"
           (onTimeSelected)="onTimeSelected($event)"
-          [step]="calendar.step">
+          [step]="calendar.step"
+          [monthviewDisplayEventTemplate]="template">
           
       </calendar>
+      <ng-template #template let-view="view" let-row="row" let-col="col">
+        <div [class.with-event]="view.dates[row*7+col].events.length">
+          {{view.dates[row*7+col].label}}
+          <div class="indicator-container">
+            <div class="event-indicator" *ngFor="let e of view.dates[row*7+col].events"></div>
+          </div>
+        </div>
+      </ng-template>
       </ion-card>
 
 
