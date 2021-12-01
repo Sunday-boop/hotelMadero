@@ -45,8 +45,6 @@ export class BedroomsPage implements OnInit {
       this.habitaciones = res;
       this.rows = this.habitaciones
     });    
-
-    this.menuActive;
   }
 
   ngOnInit() {
@@ -119,10 +117,5 @@ export class BedroomsPage implements OnInit {
 
   openMenu(){
     this.menucontroler.toggle('main-menu')
-  }
-
-  menuActive(){
-    this.menucontroler.enable(true, 'main-menu')
-    this.menucontroler.enable(false, 'client-menu')
   }
 }
