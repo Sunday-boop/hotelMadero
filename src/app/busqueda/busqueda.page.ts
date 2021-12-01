@@ -25,6 +25,7 @@ export class BusquedaPage implements OnInit {
   }
 
   openMenu(){
-    this.menucontroler.toggle('client-menu')
+    this.menucontroler.enable(true, 'client-menu');
+    this.menucontroler.open('client-menu');
   }
 }

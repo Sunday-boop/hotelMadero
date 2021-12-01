@@ -93,7 +93,10 @@ export class AdminPage{
   }
 
   openMenu(){
-    this.menucontroler.toggle('main-menu')
+    this.menucontroler.enable(true, 'main-menu');
+    this.menucontroler.open('main-menu');
+    this.menucontroler.enable(false, 'client-menu')
+    // this.menucontroler.toggle('main-menu')
   }
 
 ///----------------------------------------------
