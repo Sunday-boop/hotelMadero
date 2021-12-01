@@ -2,20 +2,46 @@
   <ion-toolbar color="toolbar">
     <ion-buttons slot="start">
       <ion-button (click)="openMenu()"><ion-icon name="menu-sharp" class="icon-size"></ion-icon></ion-button>
-      <ion-title>PRECIOS HABITACION</ion-title>
+      <ion-title>PRECIOS HABITACION  {{viewTitle}}</ion-title>
     </ion-buttons>
     <ion-img src="assets/img/LogoBlancoCM.png" class="image-size"></ion-img>
   </ion-toolbar>
+<!-- // calendario -->
+  <ion-navbar>
+    <ion-buttons end>
+        <button ion-button [disabled]="isToday" (click)="today()">Today</button>
+        <button ion-button (click)="changeMode('month')">Mes</button>
+        <button ion-button (click)="changeMode('week')">Seman</button>
+        <button ion-button (click)="changeMode('day')">Dia</button>
+        <button ion-button (click)="loadEvents()">Load Events</button>
+    </ion-buttons>
+</ion-navbar>
+<!-- // calendario -->
 </ion-header>
 
 <ion-content>
+  <ion-card>
+  <calendar [eventSource]="eventSource"
+        [calendarMode]="calendar.mode"
+        [currentDate]="calendar.currentDate"
+        (onCurrentDateChanged)="onCurrentDateChanged($event)"
+        (onRangeChanged)="reloadSource(startTime, endTime)"
+        (onEventSelected)="onEventSelected($event)"
+        (onTitleChanged)="onViewTitleChanged($event)"
+        (onTimeSelected)="onTimeSelected($event)"
+        [step]="calendar.step">
+        
+    </calendar>
+    </ion-card>
   <ion-button shape="round" routerLink="/add-price">
     <ion-icon name="add"></ion-icon>
   </ion-button>
+<!-- // calendario -->
 
-  <ion-item>
-  </ion-item>
 
+
+
+<!-- // calendario -->
   <div class="ion-padding">
     <ngx-datatable class="material" [limit]="8" [rows]="rows" [rowHeight]="60" [columns]="columns" [columnMode]="'force'"
     [sortType]="" [headerHeight]="50" [footerHeight]="50" (activate)='onActivate($event)'>   
@@ -35,4 +61,7 @@
       </ngx-datatable-column> 
     </ngx-datatable>
   </div>
+
+ 
+
 </ion-content>

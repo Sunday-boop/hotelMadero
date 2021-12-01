@@ -62,7 +62,7 @@ export class RegistroPage implements OnInit {
       this.newUser.tipoU = 'Cliente';
       const id = this.database.getId();
       this.database.creatDoc(this.newUser, this.path, id)
-      this.router.navigate(['users'])
+      // this.router.navigate(['users'])
       if (user) {
         const isVerified = this.authSvc.isEmailVerified(user);
         this.redirectUser(isVerified);
@@ -74,7 +74,7 @@ export class RegistroPage implements OnInit {
 
   private redirectUser(isVerified:boolean): void{
     if (isVerified) {
-      this.router.navigate(['admin'])
+      this.router.navigate(['login'])
     }else{
       this.router.navigate(['verify-email'])
     }
