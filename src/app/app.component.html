@@ -26,13 +26,16 @@
   <ion-menu menuId="main-menu" side="start" [swipeGesture]="false" contentId="main">
     <ion-content>
       <div class="menu-header-bg"></div>
-      <!-- <div class="header-content">
-        <ion-icon name="person-circle-sharp"></ion-icon>        
+      <div class="header-content">
+        <ion-icon name="person-circle-sharp" class="ion-icon"></ion-icon>        
         <ion-label>
           <h2>Juan</h2>
           <p>Ingeniero</p>
         </ion-label>
-      </div> -->
+        <ion-button slot="end">
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-button>
+      </div>
       <ion-list class="menu-items" lines="none">
         <ion-menu-toggle>
           <ion-item routerLink="/admin">
