@@ -2,21 +2,60 @@
   <ion-toolbar color="toolbar">
     <ion-buttons slot="start">
       <ion-button (click)="openMenu()"><ion-icon name="menu-sharp" class="icon-size"></ion-icon></ion-button>
-      <ion-title>PRECIOS HABITACION</ion-title>
+      <ion-title>PRECIOS HABITACION  {{viewTitle}}</ion-title>
     </ion-buttons>
     <ion-img src="assets/img/LogoBlancoCM.png" class="image-size"></ion-img>
   </ion-toolbar>
+<!-- // calendario -->
+  <ion-navbar>
+    <ion-buttons end>
+        <button ion-button [disabled]="isToday" (click)="today()">Hoy</button>
+        <button ion-button (click)="changeMode('month')">Mes</button>
+        <button ion-button (click)="changeMode('week')">Seman</button>
+        <button ion-button (click)="changeMode('day')">Dia</button>
+        <button ion-button (click)="loadEvents()">Reservas</button>
+    </ion-buttons>
+</ion-navbar>
+<!-- // calendario -->
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <calendar [eventSource]="eventSource"
+          [calendarMode]="calendar.mode"
+          [currentDate]="calendar.currentDate"
+          (onCurrentDateChanged)="onCurrentDateChanged($event)"
+          (onRangeChanged)="reloadSource(startTime, endTime)"
+          (onEventSelected)="onEventSelected($event)"
+          (onTitleChanged)="onViewTitleChanged($event)"
+          (onTimeSelected)="onTimeSelected($event)"
+          [step]="calendar.step"
+          [monthviewDisplayEventTemplate]="template">
+          
+      </calendar>
+      <ng-template #template let-view="view" let-row="row" let-col="col">
+        <div [class.with-event]="view.dates[row*7+col].events.length">
+          {{view.dates[row*7+col].label}}
+          <div class="indicator-container">
+            <div class="event-indicator" *ngFor="let e of view.dates[row*7+col].events"></div>
+          </div>
+        </div>
+      </ng-template>
+      </ion-card>
+
   <ion-button shape="round" routerLink="/add-price">
     <ion-icon name="add"></ion-icon>
   </ion-button>
+<<<<<<< HEAD
   <ion-searchbar (ionChange)="consultar($event)"></ion-searchbar>
+=======
+<!-- // calendario -->
+>>>>>>> 1c8ea26d90e4f464489878deb7f37c75a10b963f
 
-  <ion-item>
-  </ion-item>
 
+
+
+<!-- // calendario -->
   <div class="ion-padding">
     <ngx-datatable class="material" [limit]="8" [rows]="rows" [rowHeight]="60" [columns]="columns" [columnMode]="'force'"
     [sortType]="" [headerHeight]="50" [footerHeight]="50" (activate)='onActivate($event)'>   
@@ -36,4 +75,7 @@
       </ngx-datatable-column> 
     </ngx-datatable>
   </div>
+
+ 
+
 </ion-content>

@@ -5,6 +5,7 @@ import { FirestoreService } from '../services/firestore.service';
 import { ForgotPasswordPage } from '../forgot-password/forgot-password.page';
 import { Usuario } from '../shared/userinterface';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 @Component({
   selector: 'app-add-users',
@@ -56,8 +57,20 @@ export class AddUsersPage implements OnInit {
   }
 
   async guardarUsuario(){
-    // const {user}=await this.afAuth.createUserWithEmailAndPassword(this.newUser.correo, this.newUser.password);
-    // await this.sendverificationEmail();
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, this.newUser.correo, this.newUser.password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+       this.sendverificationEmail();
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+      });
+     
 
     // this.newUser.password = user.uid;
     const id = this.database.getId();

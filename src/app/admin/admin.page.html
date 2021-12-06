@@ -2,13 +2,49 @@
   <ion-toolbar color="toolbar">
     <ion-buttons slot="start">
       <ion-button (click)="openMenu()"><ion-icon name="menu-sharp" class="icon-size"></ion-icon></ion-button>
-      <ion-title>RESERVAS GENERAL</ion-title>
+      <ion-title>RESERVAS GENERAL  {{viewTitle}} </ion-title>
     </ion-buttons>
     <ion-img src="assets/img/LogoBlancoCM.png" class="image-size"></ion-img>
   </ion-toolbar>
+
+  <!-- // calendario -->
+  <ion-navbar>
+    <ion-buttons end>
+        <button ion-button   [disabled]="isToday" (click)="today()">Hoy</button>
+        <button ion-button (click)="changeMode('month')">Mes</button>
+        <button ion-button (click)="changeMode('week')">Seman</button>
+        <button ion-button (click)="changeMode('day')">Dia</button>
+        <button ion-button (click)="loadEvents()">Reservas </button>
+    </ion-buttons>
+</ion-navbar>
+<!-- // calendario -->
 </ion-header>
 
 <ion-content >
+  <ion-card>
+    <calendar [eventSource]="eventSource"
+          [calendarMode]="calendar.mode"
+          [currentDate]="calendar.currentDate"
+          (onCurrentDateChanged)="onCurrentDateChanged($event)"
+          (onRangeChanged)="reloadSource(startTime, endTime)"
+          (onEventSelected)="onEventSelected($event)"
+          (onTitleChanged)="onViewTitleChanged($event)"
+          (onTimeSelected)="onTimeSelected($event)"
+          [step]="calendar.step"
+          [monthviewDisplayEventTemplate]="template">
+          
+      </calendar>
+      <ng-template #template let-view="view" let-row="row" let-col="col">
+        <div [class.with-event]="view.dates[row*7+col].events.length">
+          {{view.dates[row*7+col].label}}
+          <div class="indicator-container">
+            <div class="event-indicator" *ngFor="let e of view.dates[row*7+col].events"></div>
+          </div>
+        </div>
+      </ng-template>
+      </ion-card>
+
+
   <div class="ion-padding">
 
     <!-- Theme classes dark, material, bootstrap -->
