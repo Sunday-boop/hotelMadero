@@ -22,6 +22,7 @@ export class PriceBedroomsPage implements OnInit {
   precios: Precio[] = [];
   private path = 'Precio/';
   private id: Number;
+  textoConsultar = ''; 
 
   constructor(private http: HttpClient, public alerta: AlertController, private router: Router, public database: FirestoreService, private menucontroler: MenuController) { 
     this.columns = [
@@ -39,6 +40,7 @@ export class PriceBedroomsPage implements OnInit {
   }
 
   ngOnInit() {
+  
   }
 
   async alertaEliminar(){
@@ -65,12 +67,7 @@ export class PriceBedroomsPage implements OnInit {
     (await alert).present();
   }
 
-  onActivate(event) {
-    if (event.type == 'click') {
-       this.id = event.row.id
-       console.log(this.id)
-    }
-  }
+  
 
   deletePrecio(id){
     console.log('awebo ya podemos hacer el de eliminar '+ this.id)
@@ -108,4 +105,34 @@ export class PriceBedroomsPage implements OnInit {
   openMenu(){
     this.menucontroler.toggle('main-menu')
   }
+
+  onActivate(event) {
+    if (event.type == 'click') {
+       this.id = event.row.id
+       console.log(this.id)
+    }
+  }
+
+
+
+  consultar(event){
+    const path = 'Precio/';
+    this.textoConsultar = event.detail.value;
+
+    this.database.getCollectionConsulta<Precio>(path, 'habitacion', this.textoConsultar).subscribe( res =>{
+      console.log(res);
+      this.precios = res;
+      this.rows = this.precios;
+    });
+
+    if(this.textoConsultar == ''){
+      this.database.getCollection<Precio>(this.path).subscribe(res => {
+        this.precios = res;
+        this.rows = this.precios
+      });
+    }
+   
+  }
+
+
 }

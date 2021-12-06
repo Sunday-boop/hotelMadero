@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from "@angular/fire/compat/firestore";
+import { AngularFirestore, AngularFirestoreCollection } from "@angular/fire/compat/firestore";
 
 @Injectable({
   providedIn: 'root'
@@ -36,4 +36,13 @@ export class FirestoreService {
     const collection = this.database.collection<tipo>(path);
     return collection.valueChanges();
   }
+
+  getCollectionConsulta<tipo>(path: string, consulta: string, value: string){
+    const dataCollection: AngularFirestoreCollection<tipo> = 
+    this.database.collection<tipo>(path
+      ,ref => ref.where(consulta, '==', value)
+       .orderBy('fecha','desc'));
+    return dataCollection.valueChanges();  
+  }
+  
 }
