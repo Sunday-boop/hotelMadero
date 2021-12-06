@@ -29,6 +29,7 @@ export class LoginPage {
            const isVerified = this.authSvc.isEmailVerified(user);
            this.redirectUserC(isVerified);
          }
+         
        } catch (error) {
          console.log("Error=>",error)
        }
