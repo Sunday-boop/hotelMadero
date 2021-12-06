@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { FirestoreService } from '../services/firestore.service';
+import { Usuario } from '../shared/userinterface';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +11,14 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginPage {
 
-  constructor(private authSvc: AuthService, private router:Router) { }
+  constructor(private authSvc: AuthService, private router:Router, public database: FirestoreService) { }
 
   async onLogin(email, password){
+    const path = 'Usuario/';
+    this.database.getCollectionConsulta<Usuario>(path, 'correo', email.value).subscribe(res => {
+      console.log(res)
+    })  
+
     if(email.value == "l17121088@morelia.tecnm.mx" ){
       try {
            const user = await this.authSvc.login(email.value, password.value);
