@@ -23,7 +23,7 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule),
-    // canActivate:[AuthGuard]
+     //canActivate:[AuthGuard]
   },
   {
     path: 'verify-email',
@@ -46,7 +46,7 @@ const routes: Routes = [
   {
     path: 'users',
     loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule),
-    // canActivate:[AuthGuard]
+     //canActivate:[AuthGuard]
   },
   {
     path: 'add-users',
@@ -71,7 +71,8 @@ const routes: Routes = [
   },
   {
     path: 'busqueda',
-    loadChildren: () => import('./busqueda/busqueda.module').then( m => m.BusquedaPageModule)
+    loadChildren: () => import('./busqueda/busqueda.module').then( m => m.BusquedaPageModule),
+    //canActivate:[AuthGuard]
   },
   {
     path: 'my-reservations',
