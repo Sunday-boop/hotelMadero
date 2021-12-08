@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { FirestoreService } from '../services/firestore.service';
-import { Precio } from '../shared/userinterface';
+import { Habitacion, Precio } from '../shared/userinterface';
 
 @Component({
   selector: 'app-edit-price',
@@ -24,6 +24,7 @@ export class EditPricePage implements OnInit {
 
   private id: string;
 
+  habitaciones: Habitacion[] = [];
   constructor(public alerta: AlertController, private activateRoute: ActivatedRoute,private router:Router, public database: FirestoreService) { }
 
   ngOnInit() {
@@ -32,6 +33,7 @@ export class EditPricePage implements OnInit {
       console.log(res)
       this.newPrecio = res
     });
+    this.getHabitaciones()
   }
 
   async alertaRegresar(){
@@ -60,6 +62,14 @@ export class EditPricePage implements OnInit {
   editarPrecio(){
     this.database.updateDoc(this.newPrecio, this.path, this.newPrecio.id)
     this.router.navigate(['price-bedrooms'])
+  }
+
+  getHabitaciones(){
+    const path = 'Habitacion/'
+    this.database.getCollection<Habitacion>(path).subscribe(res => {
+      this.habitaciones = res
+      console.log(this.habitaciones)
+    });
   }
 
 }
