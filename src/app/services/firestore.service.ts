@@ -3,7 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection } from "@angular/fire/comp
 
 @Injectable({
   providedIn: 'root'
-})
+}) 
 export class FirestoreService {
 
   constructor(public database: AngularFirestore) { }
@@ -38,7 +38,12 @@ export class FirestoreService {
   }
 
   getCollectionConsulta<tipo>(path: string, consulta: string, value){
-    const collection: AngularFirestoreCollection<tipo> = this.database.collection<tipo>(path, ref => ref.where(consulta, '==', value));
+    const collection: AngularFirestoreCollection<tipo> = this.database.collection<tipo>(path, ref =>
+       ref.where(consulta, '==', value)
+       
+       
+       );
+       
     return collection.valueChanges();
   }
 }
