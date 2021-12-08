@@ -145,7 +145,6 @@ export class PriceBedroomsPage implements OnInit {
     this.menucontroler.toggle('main-menu')
   }
 
-<<<<<<< HEAD
   onActivate(event) {
     if (event.type == 'click') {
        this.id = event.row.id
@@ -173,7 +172,6 @@ export class PriceBedroomsPage implements OnInit {
     }
    
   }
-=======
 
 ///----------------------------------------------
 
@@ -255,7 +253,6 @@ markDisabled = (date:Date) => {
   current.setHours(0, 0, 0);
   return date < current;
 };
->>>>>>> 1c8ea26d90e4f464489878deb7f37c75a10b963f
 
 
 }

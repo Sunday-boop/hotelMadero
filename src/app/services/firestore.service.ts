@@ -37,16 +37,8 @@ export class FirestoreService {
     return collection.valueChanges();
   }
 
-<<<<<<< HEAD
-  getCollectionConsulta<tipo>(path: string, consulta: string, value: string){
-    const dataCollection: AngularFirestoreCollection<tipo> = 
-    this.database.collection<tipo>(path
-      ,ref => ref.where(consulta, '==', value)
-       .orderBy('fecha','desc'));
-    return dataCollection.valueChanges();  
-  }
+
   
-=======
   getCollectionConsulta<tipo>(path: string, consulta: string, value){
     const collection: AngularFirestoreCollection<tipo> = this.database.collection<tipo>(path, ref =>
        ref.where(consulta, '==', value)
@@ -56,5 +48,4 @@ export class FirestoreService {
        
     return collection.valueChanges();
   }
->>>>>>> 1c8ea26d90e4f464489878deb7f37c75a10b963f
 }
