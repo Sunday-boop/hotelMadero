@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { FirestoreService } from '../services/firestore.service';
-import { Precio } from '../shared/userinterface';
+import { Habitacion, Precio } from '../shared/userinterface';
 
 @Component({
   selector: 'app-add-price',
@@ -21,9 +21,13 @@ export class AddPricePage implements OnInit {
 
   private path = 'Precio/'
 
-  constructor(public alerta: AlertController, public afAuth:AngularFireAuth, private router:Router, public database: FirestoreService) { }
+  habitaciones: Habitacion[] = [];
+  constructor(public alerta: AlertController, public afAuth:AngularFireAuth, private router:Router, public database: FirestoreService) {
+    
+  }
 
   ngOnInit() {
+    this.getHabitaciones()
   }
 
   async alertaRegresar(){
@@ -53,6 +57,14 @@ export class AddPricePage implements OnInit {
   async guardarPrecio(){
     this.database.creatDoc(this.newPrecio, this.path, this.newPrecio.id)
     this.router.navigate(['price-bedrooms'])
+  }
+
+  getHabitaciones(){
+    const path = 'Habitacion/'
+    this.database.getCollection<Habitacion>(path).subscribe(res => {
+      this.habitaciones = res
+      console.log(this.habitaciones)
+    });
   }
 
 }
