@@ -43,3 +43,18 @@ export interface Precio{
     fecha: Date;
     precio: number;
 }
+
+export interface Reserva{
+    checkIn: string;
+    checkOut: string;
+    correoCliente: string;
+    estado: string;
+    fechaRealizacion: string;
+    idReserva: string;
+    idUsuario: string;
+    monto: number;
+    nombreCliente: string;
+    numeroTarjeta: string;
+    telefonoCliente: number;
+    titularTarjeta: string;
+}
