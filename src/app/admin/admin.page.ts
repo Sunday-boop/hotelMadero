@@ -64,11 +64,13 @@ export class AdminPage{
   public columns: any;
   public rows: any;
 
-  reservas: Reserva[] = [];
+
+     reservas: Reserva[] = [];
   private path = 'Reserva/';
   private id: Number;
 
   constructor(private router:Router, private authSvc:AuthService, private menucontroler: MenuController, public database: FirestoreService, private http: HttpClient,  private navController:NavController) { 
+    this.loadEvents();
     this.columns = [
       { name: 'checkIn' },
       { name: 'checkOut' },

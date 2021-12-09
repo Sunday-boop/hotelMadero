@@ -57,7 +57,7 @@ export class PriceBedroomsPage implements OnInit {
   public data: Data;
   public columns: any;
   public rows: any;
-
+  public preciosCal: Precio[] = [];
   precios: Precio[] = [];
   private path = 'Precio/';
   private id: Number;
@@ -73,13 +73,17 @@ export class PriceBedroomsPage implements OnInit {
 
     this.database.getCollection<Precio>(this.path).subscribe(res => {
       this.precios = res;
+      
       this.rows = this.precios
+     
     });
 
   }
 
   ngOnInit() {
-  
+   
+     this.loadEvents();
+   
   }
 
   async alertaEliminar(){
@@ -152,22 +156,26 @@ export class PriceBedroomsPage implements OnInit {
     }
   }
 
-
+ 
 
   consultar(event){
     const path = 'Precio/';
     this.textoConsultar = event.detail.value;
 
     this.database.getCollectionConsulta<Precio>(path, 'habitacion', this.textoConsultar).subscribe( res =>{
-      console.log(res);
+      console.log(res+ "fffffff");
       this.precios = res;
+     
       this.rows = this.precios;
+    
+        
     });
 
     if(this.textoConsultar == ''){
       this.database.getCollection<Precio>(this.path).subscribe(res => {
         this.precios = res;
         this.rows = this.precios
+        
       });
     }
    
@@ -176,7 +184,23 @@ export class PriceBedroomsPage implements OnInit {
 ///----------------------------------------------
 
 loadEvents() {
-  this.eventSource = this.createRandomEvents();
+ var g =  this.database.getCollection<Precio>(this.path).subscribe(res => {
+    // items.map(item =>{
+ 
+      this.preciosCal=res
+      for(var i = 0; i < this.preciosCal.length; i += 1){
+        console.log("wwopopop "+this.preciosCal[i].precio);
+          }
+      
+      this.eventSource = this.createRandomEvents();
+    // }
+    // );
+        
+  });
+for(var i = 0; i < this.preciosCal.length; i += 1){
+      console.log("ww "+this.preciosCal[i]);
+        }
+  
 }
 
 onViewTitleChanged(title) {
@@ -196,6 +220,8 @@ today() {
 }
 
 onTimeSelected(ev) {
+
+
   console.log('Selected time: ' + ev.selectedTime + ', hasEvents: ' +
       (ev.events !== undefined && ev.events.length !== 0) + ', disabled: ' + ev.disabled);
 }
@@ -209,26 +235,37 @@ onCurrentDateChanged(event:Date) {
 
 createRandomEvents() {
   var events = [];
-  for (var i = 0; i < 50; i += 1) {
+ 
+ 
+
+  for(var i = 0; i <this.preciosCal.length ; i += 1){
+    console.log("wwxx "+this.preciosCal[i].habitacion);
+      }
+
+
+  for (var i = 0; i <this.preciosCal.length; i += 1) {
       var date = new Date();
-      var eventType = Math.floor(Math.random() * 2);
-      var startDay = Math.floor(Math.random() * 90) - 45;
-      var endDay = Math.floor(Math.random() * 2) + startDay;
+      var eventType = 0;
+      var startDay = 0;
+      var endDay = 1+ startDay;
       var startTime;
       var endTime;
       if (eventType === 0) {
           startTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + startDay));
+          
           if (endDay === startDay) {
               endDay += 1;
           }
           endTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + endDay));
+
           events.push({
-              title: 'All Day - ' + i,
+              title: 'Habitacion : ' + this.preciosCal[i].habitacion +'  Precio: $'+ this.preciosCal[i].precio,
               startTime: startTime,
               endTime: endTime,
               allDay: true
           });
       } else {
+        //gnera la hora del evento
           var startMinute = Math.floor(Math.random() * 24 * 60);
           var endMinute = Math.floor(Math.random() * 180) + startMinute;
           startTime = new Date(date.getFullYear(), date.getMonth(), date.getDate() + startDay, 0, date.getMinutes() + startMinute);
@@ -241,6 +278,7 @@ createRandomEvents() {
           });
       }
   }
+
   return events;
 }
 
