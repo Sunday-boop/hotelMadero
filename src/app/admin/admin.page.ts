@@ -63,6 +63,7 @@ export class AdminPage{
   public rows: any;
 
   constructor(private router:Router, private authSvc:AuthService, private menucontroler: MenuController, private http: HttpClient,  private navController:NavController) { 
+    this.loadEvents()
     this.columns = [
       { name: 'ID' },
       { name: 'FECHA' },
