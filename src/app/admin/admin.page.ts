@@ -7,6 +7,8 @@ import { ViewEncapsulation } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { NavController } from '@ionic/angular';
 import { CalendarMode, Step } from 'ionic2-calendar/calendar';
+import { Reserva } from '../shared/userinterface';
+import { FirestoreService } from '../services/firestore.service';
 
 export interface Data {
   reservas: string;
@@ -62,25 +64,32 @@ export class AdminPage{
   public columns: any;
   public rows: any;
 
-  constructor(private router:Router, private authSvc:AuthService, private menucontroler: MenuController, private http: HttpClient,  private navController:NavController) { 
-    this.loadEvents()
+
+     reservas: Reserva[] = [];
+  private path = 'Reserva/';
+  private id: Number;
+
+  constructor(private router:Router, private authSvc:AuthService, private menucontroler: MenuController, public database: FirestoreService, private http: HttpClient,  private navController:NavController) { 
+    this.loadEvents();
     this.columns = [
-      { name: 'ID' },
-      { name: 'FECHA' },
-      { name: 'CLIENTE' },
-      { name: 'HABITACIONES' },
-      { name: 'EMPLEADO' },
-      { name: 'TOTAL' },
-      { name: 'VER MAS', prop: 'Id'}
+      { name: 'checkIn' },
+      { name: 'checkOut' },
+      { name: 'correoCliente' },
+      { name: 'estado' },
+      { name: 'fechaRealizacion'},
+      { name: 'idReserva'},
+      { name: 'idUsuario'},
+      { name: 'monto'},
+      { name: 'nombreCliente'},
+      { name: 'numeroTarjeta'},
+      { name: 'telefonoCliente'},
+      { name: 'titularTarjeta'},
     ];
 
-    this.http.get<Data>('../../assets/reservas.json')
-      .subscribe((res) => {
-        console.log(res)
-        
-        this.rows = res.reservas;
-       
-      });
+    this.database.getCollection<Reserva>(this.path).subscribe(res => {
+      this.reservas = res;
+      this.rows = this.reservas;
+    });
 
   }
 

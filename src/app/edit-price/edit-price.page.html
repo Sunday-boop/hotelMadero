@@ -17,7 +17,7 @@
         <ion-item lines="full">
           <ion-label position="floating">Habitación</ion-label>
           <ion-select [(ngModel)]="newPrecio.habitacion" name="habitacion">
-            <ion-select-option *ngFor="let habitacion of habitaciones">{{habitacion.numero}}</ion-select-option>
+            <ion-select-option *ngFor="let habitacion of habitaciones" value="{{habitacion.numero}}">{{habitacion.numero}}</ion-select-option>
           </ion-select>
         </ion-item>
         <ion-item lines="full">

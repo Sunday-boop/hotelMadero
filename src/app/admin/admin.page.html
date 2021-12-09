@@ -49,13 +49,13 @@
     <ngx-datatable class="material" [limit]="8" [rows]="rows" [rowHeight]="60" [columns]="columns" [columnMode]="'force'"
        [headerHeight]="50" [footerHeight]="50">
     
-      <ngx-datatable-column name="ID"></ngx-datatable-column>
-      <ngx-datatable-column name="FECHA"></ngx-datatable-column>
-      <ngx-datatable-column name="CLIENTE"></ngx-datatable-column>
-      <ngx-datatable-column name="HABITACIONES"></ngx-datatable-column>
-      <ngx-datatable-column name="EMPLEADO"></ngx-datatable-column>
-      <ngx-datatable-column name="TOTAL"></ngx-datatable-column>
-      <ngx-datatable-column name="VER MAS" prop="Id">
+      <ngx-datatable-column name="idReserva"></ngx-datatable-column>
+      <ngx-datatable-column name="checkIn"></ngx-datatable-column>
+      <ngx-datatable-column name="checkOut"></ngx-datatable-column>
+      <ngx-datatable-column name="correoCliente"></ngx-datatable-column>
+      <ngx-datatable-column name="estado"></ngx-datatable-column>
+      <ngx-datatable-column name="monto"></ngx-datatable-column>
+      <ngx-datatable-column name="Opciones">
         <ng-template ngx-datatable-cell-template >
           <ion-button color="primary">
             <ion-icon name="pencil-sharp"></ion-icon>
