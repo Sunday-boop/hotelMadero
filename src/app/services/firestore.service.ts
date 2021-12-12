@@ -48,4 +48,10 @@ export class FirestoreService {
        
     return collection.valueChanges();
   }
+
+  getCollectionOrdenada<tipo>(path: string, order:string, consulta: string, value){
+    const collection = this.database.collection<tipo>(path, ref =>
+      ref.where(consulta, '>=', value));
+    return collection.valueChanges();
+  }
 }

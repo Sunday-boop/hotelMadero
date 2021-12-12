@@ -71,7 +71,17 @@ export class PriceBedroomsPage implements OnInit {
       { name: 'precio' },
     ];
 
-    this.database.getCollection<Precio>(this.path).subscribe(res => {
+    var fullDate = new Date(); console.log(fullDate);
+    var twoDigitMonth = fullDate.getMonth() + "";
+    if (twoDigitMonth.length == 1)
+      twoDigitMonth = "0" + twoDigitMonth;
+
+    var twoDigitDate = fullDate.getDate() + "";
+    if (twoDigitDate.length == 1)
+      twoDigitDate = "0" + twoDigitDate;
+    var currentDate = fullDate.getFullYear() + "" + (parseInt(twoDigitMonth) + 1) + "" + parseInt(twoDigitDate); console.log("fgf" + parseInt(currentDate));
+
+    this.database.getCollectionOrdenada<Precio>(this.path, 'fecha', 'date', parseInt(currentDate)).subscribe(res => {
       this.precios = res;
       
       this.rows = this.precios

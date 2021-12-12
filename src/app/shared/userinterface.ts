@@ -40,8 +40,9 @@ export interface Habitacion{
 export interface Precio{
     id: string;
     habitacion: string;
-    fecha: Date;
+    date: number;
     precio: number;
+    fecha: string;
 }
 
 export interface Reserva{
