@@ -16,8 +16,9 @@ export class EditPricePage implements OnInit {
   newPrecio: Precio = {
     id: '',
     habitacion: '',
-    fecha: null,
+    date: null,
     precio: null,
+    fecha: '',
   }
 
   private path = 'Precio/';
