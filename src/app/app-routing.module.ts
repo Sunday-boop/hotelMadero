@@ -62,7 +62,7 @@ const routes: Routes = [
     loadChildren: () => import('./edit-bedrooms/edit-bedrooms.module').then( m => m.EditBedroomsPageModule)
   },
   {
-    path: 'hab-dis',
+    path: 'hab-dis/:fechaInicio/:fechaFin',
     loadChildren: () => import('./hab-dis/hab-dis.module').then( m => m.HabDisPageModule)
   },
   {
