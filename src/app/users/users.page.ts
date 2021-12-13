@@ -3,7 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { ViewEncapsulation } from '@angular/core';
 import { FirestoreService } from '../services/firestore.service';
 import { Habitacion, Usuario } from '../shared/userinterface';
-import { MenuController } from '@ionic/angular';
+import { AlertController, MenuController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { deleteUser, getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
 
 export interface Data {
   usuarios: string;
@@ -22,9 +25,13 @@ export class UsersPage implements OnInit {
 
   usuarios: Usuario[] = [];
   private path = 'Usuario/';
+  private id: Number;
+  private password: string;
+  private correo: string;
 
-  constructor(private http: HttpClient, public database: FirestoreService, private menucontroler: MenuController) {
+  constructor(private http: HttpClient, public alerta: AlertController, private router: Router, public database: FirestoreService, private menucontroler: MenuController) {
     this.columns = [
+      { name: 'id'},
       { name: 'nombre' },
       { name: 'apellidoP' },
       { name: 'apellidoM' },
@@ -43,6 +50,49 @@ export class UsersPage implements OnInit {
 
   openMenu(){
     this.menucontroler.toggle('main-menu')
+  }
+
+  onActivate(event) {
+    if (event.type == 'click') {
+       this.id = event.row.id
+       this.password = event.row.password
+       this.correo = event.row.correo
+    }
+  }
+
+  async alertaEliminar(){
+    let alert = this.alerta.create({
+      header: 'Advertencia',
+      message: 'Estas seguro que deseas elminar esta habitacion?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Aceptar',
+          handler: () => {
+            this.deleteUsu(this.id, this.correo, this.password)
+            this.router.navigate(['users'])
+          }
+        }
+      ]
+    });
+    (await alert).present();
+  }
+
+  deleteUsu(id, correo, password){
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, correo, password).then(function (info) {
+      var user = getAuth().currentUser;
+      user.delete();
+    });
+   this.database.deleteDoc(this.path, id)
+    // console.log(user)
+    // deleteUser(user)
   }
 }
 

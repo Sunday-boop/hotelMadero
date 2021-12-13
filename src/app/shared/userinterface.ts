@@ -22,7 +22,7 @@ export interface Usuario{
     telefono: number;
     fechaNac: Date;
     tipoU: string;
-    
+    id: string;
 }
 
 export interface Habitacion{
