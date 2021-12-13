@@ -54,6 +54,10 @@
             <ion-select-option value="Queen Size">Queen Size</ion-select-option>
           </ion-select>
         </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Descripción</ion-label>
+          <ion-textarea [(ngModel)]="newHabitacion.descripcion"></ion-textarea>
+        </ion-item>
         <ion-row>
           <ion-col>
             <ion-button  expand="block" (click)="editarHabitacion()" >Guardar</ion-button>

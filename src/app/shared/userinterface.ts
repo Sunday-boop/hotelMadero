@@ -35,6 +35,7 @@ export interface Habitacion{
     tipo: string;
     numeroCama: number;
     tipoCama: string;
+    descripcion: string;
 }
 
 export interface Precio{
