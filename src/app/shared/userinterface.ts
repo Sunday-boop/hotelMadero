@@ -47,15 +47,18 @@ export interface Precio{
 
 export interface Reserva{
     checkIn: string;
+    checkInInt: number;
     checkOut: string;
+    checkOutInt: number;
     correoCliente: string;
     estado: string;
     fechaRealizacion: string;
+    habitacion: number;
     idReserva: string;
     idUsuario: string;
     monto: number;
     nombreCliente: string;
-    numeroTarjeta: string;
+    numeroTarjeta: number;
     telefonoCliente: number;
     titularTarjeta: string;
 }
