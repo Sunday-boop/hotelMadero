@@ -22,6 +22,7 @@ export class RegistroPage implements OnInit {
     telefono: null,
     fechaNac: null,
     tipoU: '',
+    id: '',
   }
 
   private path = 'Usuario/'
@@ -58,9 +59,10 @@ export class RegistroPage implements OnInit {
   async onRegister(email, password){
     try {
       const user = await this.authSvc.register(email.value, password.value);
-      this.newUser.password = user.uid;
+      // this.newUser.password = user.uid;
       this.newUser.tipoU = 'Cliente';
       const id = this.database.getId();
+      this.newUser.id = id;
       this.database.creatDoc(this.newUser, this.path, id)
       // this.router.navigate(['users'])
       if (user) {

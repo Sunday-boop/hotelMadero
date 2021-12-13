@@ -16,13 +16,11 @@
       <div class="centrar-div">
         <ion-item lines="full">
           <ion-label position="floating">Habitación</ion-label>
-          <ion-select [(ngModel)]="newPrecio.habitacion" name="habitacion">
-            <ion-select-option *ngFor="let habitacion of habitaciones" value="{{habitacion.numero}}">{{habitacion.numero}}</ion-select-option>
-          </ion-select>
+          <ion-input [(ngModel)]="newPrecio.habitacion" name="fecha" type="text" disabled="true"></ion-input>
         </ion-item>
         <ion-item lines="full">
           <ion-label position="floating">Fecha</ion-label>
-          <ion-input [(ngModel)]="newPrecio.fecha" name="fecha" type="date" required></ion-input>
+          <ion-input [(ngModel)]="newPrecio.fecha" name="fecha" type="date" disabled="true"></ion-input>
         </ion-item>
         <ion-item lines="full">
           <ion-label position="floating">Precio</ion-label>

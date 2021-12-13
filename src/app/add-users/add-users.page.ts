@@ -23,6 +23,7 @@ export class AddUsersPage implements OnInit {
     telefono: null,
     fechaNac: null,
     tipoU: '',
+    id: '',
   }
 
   private path = 'Usuario/'
@@ -74,6 +75,7 @@ export class AddUsersPage implements OnInit {
 
     // this.newUser.password = user.uid;
     const id = this.database.getId();
+    this.newUser.id = id;
     this.database.creatDoc(this.newUser, this.path, id)
     this.router.navigate(['users'])
   }
