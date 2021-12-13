@@ -58,6 +58,10 @@
           <ion-label position="floating">Descripción</ion-label>
           <ion-textarea [(ngModel)]="newHabitacion.descripcion"></ion-textarea>
         </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Link de la imagen</ion-label>
+          <ion-input [(ngModel)]="newHabitacion.imagen" name="imagen" type="text" required></ion-input>
+        </ion-item>
         <ion-row>
           <ion-col>
             <ion-button type="submit" (click)="guardarHabitacion()" expand="block">Guardar</ion-button>

@@ -22,28 +22,44 @@
               <ion-grid>
                 <ion-row>
                   <ion-col size="3">
-                    <img src="assets/img/div-back.jpg" class="image-size_h centrar">
+                    <img src="{{habitacion.imagen}}" class="image-size_h centrar">
                   </ion-col>
                   <ion-col size="9">
-                    <ion-item>
-                      <ion-icon name="pin" slot="start"></ion-icon>
-                      <ion-label>Master Suite ($1800.00 MX) Una noche</ion-label>
-                      <ion-button fill="outline" routerLink="/add-reservation" color="medium">Reservar</ion-button>
-                    </ion-item>
-  
-                    <ion-card-content>
-                      Esta habitación se distingue por su encantadora decoración tipo clasica,
-                      además coincide con gustos coloniales y cuenta con vista desplejada
-                      <br>
-                      <br>
-                      DETALLES.
-                      <br>
-                      1. Cama King Size.
-                      <br>
-                      2. Para dos personas
-                      <br>
-                      3. Desayuno incluido
-                    </ion-card-content>
+                    <ion-row>
+                      <ion-col>
+                        <ion-item>
+                          <ion-icon name="pin" slot="start"></ion-icon>
+                          <ion-label>{{habitacion.tipo}} </ion-label>
+                          <ion-button fill="outline" routerLink="/add-reservation" color="medium">Reservar</ion-button>
+                        </ion-item>
+                      </ion-col>                    
+                    </ion-row>
+                    <ion-row>
+                      <ion-col size="6">
+                        <ion-card-content>
+                          {{habitacion.descripcion}}
+                          <br>
+                          <br>
+                          Habitación numero: {{habitacion.numero}}
+                          <br>
+                          Edificio: {{habitacion.edificio}}
+                          <br>
+                          Piso: {{habitacion.piso}}
+                        </ion-card-content>
+                      </ion-col>
+                      <ion-col size="6">
+                        <ion-card-content>
+                          <br>
+                          <br>
+                          DETALLES.
+                          <br>
+                          Cuenta con: {{habitacion.numeroCama}} cama(s) , tipo {{habitacion.tipoCama}}
+                          <br>
+                          Tiene capacidad para:
+                          {{habitacion.capacidadA}} adultos y {{habitacion.capacidadM}} menor
+                        </ion-card-content>
+                      </ion-col>
+                    </ion-row>
                   </ion-col>
                 </ion-row>
               </ion-grid>
