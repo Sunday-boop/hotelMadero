@@ -14,10 +14,16 @@ import { Habitacion } from '../shared/userinterface';
 export class HabDisPage implements OnInit {
   private path = 'Reserva/';
   private pathh = 'Habitacion/';
+  private pathhh = 'Precio/'
   reservas: Reserva[] = [];
   NumeroHabDisp: number[] = [];
   HabitacionesDiso: Habitacion[] = [];
   habitacionesDisponibles: Habitacion[]=[];
+   //pa sacar los dias linea 19
+ public NumeroDeDiasHospedados: number[] = [];
+ //pa guardar las cantidades a cobrar linea 21
+ PreciosAPagar: number[] = [];
+  precios: Precio[];
 
 
   constructor(private router:Router, public database: FirestoreService, private activateRoute: ActivatedRoute, private authSvc:AuthService, private menucontroler: MenuController) { }
@@ -85,6 +91,10 @@ export class HabDisPage implements OnInit {
   for(let index = 0; index < this.NumeroHabDisp.length; index++){
 console.log("xoxox"+  this.NumeroHabDisp[index] )
   }
+  for(fechaECliente; fechaECliente <= fechaSCliente; fechaECliente++){
+    //console.log("kkkkkk"+fechaECliente)
+    this.NumeroDeDiasHospedados.push(fechaECliente);
+  }
 
 this.database.getCollection<Habitacion>(this.pathh).subscribe(res => {
 
@@ -103,9 +113,60 @@ this.database.getCollection<Habitacion>(this.pathh).subscribe(res => {
 
       
 });  
+ this.PrecioFinal()
+
+  }
+
+
+  PrecioFinal(){
+
+   
+    // for(let i=0; i < this.NumeroDeDiasHospedados.length; i++){
+    //   console.log("kkkkkk"+this.NumeroDeDiasHospedados[i])
+      
+    // }
+    var fullDate = new Date(); console.log(fullDate);
+    var twoDigitMonth = fullDate.getMonth() + "";
+    if (twoDigitMonth.length == 1)
+      twoDigitMonth = "0" + twoDigitMonth;
+
+    var twoDigitDate = fullDate.getDate() + "";
+    if (twoDigitDate.length == 1)
+      twoDigitDate = "0" + twoDigitDate;
+    var currentDate = fullDate.getFullYear() + "" + (parseInt(twoDigitMonth) + 1) + "" + parseInt(twoDigitDate); 
+
+    
+    this.database.getCollectionOrdenada<Precio>(this.pathhh, 'fecha', 'date', parseInt(currentDate)).subscribe(res => {
+      this.precios = res;
+       console.log("entrogg")
+        
+        for(let index = 0; index < this.precios.length; index++){
+          console.log("entra el primer if");
+          for(let indexx = 0; indexx <this.NumeroDeDiasHospedados.length; indexx++){
+            console.log("entra a el segundo"+this.NumeroDeDiasHospedados[indexx]+"  "+this.precios[index].date);
+              if( this.NumeroDeDiasHospedados[indexx]== this.precios[index].date){
+                console.log("entra al if gg"+this.precios[index].precio);
+                     this.PreciosAPagar.push(this.precios[index].precio)
+                if(this.NumeroDeDiasHospedados.length == this.PreciosAPagar.length) {
+                       break;
+                }
+              }
+            
+            }
+        }
+
+        for(let i=0; i < this.PreciosAPagar.length; i++){
+            console.log("pagarpagar"+this.PreciosAPagar[i])
+            
+          }
+
+
+    });
 
 
   }
+
+
 
 
 }
