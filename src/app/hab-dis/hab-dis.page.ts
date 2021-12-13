@@ -44,21 +44,28 @@ export class HabDisPage implements OnInit {
     var ArraydehabitacionesOcupa = new Array();
 
     for (var i = 0; i < this.reservas.length; i += 1) {
-      if (this.reservas[i].checkInInt <= fechaECliente && this.reservas[i].checkOutInt <= fechaECliente) {
-        if (this.reservas[i].checkInInt <= fechaSCliente && this.reservas[i].checkOutInt <= fechaSCliente) {
-          if (this.reservas[i].checkInInt >= fechaECliente && this.reservas[i].checkOutInt >= fechaECliente) {
-            if (this.reservas[i].checkInInt >= fechaSCliente && this.reservas[i].checkOutInt >= fechaSCliente) {
-            } else {
-              ArraydehabitacionesOcupa.push(this.reservas[i].habitacion);
-            }
+      console.log("primer if"+this.reservas[i].checkInInt + " "+ fechaECliente+ "jdhdhdhdhdh" +this.reservas[i].checkOutInt+" "+fechaSCliente );
+      if (this.reservas[i].checkInInt <= fechaECliente && this.reservas[i].checkOutInt <= fechaSCliente) {
+        console.log("segundo if"+this.reservas[i].checkInInt + " "+ fechaECliente+ "jdhdhdhdhdh" +this.reservas[i].checkOutInt+" "+fechaSCliente );
+        if (this.reservas[i].checkInInt <= fechaSCliente && this.reservas[i].checkOutInt <= fechaECliente) {
+       
+        } else {
+          if (this.reservas[i].checkInInt >= fechaSCliente && this.reservas[i].checkOutInt >= fechaSCliente) {
           } else {
             ArraydehabitacionesOcupa.push(this.reservas[i].habitacion);
           }
-        } else {
-          ArraydehabitacionesOcupa.push(this.reservas[i].habitacion);
         }
       } else {
+       if(this.reservas[i].checkInInt >= fechaECliente && this.reservas[i].checkOutInt >= fechaECliente){
+        if (this.reservas[i].checkInInt >= fechaSCliente && this.reservas[i].checkOutInt >= fechaSCliente) {
+            } else {
+              ArraydehabitacionesOcupa.push(this.reservas[i].habitacion);
+            }
+       }else{
         ArraydehabitacionesOcupa.push(this.reservas[i].habitacion);
+       }
+
+
       }
     }
 
