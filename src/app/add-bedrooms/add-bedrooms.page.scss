@@ -28,10 +28,14 @@ ion-header{
 .centrar-elementos{
     display: flex;
     align-items: center;
-    height: 95%;
+    max-height: 95%;
+    flex-direction: column;
     width: 40%;
     margin-right: auto;
     margin-left: auto;
+    flex-wrap: nowrap;
+    overflow-y: scroll!important;
+    overflow-x: hidden;
 }
 
 .centrar-div{
@@ -42,5 +46,6 @@ ion-header{
 
 ion-content{
     --background: #cecece;
+    height: 5000px;
     // --background-color: black;
 }

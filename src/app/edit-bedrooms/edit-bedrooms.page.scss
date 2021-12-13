@@ -29,9 +29,13 @@ ion-header{
     display: flex;
     align-items: center;
     height: 95%;
+    flex-direction: column;
     width: 40%;
     margin-right: auto;
     margin-left: auto;
+    flex-wrap: nowrap;
+    overflow-y: scroll!important;
+    overflow-x: hidden;
 }
 
 .centrar-div{

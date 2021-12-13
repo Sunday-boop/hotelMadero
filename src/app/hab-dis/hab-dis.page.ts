@@ -17,6 +17,7 @@ export class HabDisPage implements OnInit {
   reservas: Reserva[] = [];
   NumeroHabDisp: number[] = [];
   HabitacionesDiso: Habitacion[] = [];
+  habitacionesDisponibles: Habitacion[]=[];
 
 
   constructor(private router:Router, public database: FirestoreService, private activateRoute: ActivatedRoute, private authSvc:AuthService, private menucontroler: MenuController) { }
@@ -93,6 +94,7 @@ this.database.getCollection<Habitacion>(this.pathh).subscribe(res => {
    for(let indexx = 0; indexx < this.NumeroHabDisp.length; indexx++){
           if(this.NumeroHabDisp[indexx]==this.HabitacionesDiso[index].numero){
             console.log("edded"+this.HabitacionesDiso[index].numero);
+            this.habitacionesDisponibles.push(this.HabitacionesDiso[index])
           }
        }
    
