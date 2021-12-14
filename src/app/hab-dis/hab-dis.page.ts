@@ -158,3 +158,4 @@ export class HabDisPage implements OnInit {
     this.router.navigate(['add-reservation/'+this.activateRoute.snapshot.paramMap.get('fechaInicio')+'/'+this.activateRoute.snapshot.paramMap.get('fechaFin')+'/'+habitacion+'/'+monto])
   }
 }
+ 
