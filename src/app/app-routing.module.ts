@@ -66,7 +66,7 @@ const routes: Routes = [
     loadChildren: () => import('./hab-dis/hab-dis.module').then( m => m.HabDisPageModule)
   },
   {
-    path: 'add-reservation',
+    path: 'add-reservation/:fechaInicio/:fechaFin/:habitacion/:monto',
     loadChildren: () => import('./add-reservation/add-reservation.module').then( m => m.AddReservationPageModule)
   },
   {

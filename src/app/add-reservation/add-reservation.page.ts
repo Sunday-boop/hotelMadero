@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
+import { FirestoreService } from '../services/firestore.service';
+import { Habitacion } from '../shared/userinterface';
 
 @Component({
   selector: 'app-add-reservation',
@@ -10,9 +12,22 @@ import { AuthService } from '../services/auth.service';
 })
 export class AddReservationPage implements OnInit {
 
-  constructor(private router:Router, private authSvc:AuthService, private menucontroler: MenuController) { }
+  newHabitacion: Habitacion [] = [];
+
+  private path = 'Habitacion/';
+  private id: string;
+  
+  constructor(private router:Router, 
+    private activateRoute: ActivatedRoute,
+    private authSvc:AuthService, 
+    public database: FirestoreService,
+    private menucontroler: MenuController) { }
 
   ngOnInit() {
+    this.id = this.activateRoute.snapshot.paramMap.get('habitacion');
+    this.database.getCollectionConsulta<Habitacion>(this.path, 'numero', parseInt(this.id)).subscribe(res => {
+      this.newHabitacion = res
+    });
   }
 
   async onLogout(){

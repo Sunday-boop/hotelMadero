@@ -110,7 +110,7 @@ export class HabDisPage implements OnInit {
             this.habitacionesDisponibles.push(this.HabitacionesDiso[index])
           }
         }
- 
+
       }
 
 
@@ -133,33 +133,28 @@ export class HabDisPage implements OnInit {
       twoDigitDate = "0" + twoDigitDate;
     var currentDate = fullDate.getFullYear() + "" + (parseInt(twoDigitMonth) + 1) + "" + parseInt(twoDigitDate);
 
-
     this.database.getCollectionOrdenada<Precio>(this.pathhh, 'fecha', 'date', parseInt(currentDate)).subscribe(res => {
       this.precios = res;
- var io=0;
+      var io = 0;
       for (let index = 0; index < this.precios.length; index++) {
 
         if (fechaECliente == this.precios[index].date && this.NumeroHabDisp.includes(parseInt(this.precios[index].habitacion))) {
- console.log("mesa msa "+ index+" "+this.habitacionesDisponibles.length)
+          console.log("mesa msa " + index + " " + this.habitacionesDisponibles.length)
 
-   if(io<= this.habitacionesDisponibles.length){
-          var t = this.precios[index].precio
-          this.habitacionesDisponibles[io].monto = (t * this.NumeroDeDiasHospedados.length)
-          io++;
-          console.log("tttggg"+io)
-}
-
+          if (io <= this.habitacionesDisponibles.length) {
+            var t = this.precios[index].precio
+            this.habitacionesDisponibles[io].monto = (t * this.NumeroDeDiasHospedados.length)
+            io++;
+            console.log("tttggg" + io)
+          }
         }
-
       }
-
-
-    }); 
-
-
+    });
   }
 
-
-
-
+  reservar(habitacion, monto){
+    this.activateRoute.snapshot.paramMap.get('fechaInicio');
+    this.activateRoute.snapshot.paramMap.get('fechaFin');
+    this.router.navigate(['add-reservation/'+this.activateRoute.snapshot.paramMap.get('fechaInicio')+'/'+this.activateRoute.snapshot.paramMap.get('fechaFin')+'/'+habitacion+'/'+monto])
+  }
 }
