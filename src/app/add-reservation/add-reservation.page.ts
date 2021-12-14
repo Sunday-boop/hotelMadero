@@ -16,7 +16,7 @@ export class AddReservationPage implements OnInit {
 
   private path = 'Habitacion/';
   private id: string;
-  
+  private monto: string;
   constructor(private router:Router, 
     private activateRoute: ActivatedRoute,
     private authSvc:AuthService, 
@@ -24,9 +24,13 @@ export class AddReservationPage implements OnInit {
     private menucontroler: MenuController) { }
 
   ngOnInit() {
+    this.monto= this.activateRoute.snapshot.paramMap.get('monto');
+    console.log("monto"+this.monto)
     this.id = this.activateRoute.snapshot.paramMap.get('habitacion');
     this.database.getCollectionConsulta<Habitacion>(this.path, 'numero', parseInt(this.id)).subscribe(res => {
       this.newHabitacion = res
+       this.newHabitacion[0].monto=parseInt(this.monto);
+
     });
   }
 
