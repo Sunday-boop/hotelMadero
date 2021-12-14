@@ -63,20 +63,23 @@ const routes: Routes = [
   },
   {
     path: 'hab-dis/:fechaInicio/:fechaFin',
-    loadChildren: () => import('./hab-dis/hab-dis.module').then( m => m.HabDisPageModule)
+    loadChildren: () => import('./hab-dis/hab-dis.module').then( m => m.HabDisPageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'add-reservation/:fechaInicio/:fechaFin/:habitacion/:monto',
-    loadChildren: () => import('./add-reservation/add-reservation.module').then( m => m.AddReservationPageModule)
+    loadChildren: () => import('./add-reservation/add-reservation.module').then( m => m.AddReservationPageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'busqueda',
     loadChildren: () => import('./busqueda/busqueda.module').then( m => m.BusquedaPageModule),
-    //canActivate:[AuthGuard]
+    canActivate:[AuthGuard]
   },
   {
     path: 'my-reservations',
-    loadChildren: () => import('./my-reservations/my-reservations.module').then( m => m.MyReservationsPageModule)
+    loadChildren: () => import('./my-reservations/my-reservations.module').then( m => m.MyReservationsPageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'price-bedrooms',
