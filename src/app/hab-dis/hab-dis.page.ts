@@ -110,7 +110,7 @@ export class HabDisPage implements OnInit {
             this.habitacionesDisponibles.push(this.HabitacionesDiso[index])
           }
         }
-
+ 
       }
 
 
