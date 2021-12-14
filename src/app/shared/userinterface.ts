@@ -65,3 +65,11 @@ export interface Reserva{
     telefonoCliente: number;
     titularTarjeta: string;
 }
+
+export interface Nota{
+    id: string;
+    checkIn: string;
+    checkOut: string;
+    habitacion: number;
+    nota: string;
+}

@@ -2,16 +2,14 @@
   <ion-toolbar color="toolbar">
     <ion-buttons slot="end">
       <ion-title>DATOS RESERVA</ion-title>
-      <ion-button (click)="openMenu()"><ion-icon name="menu-sharp" class="icon-size"></ion-icon></ion-button>
+      <ion-button (click)="openMenu()">
+        <ion-icon name="menu-sharp" class="icon-size"></ion-icon>
+      </ion-button>
     </ion-buttons>
-    <ion-img src="assets/img/LogoBlancoCM.png" class="image-size centrar-imagen"></ion-img>    
+    <ion-img src="assets/img/LogoBlancoCM.png" class="image-size centrar-imagen"></ion-img>
   </ion-toolbar>
 </ion-header>
-
-
 <ion-content class="fondo-todo">
-
-  
   <ion-toolbar class="ion-card_hh">
     <ion-buttons slot="primary">
     </ion-buttons>
@@ -32,7 +30,7 @@
                 <ion-item>
                   <ion-icon name="pin" slot="start"> </ion-icon>
                   <ion-label>{{habitacion.tipo}}</ion-label>
-                  <ion-button class="boton" routerLink="/hab-dis" color="danger">Cancelar</ion-button>
+                  <ion-button class="boton" (click)="habitacionesDisp()" color="danger">Cancelar</ion-button>
                 </ion-item>
               </ion-col>
             </ion-row>
@@ -44,8 +42,8 @@
               </ion-col>
               <ion-col size="3">
                 Monto a pagar:
-                  <br>
-                  ${{habitacion.monto}}
+                <br>
+                ${{habitacion.monto}}
               </ion-col>
             </ion-row>
             <ion-row>
@@ -87,53 +85,21 @@
                 <ion-grid>
                   <ion-row>
                     <ion-col class="centrar-text">
-                      <ion-label>NOMBRE: </ion-label>
                       <ion-item>
-                        <ion-text>MARIA GUADALUPE</ion-text>
-                      </ion-item>
-                    </ion-col>
-                    <br>
-                    <br>
-                    <ion-col class="centrar-text">
-                      <ion-label>CORREO: </ion-label>
-                      <ion-item>
-                        <ion-text>MARI33GUADALUPE@GMAIL.COM</ion-text>
+                        <ion-label position="floating">Nombre</ion-label>
+                        <ion-input [(ngModel)]="addHabitacion.nombreCliente" type="text" required></ion-input>
                       </ion-item>
                     </ion-col>
                     <ion-col class="centrar-text">
-                      <ion-label>APELLIDO PATERNO: </ion-label>
                       <ion-item>
-                        <ion-text>CHÁVEZ</ion-text>
+                        <ion-label position="floating">Correo</ion-label>
+                        <ion-input [(ngModel)]="addHabitacion.correoCliente" type="text" required></ion-input>
                       </ion-item>
                     </ion-col>
-                    <br>
-                    <br>
                     <ion-col class="centrar-text">
-                      <ion-label>TELEFONO: </ion-label>
                       <ion-item>
-                        <ion-text>5466464363467</ion-text>
-                      </ion-item>
-                    </ion-col>
-                  </ion-row>
-                </ion-grid>
-                <ion-grid>
-                  <ion-row>
-                    <ion-col>
-                      <ion-item>
-                        <ion-label position="floating">¿Cuántos niños?: </ion-label>
-                        <ion-input type="number"></ion-input>
-                      </ion-item>
-                    </ion-col>
-                    <ion-col class="centrar">
-                      <ion-item>
-                        <ion-label position="floating">¿Cuántos adultos?: </ion-label>
-                        <ion-input type="number"></ion-input>
-                      </ion-item>
-                    </ion-col>
-                    <ion-col class="centrar">
-                      <ion-item>
-                        <ion-label position="floating">Número de total de Habitaciones: </ion-label>
-                        <ion-input type="number"></ion-input>
+                        <ion-label position="floating">Telefono</ion-label>
+                        <ion-input [(ngModel)]="addHabitacion.telefonoCliente" type="number" required></ion-input>
                       </ion-item>
                     </ion-col>
                   </ion-row>
@@ -142,13 +108,13 @@
                   <ion-row>
                     <ion-col color="whites">
                       <ion-item>
-                        <ion-textarea placeholder="Notas especiales aqui..."></ion-textarea>
+                        <ion-label position="floating">Notas especiales aqui...: </ion-label>
+                        <ion-textarea [(ngModel)]="newNota.nota"></ion-textarea>
                       </ion-item>
                     </ion-col>
                     <ion-col>
                       <ion-item>
-                        <ion-label position="floating">Número de total de días: </ion-label>
-                        <ion-input type="number"></ion-input>
+                        <ion-label class="centrar-text">Número de total de días: <br> {{dias}}</ion-label>
                       </ion-item>
                     </ion-col>
                   </ion-row>
@@ -173,32 +139,21 @@
                     <ion-col>
                       <ion-item>
                         <ion-label position="floating">Nombre del titutal de tarjeta: </ion-label>
-                        <ion-input></ion-input>
+                        <ion-input [(ngModel)]="addHabitacion.titularTarjeta" type="text" required></ion-input>
                       </ion-item>
-                      <br>
-                      <br>
-
-                      <ion-item>
-                        <ion-icon name="checkmark-circle-outline"></ion-icon>
-                        <ion-label>He leído los términos y codiciones</ion-label>
-                      </ion-item>
-
                     </ion-col>
                     <ion-col class="centrar">
                       <ion-item>
                         <ion-label position="floating">Número de tarjeta: </ion-label>
-                        <ion-input></ion-input>
-                      </ion-item>
-                      <br>
-                      <br>
-                      <ion-item class="centrar">
-                        <ion-button class="boton" routerLink="/busqueda" color="medium">Reservar</ion-button>
+                        <ion-input [(ngModel)]="addHabitacion.numeroTarjeta" type="number" required></ion-input>
                       </ion-item>
                     </ion-col>
-
                   </ion-row>
                 </ion-grid>
               </ion-card>
+              <ion-row>
+                <ion-button class="boton centrar" (click)="agregarReserva()" color="medium">Reservar</ion-button>
+              </ion-row>
             </ion-col>
           </ion-row>
         </ion-grid>
