@@ -17,7 +17,7 @@
       </ion-label>
       <ion-row class="image-background">
         <ion-col size="12" >
-          <ion-item *ngFor="let habitacion of habitacionesDisponibles">
+          <ion-item *ngFor="let habitacion of habitacionesDisponibles" >
             <ion-card class="ion-card_h centrar">
               <ion-grid>
                 <ion-row>
@@ -35,11 +35,20 @@
                       </ion-col>                    
                     </ion-row>
                     <ion-row>
-                      <ion-col size="6">
+                      <ion-col size="7">
+                        {{habitacion.descripcion}}
+                      </ion-col>
+                      <ion-col size="2">
+                      </ion-col>
+                      <ion-col size="3">
+                        Monto a pagar:
+                          <br>
+                          ${{habitacion.monto}}
+                      </ion-col>
+                    </ion-row>
+                    <ion-row>
+                      <ion-col size="4">
                         <ion-card-content>
-                          {{habitacion.descripcion}}
-                          <br>
-                          <br>
                           Habitación numero: {{habitacion.numero}}
                           <br>
                           Edificio: {{habitacion.edificio}}
@@ -49,8 +58,6 @@
                       </ion-col>
                       <ion-col size="6">
                         <ion-card-content>
-                          <br>
-                          <br>
                           DETALLES.
                           <br>
                           Cuenta con: {{habitacion.numeroCama}} cama(s) , tipo {{habitacion.tipoCama}}

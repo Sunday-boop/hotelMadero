@@ -142,14 +142,8 @@ export class HabDisPage implements OnInit {
         if (fechaECliente == this.precios[index].date && this.NumeroHabDisp.includes(parseInt(this.precios[index].habitacion))) {
 
           var t = this.precios[index].precio
-          this.PreciosAPagar.push(t * this.NumeroDeDiasHospedados.length);
-
+          this.habitacionesDisponibles[index].monto = (t * this.NumeroDeDiasHospedados.length)
         }
-
-      }
-
-      for (let i = 0; i < this.PreciosAPagar.length; i++) {
-        console.log("pagarpagar" + this.PreciosAPagar[i])
 
       }
 

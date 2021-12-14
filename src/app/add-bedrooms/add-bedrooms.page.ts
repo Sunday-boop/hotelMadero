@@ -24,6 +24,7 @@ export class AddBedroomsPage implements OnInit {
     tipoCama: '',
     descripcion: '',
     imagen: '',
+    monto: null,
   }
 
   private path = 'Habitacion/'
