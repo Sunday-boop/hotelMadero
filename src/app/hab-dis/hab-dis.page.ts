@@ -136,27 +136,30 @@ export class HabDisPage implements OnInit {
 
     this.database.getCollectionOrdenada<Precio>(this.pathhh, 'fecha', 'date', parseInt(currentDate)).subscribe(res => {
       this.precios = res;
+
       var io = 0;
       for (let index = 0; index < this.precios.length; index++) {
 
         if (fechaECliente == this.precios[index].date && this.NumeroHabDisp.includes(parseInt(this.precios[index].habitacion))) {
-
           if (io <= this.habitacionesDisponibles.length) {
             var t = this.precios[index].precio
             this.habitacionesDisponibles[io].monto = (t * this.NumeroDeDiasHospedados.length)
             io++;
           }
 
-        }
+         
 
+        }
       }
 
     });
-
-
   }
 
-
+  reservar(habitacion, monto){
+    this.activateRoute.snapshot.paramMap.get('fechaInicio')
+    this.activateRoute.snapshot.paramMap.get('fechaFin')
+    console.log(this.activateRoute.snapshot.paramMap.get('fechaInicio'))
+  }
 
 
 }

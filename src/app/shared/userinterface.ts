@@ -37,7 +37,6 @@ export interface Habitacion{
     tipoCama: string;
     descripcion: string;
     imagen: string;
-    monto: number;
 }
 
 export interface Precio{
