@@ -105,6 +105,11 @@ const routes: Routes = [
     path: 'add-reservation-admin/:fechaInicio/:fechaFin/:habitacion/:monto',
     loadChildren: () => import('./add-reservation-admin/add-reservation-admin.module').then( m => m.AddReservationAdminPageModule)
   },
+  {
+    path: 'reservation/:id',
+    loadChildren: () => import('./edit-reservation/edit-reservation.module').then( m => m.EditReservationPageModule)
+  },
+
 
 
 

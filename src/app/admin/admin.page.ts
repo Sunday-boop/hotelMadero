@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { ViewEncapsulation } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { AlertController, MenuController } from '@ionic/angular';
 import { NavController } from '@ionic/angular';
 import { CalendarMode, Step } from 'ionic2-calendar/calendar';
 import { Reserva } from '../shared/userinterface';
@@ -20,70 +20,70 @@ export interface Data {
   templateUrl: './admin.page.html',
   styleUrls: ['./admin.page.scss'],
   encapsulation: ViewEncapsulation.None
-}) 
-export class AdminPage{
+})
+export class AdminPage {
 
   eventSource;
-    viewTitle;
+  viewTitle;
 
-    isToday:boolean;
-    calendar = {
-        mode: 'month' as CalendarMode,
-        step: 30 as Step,
-        currentDate: new Date(),
-        dateFormatter: {
-            formatMonthViewDay: function(date:Date) {
-                return date.getDate().toString();
-            },
-            formatMonthViewDayHeader: function(date:Date) {
-                return 'MonMH';
-            },
-            formatMonthViewTitle: function(date:Date) {
-                return 'testMT';
-            },
-            formatWeekViewDayHeader: function(date:Date) {
-                return 'MonWH';
-            },
-            formatWeekViewTitle: function(date:Date) {
-                return 'testWT';
-            },
-            formatWeekViewHourColumn: function(date:Date) {
-                return 'testWH';
-            },
-            formatDayViewHourColumn: function(date:Date) {
-                return 'testDH';
-            },
-            formatDayViewTitle: function(date:Date) {
-                return 'testDT';
-            }
-        }
-    };
+  isToday: boolean;
+  calendar = {
+    mode: 'month' as CalendarMode,
+    step: 30 as Step,
+    currentDate: new Date(),
+    dateFormatter: {
+      formatMonthViewDay: function (date: Date) {
+        return date.getDate().toString();
+      },
+      formatMonthViewDayHeader: function (date: Date) {
+        return 'MonMH';
+      },
+      formatMonthViewTitle: function (date: Date) {
+        return 'testMT';
+      },
+      formatWeekViewDayHeader: function (date: Date) {
+        return 'MonWH';
+      },
+      formatWeekViewTitle: function (date: Date) {
+        return 'testWT';
+      },
+      formatWeekViewHourColumn: function (date: Date) {
+        return 'testWH';
+      },
+      formatDayViewHourColumn: function (date: Date) {
+        return 'testDH';
+      },
+      formatDayViewTitle: function (date: Date) {
+        return 'testDT';
+      }
+    }
+  };
 
-//---------------------------------------------------------------
+  //---------------------------------------------------------------
   public data: Data;
   public columns: any;
   public rows: any;
 
 
-     reservas: Reserva[] = [];
+  reservas: Reserva[] = [];
   private path = 'Reserva/';
   private id: Number;
 
-  constructor(private router:Router, private authSvc:AuthService, private menucontroler: MenuController, public database: FirestoreService, private http: HttpClient,  private navController:NavController) { 
+  constructor(private router: Router, public alerta: AlertController, private authSvc: AuthService, private menucontroler: MenuController, public database: FirestoreService, private http: HttpClient, private navController: NavController) {
     this.loadEvents();
     this.columns = [
       { name: 'checkIn' },
       { name: 'checkOut' },
       { name: 'correoCliente' },
       { name: 'estado' },
-      { name: 'fechaRealizacion'},
-      { name: 'idReserva'},
-      { name: 'idUsuario'},
-      { name: 'monto'},
-      { name: 'nombreCliente'},
-      { name: 'numeroTarjeta'},
-      { name: 'telefonoCliente'},
-      { name: 'titularTarjeta'},
+      { name: 'fechaRealizacion' },
+      { name: 'idReserva' },
+      { name: 'idUsuario' },
+      { name: 'monto' },
+      { name: 'nombreCliente' },
+      { name: 'numeroTarjeta' },
+      { name: 'telefonoCliente' },
+      { name: 'titularTarjeta' },
     ];
 
     this.database.getCollection<Reserva>(this.path).subscribe(res => {
@@ -93,59 +93,59 @@ export class AdminPage{
 
   }
 
-  async onLogout(){
+  async onLogout() {
     try {
       await this.authSvc.logout();
       this.router.navigate(['home']);
     } catch (error) {
-      console.log("Error=>",error)
+      console.log("Error=>", error)
     }
   }
 
-  openMenu(){
+  openMenu() {
     this.menucontroler.enable(true, 'main-menu');
     this.menucontroler.open('main-menu');
     this.menucontroler.enable(false, 'client-menu')
     // this.menucontroler.toggle('main-menu')
   }
 
-///----------------------------------------------
+  ///----------------------------------------------
 
-loadEvents() {
-  this.eventSource = this.createRandomEvents();
-}
+  loadEvents() {
+    this.eventSource = this.createRandomEvents();
+  }
 
-onViewTitleChanged(title) {
-  this.viewTitle = title;
-}
+  onViewTitleChanged(title) {
+    this.viewTitle = title;
+  }
 
-onEventSelected(event) {
-  console.log('Event selected:' + event.startTime + '-' + event.endTime + ',' + event.title);
-}
+  onEventSelected(event) {
+    console.log('Event selected:' + event.startTime + '-' + event.endTime + ',' + event.title);
+  }
 
-changeMode(mode) {
-  this.calendar.mode = mode;
-}
+  changeMode(mode) {
+    this.calendar.mode = mode;
+  }
 
-today() {
-  this.calendar.currentDate = new Date();
-}
+  today() {
+    this.calendar.currentDate = new Date();
+  }
 
-onTimeSelected(ev) {
-  console.log('Selected time: ' + ev.selectedTime + ', hasEvents: ' +
+  onTimeSelected(ev) {
+    console.log('Selected time: ' + ev.selectedTime + ', hasEvents: ' +
       (ev.events !== undefined && ev.events.length !== 0) + ', disabled: ' + ev.disabled);
-}
+  }
 
-onCurrentDateChanged(event:Date) {
-  var today = new Date();
-  today.setHours(0, 0, 0, 0);
-  event.setHours(0, 0, 0, 0);
-  this.isToday = today.getTime() === event.getTime();
-}
+  onCurrentDateChanged(event: Date) {
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    event.setHours(0, 0, 0, 0);
+    this.isToday = today.getTime() === event.getTime();
+  }
 
-createRandomEvents() {
-  var events = [];
-  for (var i = 0; i < 50; i += 1) {
+  createRandomEvents() {
+    var events = [];
+    for (var i = 0; i < 50; i += 1) {
       var date = new Date();
       var eventType = Math.floor(Math.random() * 2);
       var startDay = Math.floor(Math.random() * 90) - 45;
@@ -153,41 +153,101 @@ createRandomEvents() {
       var startTime;
       var endTime;
       if (eventType === 0) {
-          startTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + startDay));
-          if (endDay === startDay) {
-              endDay += 1;
-          }
-          endTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + endDay));
-          events.push({
-              title: 'All Day - ' + i,
-              startTime: startTime,
-              endTime: endTime,
-              allDay: true
-          });
+        startTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + startDay));
+        if (endDay === startDay) {
+          endDay += 1;
+        }
+        endTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + endDay));
+        events.push({
+          title: 'All Day - ' + i,
+          startTime: startTime,
+          endTime: endTime,
+          allDay: true
+        });
       } else {
-          var startMinute = Math.floor(Math.random() * 24 * 60);
-          var endMinute = Math.floor(Math.random() * 180) + startMinute;
-          startTime = new Date(date.getFullYear(), date.getMonth(), date.getDate() + startDay, 0, date.getMinutes() + startMinute);
-          endTime = new Date(date.getFullYear(), date.getMonth(), date.getDate() + endDay, 0, date.getMinutes() + endMinute);
-          events.push({
-              title: 'Reserva - ' + i,
-              startTime: startTime,
-              endTime: endTime,
-              allDay: false
-          });
+        var startMinute = Math.floor(Math.random() * 24 * 60);
+        var endMinute = Math.floor(Math.random() * 180) + startMinute;
+        startTime = new Date(date.getFullYear(), date.getMonth(), date.getDate() + startDay, 0, date.getMinutes() + startMinute);
+        endTime = new Date(date.getFullYear(), date.getMonth(), date.getDate() + endDay, 0, date.getMinutes() + endMinute);
+        events.push({
+          title: 'Reserva - ' + i,
+          startTime: startTime,
+          endTime: endTime,
+          allDay: false
+        });
       }
+    }
+    return events;
   }
-  return events;
-}
 
-onRangeChanged(ev) {
-  console.log('range changed: startTime: ' + ev.startTime + ', endTime: ' + ev.endTime);
-}
+  onRangeChanged(ev) {
+    console.log('range changed: startTime: ' + ev.startTime + ', endTime: ' + ev.endTime);
+  }
 
-markDisabled = (date:Date) => {
-  var current = new Date();
-  current.setHours(0, 0, 0);
-  return date < current;
-};
+  markDisabled = (date: Date) => {
+    var current = new Date();
+    current.setHours(0, 0, 0);
+    return date < current;
+  };
+
+  onActivate(event) {
+    if (event.type == 'click') {
+      this.id = event.row.idReserva
+      console.log(this.id)
+    }
+  }
+
+  async alertaEditar() {
+    let alert = this.alerta.create({
+      header: 'Advertencia',
+      message: 'Deseas editar esta reserva?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Aceptar',
+          handler: () => {
+            // this.deleteHabitacion(this.id)
+            this.router.navigate(['reservation/' + this.id])
+          }
+        }
+      ]
+    });
+    (await alert).present();
+  }
+
+  async alertaEliminar(){
+    let alert = this.alerta.create({
+      header: 'Advertencia',
+      message: 'Estas seguro que deseas elminar esta reserva?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Aceptar',
+          handler: () => {
+            this.deleteReserva(this.id)
+            this.router.navigate(['admin'])
+          }
+        }
+      ]
+    });
+    (await alert).present();
+  }
+
+  deleteReserva(id){
+    this.database.deleteDoc(this.path, id)
+    this.database.deleteDoc('Nota', id)
+  }
 
 }

@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar color="toolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="alertaRegresar()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+      <ion-title>EDITAR HABITACION</ion-title>    
+    </ion-buttons>
+    <ion-img src="assets/img/LogoBlancoCM.png" class="image-size"></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="image-background">
+    <ion-card class="centrar-elementos">
+      <div class="centrar-div">
+        <ion-item lines="full">
+          <ion-label position="floating">Fecha de entrada</ion-label>
+          <ion-input [(ngModel)]="newReserva.checkIn" name="numero" type="text" disabled="true"></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Fecha de salida</ion-label>
+          <ion-input [(ngModel)]="newReserva.checkOut" name="edificio" type="text" disabled="true"></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Estado de la reserva</ion-label>
+          <ion-select [(ngModel)]="newReserva.estado" name="tipo">
+            <ion-select-option value="Lift">Lift</ion-select-option>
+            <ion-select-option value="Confirmado">Confirmado</ion-select-option>
+            <ion-select-option value="Reservado">Reservado</ion-select-option>
+          </ion-select>        
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Habitacion</ion-label>
+          <ion-input [(ngModel)]="newReserva.habitacion" name="capacidadM" type="text" disabled="true" ></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Monto</ion-label>
+          <ion-input [(ngModel)]="newReserva.monto" name="capacidadM" type="number" required></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Correo del hospedado</ion-label>
+          <ion-input [(ngModel)]="newReserva.correoCliente" name="piso" type="text" disabled="true"></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Nombre del hospedado</ion-label>
+          <ion-input [(ngModel)]="newReserva.nombreCliente" name="numeroCama" type="text" disabled="true"></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Telefono del hospedado</ion-label>
+          <ion-textarea [(ngModel)]="newReserva.telefonoCliente" type="number"disabled="true"></ion-textarea>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Titular de la tarjeta</ion-label>
+          <ion-input [(ngModel)]="newReserva.titularTarjeta" name="imagen" type="text" required></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Numero de la tarjeta</ion-label>
+          <ion-input [(ngModel)]="newReserva.numeroTarjeta" name="imagen" type="text" required></ion-input>
+        </ion-item>
+        <ion-row>
+          <ion-col>
+            <ion-button  expand="block" (click)="editarReserva()" >Guardar</ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>

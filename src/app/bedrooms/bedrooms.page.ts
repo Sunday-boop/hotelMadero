@@ -83,7 +83,6 @@ export class BedroomsPage implements OnInit {
   }
 
   deleteHabitacion(id){
-    console.log('awebo ya podemos hacer el de eliminar '+ this.id)
     this.database.deleteDoc(this.path, id)
   }
 
