@@ -32,7 +32,7 @@ export class AddReservationPage implements OnInit {
   }
 
   newNota: Nota = {
-    id: this.database.getId(),
+    id: '',
     checkIn: '',
     checkOut: '',
     habitacion: null,
@@ -109,6 +109,7 @@ export class AddReservationPage implements OnInit {
     this.newNota.habitacion = parseInt(this.activateRoute.snapshot.paramMap.get('habitacion'))
 
     this.database.creatDoc(this.addHabitacion, 'Reserva/', this.addHabitacion.idReserva)
+    this.newNota.id = this.addHabitacion.idReserva
     this.database.creatDoc(this.newNota, 'Nota/', this.addHabitacion.idReserva)
     this.router.navigate(['my-reservations'])
     console.log(this.addHabitacion)

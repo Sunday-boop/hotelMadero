@@ -111,6 +111,7 @@ export class AddReservationAdminPage implements OnInit {
     this.newNota.habitacion = parseInt(this.activateRoute.snapshot.paramMap.get('habitacion'))
 
     this.database.creatDoc(this.addHabitacion, 'Reserva/', this.addHabitacion.idReserva)
+    this.newNota.id = this.addHabitacion.idReserva
     this.database.creatDoc(this.newNota, 'Nota/', this.addHabitacion.idReserva)
     this.router.navigate(['admin'])
     console.log(this.addHabitacion)

@@ -110,8 +110,13 @@ const routes: Routes = [
     loadChildren: () => import('./edit-reservation/edit-reservation.module').then( m => m.EditReservationPageModule)
   },
   {
+    path: 'notes/:id',
+    loadChildren: () => import('./edit-notes/edit-notes.module').then( m => m.EditNotesPageModule)
+  },
+  {
     path: 'hab-dispusu/:fechaInicio/:fechaFin',
     loadChildren: () => import('./hab-dispusu/hab-dispusu.module').then( m => m.HabDispusuPageModule)
+
   },
 
 
