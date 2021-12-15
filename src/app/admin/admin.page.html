@@ -46,7 +46,7 @@
 
     <!-- Theme classes dark, material, bootstrap -->
     <ngx-datatable class="material" [limit]="8" [rows]="rows" [rowHeight]="60" [columns]="columns"
-      [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50">
+      [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" (activate)='onActivate($event)'>
 
       <ngx-datatable-column name="idReserva"></ngx-datatable-column>
       <ngx-datatable-column name="checkIn"></ngx-datatable-column>
@@ -56,10 +56,10 @@
       <ngx-datatable-column name="monto"></ngx-datatable-column>
       <ngx-datatable-column name="Opciones">
         <ng-template ngx-datatable-cell-template>
-          <ion-button color="primary">
+          <ion-button color="primary" (click)="alertaEditar()">
             <ion-icon name="pencil-sharp"></ion-icon>
           </ion-button>
-          <ion-button color="danger">
+          <ion-button color="danger" (click)="alertaEliminar()">
             <ion-icon name="trash-sharp"></ion-icon>
           </ion-button>
         </ng-template>
