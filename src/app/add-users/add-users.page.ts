@@ -5,7 +5,7 @@ import { FirestoreService } from '../services/firestore.service';
 import { ForgotPasswordPage } from '../forgot-password/forgot-password.page';
 import { Usuario } from '../shared/userinterface';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 
 @Component({
   selector: 'app-add-users',
@@ -13,6 +13,9 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
   styleUrls: ['./add-users.page.scss'],
 })
 export class AddUsersPage implements OnInit {
+
+  con: string;
+  cor: string;
 
   newUser: Usuario ={
     nombre: '',
@@ -31,6 +34,13 @@ export class AddUsersPage implements OnInit {
   constructor(public alerta: AlertController, public afAuth:AngularFireAuth, private router:Router, public database: FirestoreService) { }
 
   ngOnInit() {
+    const auth = getAuth();
+    var user = getAuth().currentUser.email;
+
+    this.database.getCollectionConsulta<Usuario>('Usuario', 'correo', user).subscribe(res => {
+      this.cor = res[0].correo
+      this.con = res[0].password
+    });    
   }
 
   async alertaRegresar(){
@@ -59,6 +69,7 @@ export class AddUsersPage implements OnInit {
 
   async guardarUsuario(){
     const auth = getAuth();
+
     createUserWithEmailAndPassword(auth, this.newUser.correo, this.newUser.password)
       .then((userCredential) => {
         // Signed in
@@ -78,6 +89,8 @@ export class AddUsersPage implements OnInit {
     this.newUser.id = id;
     this.database.creatDoc(this.newUser, this.path, id)
     this.router.navigate(['users'])
+
+    signInWithEmailAndPassword(auth, this.cor, this.con)
   }
 
   async sendverificationEmail():Promise<void>{
