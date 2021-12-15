@@ -93,6 +93,20 @@ const routes: Routes = [
     path: 'price-bedrooms/:id',
     loadChildren: () => import('./edit-price/edit-price.module').then( m => m.EditPricePageModule)
   },
+  {
+    path: 'busqueda-admin',
+    loadChildren: () => import('./busqueda-admin/busqueda-admin.module').then( m => m.BusquedaAdminPageModule)
+  },
+  {
+    path: 'hab-dis-admin/:fechaInicio/:fechaFin',
+    loadChildren: () => import('./hab-dis-admin/hab-dis-admin.module').then( m => m.HabDisAdminPageModule)
+  },
+  {
+    path: 'add-reservation-admin/:fechaInicio/:fechaFin/:habitacion/:monto',
+    loadChildren: () => import('./add-reservation-admin/add-reservation-admin.module').then( m => m.AddReservationAdminPageModule)
+  },
+
+
 
 
 

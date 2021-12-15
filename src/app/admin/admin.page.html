@@ -1,8 +1,10 @@
 <ion-header>
   <ion-toolbar color="toolbar">
     <ion-buttons slot="start">
-      <ion-button (click)="openMenu()"><ion-icon name="menu-sharp" class="icon-size"></ion-icon></ion-button>
-      <ion-title>RESERVAS GENERAL  {{viewTitle}} </ion-title>
+      <ion-button (click)="openMenu()">
+        <ion-icon name="menu-sharp" class="icon-size"></ion-icon>
+      </ion-button>
+      <ion-title>RESERVAS GENERAL {{viewTitle}} </ion-title>
     </ion-buttons>
     <ion-img src="assets/img/LogoBlancoCM.png" class="image-size"></ion-img>
   </ion-toolbar>
@@ -10,45 +12,42 @@
   <!-- // calendario -->
   <ion-navbar>
     <ion-buttons end>
-        <button ion-button (click)="today()">Hoy</button>
-        
-        
+      <button ion-button (click)="today()">Hoy</button>
+
+
     </ion-buttons>
-</ion-navbar>
-<!-- // calendario -->
+  </ion-navbar>
+  <!-- // calendario -->
 </ion-header>
 
-<ion-content >
+<ion-content>
   <ion-card>
-    <calendar [eventSource]="eventSource"
-          [calendarMode]="calendar.mode"
-          [currentDate]="calendar.currentDate"
-          (onCurrentDateChanged)="onCurrentDateChanged($event)"
-          (onRangeChanged)="reloadSource(startTime, endTime)"
-          (onEventSelected)="onEventSelected($event)"
-          (onTitleChanged)="onViewTitleChanged($event)"
-          (onTimeSelected)="onTimeSelected($event)"
-          [step]="calendar.step"
-          [monthviewDisplayEventTemplate]="template">
-          
-      </calendar>
-      <ng-template #template let-view="view" let-row="row" let-col="col">
-        <div [class.with-event]="view.dates[row*7+col].events.length">
-          {{view.dates[row*7+col].label}}
-          <div class="indicator-container">
-            <div class="event-indicator" *ngFor="let e of view.dates[row*7+col].events"></div>
-          </div>
-        </div>
-      </ng-template>
-      </ion-card>
+    <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate"
+      (onCurrentDateChanged)="onCurrentDateChanged($event)" (onRangeChanged)="reloadSource(startTime, endTime)"
+      (onEventSelected)="onEventSelected($event)" (onTitleChanged)="onViewTitleChanged($event)"
+      (onTimeSelected)="onTimeSelected($event)" [step]="calendar.step" [monthviewDisplayEventTemplate]="template">
 
+    </calendar>
+    <ng-template #template let-view="view" let-row="row" let-col="col">
+      <div [class.with-event]="view.dates[row*7+col].events.length">
+        {{view.dates[row*7+col].label}}
+        <div class="indicator-container">
+          <div class="event-indicator" *ngFor="let e of view.dates[row*7+col].events"></div>
+        </div>
+      </div>
+    </ng-template>
+  </ion-card>
+
+  <ion-button shape="round" routerLink="/busqueda-admin">
+    <ion-icon name="add"></ion-icon>
+  </ion-button>
 
   <div class="ion-padding">
 
     <!-- Theme classes dark, material, bootstrap -->
-    <ngx-datatable class="material" [limit]="8" [rows]="rows" [rowHeight]="60" [columns]="columns" [columnMode]="'force'"
-       [headerHeight]="50" [footerHeight]="50">
-    
+    <ngx-datatable class="material" [limit]="8" [rows]="rows" [rowHeight]="60" [columns]="columns"
+      [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50">
+
       <ngx-datatable-column name="idReserva"></ngx-datatable-column>
       <ngx-datatable-column name="checkIn"></ngx-datatable-column>
       <ngx-datatable-column name="checkOut"></ngx-datatable-column>
@@ -56,7 +55,7 @@
       <ngx-datatable-column name="estado"></ngx-datatable-column>
       <ngx-datatable-column name="monto"></ngx-datatable-column>
       <ngx-datatable-column name="Opciones">
-        <ng-template ngx-datatable-cell-template >
+        <ng-template ngx-datatable-cell-template>
           <ion-button color="primary">
             <ion-icon name="pencil-sharp"></ion-icon>
           </ion-button>
@@ -65,8 +64,8 @@
           </ion-button>
         </ng-template>
       </ngx-datatable-column>
-    
-    
+
+
     </ngx-datatable>
 
   </div>
