@@ -64,13 +64,21 @@ export class AdminPage {
   public columns: any;
   public rows: any;
 
-
+  public reservasCal: Reserva[] = [];
+  public reservasCal2: Reserva[] = [];
+  public reservasCal3: Reserva[] = [];
+  //contiene las habitaciones las cuales tienen reserva  8, 5, 9
+  public habitacionesreserva: number[] = [];
+// contiene todos los dias de todas las reservas  si son dos reservas del del 12 al 14 serian 3 fechas que se almacenaron
+  public DiasDeHabitaciones: number[] = [];
+  //para saber cuantos dias son entre checkin y checkout
+  public Repetisiones: number[] = [];
   reservas: Reserva[] = [];
   private path = 'Reserva/';
   private id: Number;
 
   constructor(private router: Router, public alerta: AlertController, private authSvc: AuthService, private menucontroler: MenuController, public database: FirestoreService, private http: HttpClient, private navController: NavController) {
-    this.loadEvents();
+
     this.columns = [
       { name: 'checkIn' },
       { name: 'checkOut' },
@@ -91,6 +99,22 @@ export class AdminPage {
       this.rows = this.reservas;
     });
 
+    var fullDate = new Date(); console.log(fullDate);
+    var twoDigitMonth = fullDate.getMonth() + "";
+    if (twoDigitMonth.length == 1)
+      twoDigitMonth = "0" + twoDigitMonth;
+
+    var twoDigitDate = fullDate.getDate() + "";
+    if (twoDigitDate.length == 1)
+      twoDigitDate = "0" + twoDigitDate;
+    var currentDate = fullDate.getFullYear() + "" + (parseInt(twoDigitMonth) + 1) + "" + parseInt(twoDigitDate);
+    this.database.getCollectionOrdenada<Reserva>(this.path, 'fecha', 'checkInInt',  parseInt(currentDate)).subscribe(res => {
+      this.reservasCal3 = res;
+     
+  
+    });
+
+    this.loadEvents();
   }
 
   async onLogout() {
@@ -112,7 +136,46 @@ export class AdminPage {
   ///----------------------------------------------
 
   loadEvents() {
-    this.eventSource = this.createRandomEvents();
+    var fullDate = new Date(); console.log(fullDate);
+    var twoDigitMonth = fullDate.getMonth() + "";
+    if (twoDigitMonth.length == 1)
+      twoDigitMonth = "0" + twoDigitMonth;
+
+    var twoDigitDate = fullDate.getDate() + "";
+    if (twoDigitDate.length == 1)
+      twoDigitDate = "0" + twoDigitDate;
+    var currentDate = fullDate.getFullYear() + "" + (parseInt(twoDigitMonth) + 1) + "" + parseInt(twoDigitDate);
+
+    this.database.getCollectionOrdenada<Reserva>(this.path, 'fecha', 'checkInInt', parseInt(currentDate)).subscribe(res => {
+      this.reservasCal = res;
+      this.reservasCal2 = res;
+
+console.log("Nue"+  this.reservasCal.length)
+
+for (let irr = 0; irr < this.reservasCal2.length; irr++) {
+        console.log("---"+this.reservasCal2[irr].checkInInt+"-- " +this.reservasCal2[irr].checkOutInt+"ff"+this.reservasCal2[irr].habitacion)
+      }
+
+
+      for (let i = 0; i < this.reservasCal.length; i++) {
+ var contador =0;
+for ( this.reservasCal[i].checkInInt; this.reservasCal[i].checkInInt <= this.reservasCal[i].checkOutInt; this.reservasCal[i].checkInInt++) {
+  contador++;
+   var y = this.reservasCal[i].checkInInt;
+        this.DiasDeHabitaciones.push(y);
+       this.Repetisiones[i]=contador;
+      }
+
+        this.habitacionesreserva[i] = this.reservasCal[i].habitacion;
+      }
+      
+      for(let i = 0; i < this.Repetisiones.length; i++){
+ console.log("rwrwrw"+this.Repetisiones[i])
+      }
+      var c = parseInt(currentDate);
+      console.log("NUMERO XDXDX"+ this.DiasDeHabitaciones.length)
+      this.eventSource = this.createRandomEvents(c);
+    });
   }
 
   onViewTitleChanged(title) {
@@ -143,42 +206,39 @@ export class AdminPage {
     this.isToday = today.getTime() === event.getTime();
   }
 
-  createRandomEvents() {
-    var events = [];
-    for (var i = 0; i < 50; i += 1) {
-      var date = new Date();
-      var eventType = Math.floor(Math.random() * 2);
-      var startDay = Math.floor(Math.random() * 90) - 45;
-      var endDay = Math.floor(Math.random() * 2) + startDay;
-      var startTime;
-      var endTime;
-      if (eventType === 0) {
-        startTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + startDay));
-        if (endDay === startDay) {
-          endDay += 1;
-        }
-        endTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + endDay));
-        events.push({
-          title: 'All Day - ' + i,
-          startTime: startTime,
-          endTime: endTime,
-          allDay: true
-        });
-      } else {
-        var startMinute = Math.floor(Math.random() * 24 * 60);
-        var endMinute = Math.floor(Math.random() * 180) + startMinute;
-        startTime = new Date(date.getFullYear(), date.getMonth(), date.getDate() + startDay, 0, date.getMinutes() + startMinute);
-        endTime = new Date(date.getFullYear(), date.getMonth(), date.getDate() + endDay, 0, date.getMinutes() + endMinute);
-        events.push({
-          title: 'Reserva - ' + i,
-          startTime: startTime,
-          endTime: endTime,
-          allDay: false
-        });
-      }
-    }
-    return events;
-  }
+  createRandomEvents(c) {
+
+    var indice2=c;
+       var events = [];
+       var startDay = 0; 
+       for (var i = 0; i < this.Repetisiones.length; i += 1) {
+         var date = new Date();
+         var eventType = 0;
+   
+         console.log("ñlñlñlñl"+this.reservasCal3[i].checkInInt)
+         startDay=(this.reservasCal3[i].checkInInt)-c;
+         var endDay = this.Repetisiones[i]+startDay;
+         var startTime;
+         var endTime;
+         if (eventType === 0) {
+           startTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + startDay));
+           if (endDay === startDay) {
+             endDay += 1;
+           }
+           endTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + endDay));
+           events.push({
+             title: 'Habitacion : ' +  this.habitacionesreserva[i]+ '  Reserva del ' + this.reservasCal2[i].checkIn+' Hasta '+ ' '+ this.reservasCal2[i].checkOut,
+             startTime: startTime,
+             endTime: endTime,
+             allDay: true
+           });
+         } 
+   
+   
+       }
+   
+       return events;
+     }
 
   onRangeChanged(ev) {
     console.log('range changed: startTime: ' + ev.startTime + ', endTime: ' + ev.endTime);
