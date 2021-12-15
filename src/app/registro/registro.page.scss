@@ -23,6 +23,14 @@ ion-toolbar{
     margin-right: auto;
     margin-left: auto;
 }
+
+.ion-scrooll{
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow-y: scroll!important;
+    overflow-x: hidden;
+}
+
 .centrar-icon{
     display: flex;
     align-items: center;
