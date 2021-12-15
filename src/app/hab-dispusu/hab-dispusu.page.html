@@ -1,0 +1,88 @@
+<ion-header class="ion-card">
+  <ion-toolbar color="toolbar">
+    <ion-buttons slot="end">
+      <ion-title>RESERVAR</ion-title>
+      <ion-button (click)="openMenu()"><ion-icon name="menu-sharp" class="icon-size"></ion-icon></ion-button>
+    </ion-buttons>
+      <ion-grid>
+        <ion-row>
+        <ion-col size = 4></ion-col>
+        <ion-col size = 6 class="centrar">
+          <ion-img src="assets/img/LogoBlancoCM.png" class="image-size centrar-imagen"></ion-img>  
+        </ion-col>
+        <ion-col size = 2>
+        </ion-col>
+        </ion-row>
+      </ion-grid>   
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-grid >
+    <ion-title routerLink="/busqueda">        
+      <ion-icon name="chevron-back-outline"></ion-icon>Habitaciones Disponibles 
+    </ion-title>
+    <br>
+    <ion-row class="image-background">
+      <ion-col size="12" > 
+        <ion-item  *ngFor="let habitacion of habitacionesDisponibles" >
+          <ion-card class="ion-card_h centrar">
+            <ion-grid>
+              <ion-row>
+                <ion-col size="3">
+                  <img src="{{habitacion.imagen}}" class="image-size_h centrar">
+                </ion-col>
+                <ion-col size="9">
+                  <ion-row>
+                    <ion-col>
+                      <ion-item>
+                        <ion-icon name="pin" slot="start"></ion-icon>
+                        <ion-label>{{habitacion.tipo}} </ion-label>
+                        <ion-button fill="outline" (click)="reservar(habitacion.numero, habitacion.monto)" color="medium">Reservar</ion-button>
+                      </ion-item>
+                    </ion-col>                    
+                  </ion-row>
+                  <ion-row>
+                    <ion-col size="7">
+                      {{habitacion.descripcion}}
+                    </ion-col>
+                    <ion-col size="2">
+                    </ion-col>
+                    <ion-col size="3">
+                      Monto a pagar:
+                        <br>
+                        ${{habitacion.monto}}
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col size="4">
+                      <ion-card-content>
+                        Habitación numero: {{habitacion.numero}}
+                        <br>
+                        Edificio: {{habitacion.edificio}}
+                        <br>
+                        Piso: {{habitacion.piso}}
+                      </ion-card-content>
+                    </ion-col>
+                    <ion-col size="6">
+                      <ion-card-content>
+                        DETALLES.
+                        <br>
+                        Cuenta con: {{habitacion.numeroCama}} cama(s) , tipo {{habitacion.tipoCama}}
+                        <br>
+                        Tiene capacidad para:
+                        {{habitacion.capacidadA}} adultos y {{habitacion.capacidadM}} menor
+                      </ion-card-content>
+                    </ion-col>
+                  </ion-row>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

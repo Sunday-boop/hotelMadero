@@ -9,7 +9,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content >
+<ion-content > 
 
 <!-- <ion-card class=""> -->
   <div class="image-background">
@@ -20,14 +20,14 @@
           <ion-label>FECHA DE LLEGADA</ion-label>
           <ion-item>
             <ion-icon name="calendar-sharp" color="medium"></ion-icon>
-            <ion-datetime class="centrar" displayFormat="DD MM YY" placeholder="Selecciona una fecha"></ion-datetime>
+            <ion-datetime class="centrar" #fechaInicio displayFormat="DD MM YY" placeholder="Selecciona una fecha"></ion-datetime>
           </ion-item>
         </ion-col>
         <ion-col size-md="3" class="ion-text-center">
           <ion-label>FECHA DE SALIDA</ion-label>
           <ion-item>
             <ion-icon name="calendar-sharp" color="medium"></ion-icon>
-            <ion-datetime class="centrar" displayFormat="DD MM YY" placeholder="Selecciona una fecha"></ion-datetime>
+            <ion-datetime class="centrar" #fechaFin displayFormat="DD MM YY" placeholder="Selecciona una fecha"></ion-datetime>
           </ion-item>
         </ion-col>
         <ion-col size-md="2" class="ion-text-center">
@@ -46,7 +46,7 @@
         </ion-col>
         <ion-col size-md="2" class="ion-text-center">
           <br>
-          <ion-button type="submit" color="dark" routerLink="" expand="block">Buscar</ion-button>
+          <ion-button  color="dark" (click)="parametros(fechaInicio, fechaFin)" expand="block">Buscar</ion-button>
         </ion-col>
       </ion-row>
     </ion-card>

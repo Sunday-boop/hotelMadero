@@ -109,6 +109,11 @@ const routes: Routes = [
     path: 'reservation/:id',
     loadChildren: () => import('./edit-reservation/edit-reservation.module').then( m => m.EditReservationPageModule)
   },
+  {
+    path: 'hab-dispusu/:fechaInicio/:fechaFin',
+    loadChildren: () => import('./hab-dispusu/hab-dispusu.module').then( m => m.HabDispusuPageModule)
+  },
+
 
 
 
