@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MenuController } from '@ionic/angular';
+import { AlertController, MenuController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 import { FirestoreService } from '../services/firestore.service';
 import { Precio, Reserva } from '../shared/userinterface';
@@ -25,7 +25,7 @@ export class HabDispusuPage implements OnInit {
   PreciosAPagar: number[] = [];
   precios: Precio[];
   
-  constructor(private router: Router, public database: FirestoreService, private activateRoute: ActivatedRoute, private authSvc: AuthService, private menucontroler: MenuController) { }
+  constructor(private router: Router, public alerta: AlertController, public database: FirestoreService, private activateRoute: ActivatedRoute, private authSvc: AuthService, private menucontroler: MenuController) { }
 
   ngOnInit() {
     var fecha1 = this.activateRoute.snapshot.paramMap.get('fechaInicio');
@@ -150,10 +150,27 @@ export class HabDispusuPage implements OnInit {
     });
   }
 
-  reservar(habitacion, monto){
-    this.activateRoute.snapshot.paramMap.get('fechaInicio');
-    this.activateRoute.snapshot.paramMap.get('fechaFin');
-    this.router.navigate(['add-reservation/'+this.activateRoute.snapshot.paramMap.get('fechaInicio')+'/'+this.activateRoute.snapshot.paramMap.get('fechaFin')+'/'+habitacion+'/'+monto])
+  async alertaIniciarSesion(){
+    let alert = this.alerta.create({
+      header: '!Advertencia!',
+      message: 'Para poder realizar una reserva, es necesario que inicie sesion. Desea hacerlo?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Aceptar',
+          handler: () => {
+            this.router.navigate(['login'])
+          }
+        }
+      ]
+    });
+    (await alert).present();
   }
 }
  

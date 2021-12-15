@@ -1,8 +1,7 @@
 <ion-header class="ion-card">
   <ion-toolbar color="toolbar">
     <ion-buttons slot="end">
-      <ion-title>RESERVAR</ion-title>
-      <ion-button (click)="openMenu()"><ion-icon name="menu-sharp" class="icon-size"></ion-icon></ion-button>
+      <ion-button class="boton" [routerLink]="['/login']">Iniciar Sesión</ion-button>
     </ion-buttons>
       <ion-grid>
         <ion-row>
@@ -20,7 +19,7 @@
 
 <ion-content>
   <ion-grid >
-    <ion-title routerLink="/busqueda">        
+    <ion-title routerLink="/home">        
       <ion-icon name="chevron-back-outline"></ion-icon>Habitaciones Disponibles 
     </ion-title>
     <br>
@@ -39,7 +38,7 @@
                       <ion-item>
                         <ion-icon name="pin" slot="start"></ion-icon>
                         <ion-label>{{habitacion.tipo}} </ion-label>
-                        <ion-button fill="outline" (click)="reservar(habitacion.numero, habitacion.monto)" color="medium">Reservar</ion-button>
+                        <ion-button fill="outline" (click)="alertaIniciarSesion()" color="medium">Reservar</ion-button>
                       </ion-item>
                     </ion-col>                    
                   </ion-row>
