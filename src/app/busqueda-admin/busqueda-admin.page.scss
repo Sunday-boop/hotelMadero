@@ -100,9 +100,11 @@ ion-header{
     background-color: rgba(var(--ion-color-toolbar-rgb), 0.79);
     margin-top: auto;
     margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
     color: white;
     font-size: 20px;
-    width: 90%;
+    width: 60%;
   }
   
   .boton{

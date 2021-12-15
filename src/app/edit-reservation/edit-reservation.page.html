@@ -15,7 +15,12 @@
     <ion-card class="centrar-elementos">
       <div class="centrar-div">
         <ion-item lines="full">
+          <ion-item class="centrar-icon">
+          <ion-icon name="document-text-outline" class="centrar-icon"></ion-icon>
+        </ion-item >
+        <br>
           <ion-label position="floating">Fecha de entrada</ion-label>
+          <br>
           <ion-input [(ngModel)]="newReserva.checkIn" name="numero" type="text" disabled="true"></ion-input>
         </ion-item>
         <ion-item lines="full">
