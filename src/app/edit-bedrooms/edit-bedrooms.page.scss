@@ -19,6 +19,16 @@ ion-header{
     color: white;
 }
 
+.centrar-icon{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    width: 110px;
+    height: 90px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .image-background{
     display: flex;
     align-items: center;

@@ -15,6 +15,9 @@
     <ion-card class="centrar-elementos">
       <div class="centrar-div">
         <ion-item lines="full">
+          <ion-item class="centrar-icon">
+            <ion-icon name="cash-outline" class="centrar-icon"></ion-icon>
+          </ion-item >
           <ion-label position="floating">Habitación</ion-label>
           <ion-select [(ngModel)]="newPrecio.habitacion" name="habitacion">
             <ion-select-option *ngFor="let habitacion of habitaciones" value="{{habitacion.numero}}">{{habitacion.numero}}</ion-select-option>

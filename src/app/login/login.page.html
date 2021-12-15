@@ -5,7 +5,16 @@
         <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-img src="assets/img/LogoBlancoCM.png" class="image-size"></ion-img>
+      <ion-grid>
+        <ion-row>
+        <ion-col size = 3></ion-col>
+        <ion-col size = 6 class="centrar">
+          <ion-img src="assets/img/LogoBlancoCM.png" class="image-size centrar-imagen"></ion-img>  
+        </ion-col>
+        <ion-col size = 3>
+        </ion-col>
+        </ion-row>
+      </ion-grid>
   </ion-toolbar>
 </ion-header>
 <ion-content class="ion-content">
@@ -14,6 +23,11 @@
     <div class="centrar-div">
       <form>
         <ion-item lines="full">
+          <ion-item class="centrar-icon">
+            <ion-icon name="people-circle-outline" class="centrar-icon"></ion-icon>
+          </ion-item >
+          <br>
+          <br>
           <ion-label position="floating">Correo</ion-label>
           <ion-input type="text" #email required></ion-input>
         </ion-item>

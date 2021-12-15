@@ -6,7 +6,16 @@
         <ion-icon name="menu-sharp" class="icon-size"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-img src="assets/img/LogoBlancoCM.png" class="image-size centrar-imagen"></ion-img>
+      <ion-grid>
+        <ion-row>
+        <ion-col size = 4></ion-col>
+        <ion-col size = 7 class="centrar">
+          <ion-img src="assets/img/LogoBlancoCM.png" class="image-size centrar-imagen"></ion-img>  
+        </ion-col>
+        <ion-col size = 1>
+        </ion-col>
+        </ion-row>
+      </ion-grid>  
   </ion-toolbar>
 </ion-header>
 <ion-content class="fondo-todo">
@@ -21,10 +30,11 @@
     <ion-card class="ion-card_h2 centrar">
       <ion-grid *ngFor="let habitacion of newHabitacion">
         <ion-row>
-          <ion-col size="3">
+          <ion-col>
             <img src="{{habitacion.imagen}}" class="image-size_h centrar">
           </ion-col>
-          <ion-col size="9">
+          <br>
+          <ion-col size = 10 >
             <ion-row>
               <ion-col>
                 <ion-item>
