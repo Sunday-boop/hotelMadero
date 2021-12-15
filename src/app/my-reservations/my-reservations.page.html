@@ -20,15 +20,14 @@
         </ion-title>
       </ion-toolbar>
       <ion-col size="12">
-        <ion-card class="ion-card_h2 centrar">
+        <ion-card class="ion-card_h2 centrar" *ngFor="let reserva of reservas">
           <ion-grid>
-            <ion-row>
-              
-              <ion-col size="8">
+            <ion-row>  
+              <ion-col size="12">
                 <ion-item>
                   <ion-icon name="pin" slot="start"></ion-icon>
-                  <ion-label>Reserva hecha por: Arturo Gonzales</ion-label>
-                  <ion-label class="centrar-text">Estado: <ion-text fill="outline" color="danger">Cancelada</ion-text>
+                  <ion-label>Reserva hecha por: {{nombre}}</ion-label>
+                  <ion-label class="centrar-text">Estado: <ion-text fill="outline">{{reserva.estado}}</ion-text>
                   </ion-label>
                 </ion-item>
 
@@ -41,131 +40,45 @@
                       <ion-col>
                         FECHAS:
                         <br>
-                        12/12/2020 -- 14/12/2020
+                        {{reserva.checkIn}} -- {{reserva.checkOut}}
                       </ion-col>
                       <ion-col>
-                        PAGO TOTAL:
+                        MONTO DE LA RESERVA
                         <br>
-                        2,300.00
+                        {{reserva.monto}}
                       </ion-col>
                     </ion-row>
                   </ion-grid>
                 </ion-card-content>
                 <ion-card-content class="centrar-text">
-                  DATOS DEL HOPEDANTE:
-                  <br>
-                  NOMBRE: GUADALUPE CHÁVEZ ARROYO<BR>
-                  TELEFONO: 4433250233<br>
-                  CORREO: MARI33GUADALUPE@GMAIL.COM<BR>
+                  DATOS DEL HOSPEDADO:
                 </ion-card-content>
+                <ion-row>
+                  <ion-col >
+                    <ion-card-content class="centrar-text">
+                      NOMBRE: {{reserva.nombreCliente}}
+                      <br>
+                      TELEFONO: {{reserva.telefonoCliente}}
+                      <br>
+                      CORREO: {{reserva.correoCliente}}
+                    </ion-card-content>
+                  </ion-col>
+                  <ion-col >
+                    <ion-card-content class="centrar-text">
+                      HABITACION NUMERO: {{reserva.habitacion}}
+                      <br>
+                      TITULAR TARJETA: {{reserva.titularTarjeta}}
+                      <br>
+                      {{reserva.numeroTarjeta}}
+                    </ion-card-content>
+                  </ion-col>
+                </ion-row>
                 <ion-item>
-                  <ion-button slot="end" color="medium">¡Ver detalles de reserva!</ion-button>
                 </ion-item>
-              </ion-col>
-              <ion-col size="4">
-                <img src="assets/img/div-back.jpg" class="image-size_r centrar">
               </ion-col>
             </ion-row>
           </ion-grid>
         </ion-card>
-        <br>
-        <ion-card class="ion-card_h2 centrar">
-          <ion-grid>
-            <ion-row>
-              <ion-col size="8">
-                <ion-item>
-                  <ion-icon name="pin" slot="start"></ion-icon>
-                  <ion-label>Reserva hecha por: Arturo Gonzales</ion-label>
-                  <ion-label class="centrar-text">Estado: <ion-text fill="outline" color="success">Hospedada</ion-text>
-                  </ion-label>
-                </ion-item>
-
-                <ion-card-content class="centrar-text">
-                  DATOS IMPORTANTES DE RESERVA:
-                </ion-card-content>
-                <ion-card-content class="centrar-text">
-                  <ion-grid>
-                    <ion-row>
-                      <ion-col>
-                        FECHAS:
-                        <br>
-                        12/10/2019 -- 16/10/2019
-                      </ion-col>
-                      <ion-col>
-                        PAGO TOTAL:
-                        <br>
-                        6,700.00
-                      </ion-col>
-                    </ion-row>
-                  </ion-grid>
-                </ion-card-content>
-                <ion-card-content class="centrar-text">
-                  DATOS DEL HOPEDANTE:
-                  <br>
-                  NOMBRE: GUADALUPE CHÁVEZ ARROYO<BR>
-                  TELEFONO: 4433250233<br>
-                  CORREO: MARI33GUADALUPE@GMAIL.COM<BR>
-                </ion-card-content>
-                <ion-item>
-                  <ion-button slot="end" color="medium">¡Ver detalles de reserva!</ion-button>
-                </ion-item>
-              </ion-col>
-              <ion-col size="4">
-                <img src="assets/img/div-back.jpg" class="image-size_r centrar">
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-card>
-        <br>
-        <ion-card class="ion-card_h2 centrar">
-          <ion-grid>
-            <ion-row>
-              <ion-col size="8">
-                <ion-item>
-                  <ion-icon name="pin" slot="start"></ion-icon>
-                  <ion-label>Reserva hecha por: Guadalupe Chávez</ion-label>
-                  <ion-label class="centrar-text">Estado: <ion-text fill="outline" color="medium">Por confirmar</ion-text>
-                  </ion-label>
-                </ion-item>
-
-                <ion-card-content class="centrar-text">
-                  DATOS IMPORTANTES DE RESERVA:
-                </ion-card-content>
-                <ion-card-content class="centrar-text">
-                  <ion-grid>
-                    <ion-row>
-                      <ion-col>
-                        FECHAS:
-                        <br>
-                        15/12/2021 -- 16/12/2021
-                      </ion-col>
-                      <ion-col>
-                        PAGO TOTAL:
-                        <br>
-                        2,700.00
-                      </ion-col>
-                    </ion-row>
-                  </ion-grid>
-                </ion-card-content>
-                <ion-card-content class="centrar-text">
-                  DATOS DEL HOPEDANTE:
-                  <br>
-                  NOMBRE: GUADALUPE CHÁVEZ ARROYO<BR>
-                  TELEFONO: 4433250233<br>
-                  CORREO: MARI33GUADALUPE@GMAIL.COM<BR>
-                </ion-card-content>
-                <ion-item>
-                  <ion-button slot="end" color="medium">¡Ver detalles de reserva!</ion-button>
-                </ion-item>
-              </ion-col>
-              <ion-col size="4">
-                <img src="assets/img/div-back.jpg" class="image-size_r centrar">
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-card>
-        <br>
-        
       </ion-col>
     </ion-row>
   </ion-grid>

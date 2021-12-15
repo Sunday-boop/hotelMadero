@@ -19,7 +19,7 @@ export class AddReservationPage implements OnInit {
     checkOut: '',
     checkOutInt: null,
     correoCliente: '',
-    estado: 'lift',
+    estado: 'Lift',
     fechaRealizacion: '',
     habitacion: null,
     idReserva: this.database.getId(),
@@ -110,6 +110,7 @@ export class AddReservationPage implements OnInit {
 
     this.database.creatDoc(this.addHabitacion, 'Reserva/', this.addHabitacion.idReserva)
     this.database.creatDoc(this.newNota, 'Nota/', this.addHabitacion.idReserva)
+    this.router.navigate(['my-reservations'])
     console.log(this.addHabitacion)
     console.log(this.newNota)
   }
