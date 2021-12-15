@@ -84,10 +84,12 @@
   .ion-card{
     background-color: rgba(var(--ion-color-toolbar-rgb), 0.79);
     margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: auto;
     color: white;
     font-size: 20px;
-    width: 90%;
+    width: 70%;
   }
   
   .boton{

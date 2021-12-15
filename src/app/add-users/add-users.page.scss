@@ -24,7 +24,14 @@ ion-header{
     align-items: center;
     height: 100%;
 }
-
+.centrar-icon{
+    display: flex;
+    align-items: center;
+    width: 130px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
 .centrar-elementos{
     display: flex;
     align-items: center;
