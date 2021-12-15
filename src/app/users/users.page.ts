@@ -29,6 +29,9 @@ export class UsersPage implements OnInit {
   private password: string;
   private correo: string;
 
+  con: string;
+  cor: string;
+
   constructor(private http: HttpClient, public alerta: AlertController, private router: Router, public database: FirestoreService, private menucontroler: MenuController) {
     this.columns = [
       { name: 'id'},
@@ -46,6 +49,15 @@ export class UsersPage implements OnInit {
   }
 
   ngOnInit() {
+    const auth = getAuth();
+    var user = getAuth().currentUser.email;
+
+    this.database.getCollectionConsulta<Usuario>('Usuario', 'correo', user).subscribe(res => {
+      this.cor = res[0].correo
+      this.con = res[0].password
+    });
+
+    signInWithEmailAndPassword(auth, this.cor, this.con)
   }
 
   openMenu(){
@@ -91,6 +103,7 @@ export class UsersPage implements OnInit {
       user.delete();
     });
    this.database.deleteDoc(this.path, id)
+   signInWithEmailAndPassword(auth, this.cor, this.con)
     // console.log(user)
     // deleteUser(user)
   }
