@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="toolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="alertaRegresar()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+      <ion-title>EDITAR HABITACION</ion-title>    
+    </ion-buttons>
+    <ion-img src="assets/img/LogoBlancoCM.png" class="image-size"></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="image-background">
+    <ion-card class="centrar-elementos">
+      <div class="centrar-div">
+        <ion-item lines="full">
+          <ion-item class="centrar-icon">
+            <ion-icon name="business-outline" class="centrar-icon"></ion-icon>
+          </ion-item >
+          <ion-label position="floating">Check In</ion-label>
+          <ion-input [(ngModel)]="newNota.checkIn" name="numero" type="text" disabled="true"></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Check Out</ion-label>
+          <ion-input [(ngModel)]="newNota.checkOut" name="edificio" type="text" disabled="true"></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Habitacion</ion-label>
+          <ion-input [(ngModel)]="newNota.habitacion" name="piso" type="text" disabled="true"></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Nota</ion-label>
+          <ion-textarea [(ngModel)]="newNota.nota"></ion-textarea>
+        </ion-item>
+        <ion-row>
+          <ion-col>
+            <ion-button  expand="block" (click)="editarNota()" >Guardar</ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>

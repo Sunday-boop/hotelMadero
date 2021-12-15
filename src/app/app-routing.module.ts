@@ -109,6 +109,11 @@ const routes: Routes = [
     path: 'reservation/:id',
     loadChildren: () => import('./edit-reservation/edit-reservation.module').then( m => m.EditReservationPageModule)
   },
+  {
+    path: 'notes/:id',
+    loadChildren: () => import('./edit-notes/edit-notes.module').then( m => m.EditNotesPageModule)
+  },
+
 
 
 

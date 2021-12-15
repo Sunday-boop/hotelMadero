@@ -48,7 +48,6 @@ export class BedroomsPage implements OnInit {
   }
 
   ngOnInit() {
-    this.getConsulta();
   }
 
   async alertaEliminar(){
@@ -117,13 +116,6 @@ export class BedroomsPage implements OnInit {
 
   openMenu(){
     this.menucontroler.toggle('main-menu')
-  }
-
-  getConsulta(){
-    const path = 'Habitacion/';
-    this.database.getCollectionConsulta<Habitacion>(path, 'tipo', 'Suite').subscribe( res =>{
-      console.log(res);
-    });
   }
 
 }
